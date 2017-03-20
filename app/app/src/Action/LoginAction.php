@@ -8,6 +8,7 @@ use Slim\Http\Response;
 use App\RedbeanAdapter;
 use marcelbonnet\Slim\Auth\Authenticator;
 use App\Acl;
+use App\Debug;
 
 final class LoginAction extends AbstractAction
 {
@@ -24,6 +25,8 @@ final class LoginAction extends AbstractAction
                 
                 if ($result->getIdentity()) {
                     $data = $result->getIdentity();
+                    
+                    $this->flash->addSuccess('Login Successful');
                     
                     if ($data["role"][0]["role"] == Acl::ADMIN) {
                         return $response->withRedirect("/admin");

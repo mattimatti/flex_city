@@ -25,6 +25,12 @@ $container = $app->getContainer();
 // Service providers
 // -----------------------------------------------------------------------------
 
+// Register provider
+$container['flash'] = function ()
+{
+    return new \App\Messages();
+};
+
 // Twig
 $container['view'] = function ($c)
 {
@@ -36,26 +42,16 @@ $container['view'] = function ($c)
         ->getUri()));
     $view->addExtension(new Twig_Extension_Debug());
     
+    $view->addExtension(new Knlv\Slim\Views\TwigMessages($c->get('flash')));
+    
     return $view;
 };
 
-// Flash messages
-$container['flash'] = function ($c)
-{
-    return new Slim\Flash\Messages();
-};
 
-// $link = mysql_connect('127.0.0.1', 'root', '');
-// mysql_select_db('symfony', $link);
-// mysql_set_charset('UTF-8', $link);
+
 define('REDBEAN_MODEL_PREFIX', '\\App\\Dao\\');
 
 R::setup('mysql:host=localhost;dbname=symfony', 'root', '');
-
-$fixtures = new Fixtures();
-
-// $fixtures->load();
-// $fixtures->dump();
 
 // -----------------------------------------------------------------------------
 // Authentication/Authorization
@@ -162,3 +158,9 @@ $container["App\Action\HostessLoginAction"] = function ($c)
 {
     return new App\Action\HostessLoginAction($c);
 };
+
+$fixtures = new Fixtures();
+// $fixtures->load();
+// $fixtures->dump();
+
+

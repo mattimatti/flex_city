@@ -9,6 +9,7 @@ use marcelbonnet\Slim\Auth\Authenticator;
 use Slim\Container;
 use RKA\SessionMiddleware;
 use RKA\Session;
+use Slim\Flash\Messages;
 
 abstract class AbstractAction
 {
@@ -49,6 +50,13 @@ abstract class AbstractAction
      */
     protected $session;
 
+    
+    /**
+     *
+     * @var \App\Messages
+     */
+    protected $flash;
+
     /**
      *
      * @param Twig $view            
@@ -65,6 +73,7 @@ abstract class AbstractAction
         $this->auth = $container->get("authenticator");
         
         $this->session = $container->get("session");
+        $this->flash = $container->get("flash");
         
         $this->viewData = array();
     }

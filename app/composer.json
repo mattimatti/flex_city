@@ -31,6 +31,11 @@
         "jeremykendall/password-validator": "^3.0",
         "fzaninotto/faker": "^1.6",
         "amstaffix/pagination": "^1.1",
-        "akrabat/rka-slim-session-middleware": "^2.0"
+        "akrabat/rka-slim-session-middleware": "^2.0",
+        "portphp/excel": "1.0.x-dev",
+        "portphp/portphp": "1.0.x-dev",
+        "portphp/csv": "1.0.x-dev",
+        "portphp/steps": "1.0.x-dev",
+        "kanellov/slim-twig-flash": "^0.2.0"
     }
 }

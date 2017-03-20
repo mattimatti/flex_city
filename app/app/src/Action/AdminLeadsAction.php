@@ -18,7 +18,6 @@ final class AdminLeadsAction extends AbstractAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        
         $eventRepo = new EventRepository();
         $storeRepo = new StoreRepository();
         $locationRepo = new LocationRepository();
@@ -32,7 +31,7 @@ final class AdminLeadsAction extends AbstractAction
         }
         
         $currentPage = $request->getQueryParam('page', 0);
-        $perPage = 20;
+        $perPage = 50;
         
         $totalItems = $leadRepo->countByEvent($event_id);
         
@@ -44,7 +43,7 @@ final class AdminLeadsAction extends AbstractAction
         
         $leads = $leadRepo->findByEvent($event_id, $offset, $limit);
         
-//         Debug::dump($pages);
+        // Debug::dump($pages);
         
         $this->setViewData("pages", $pages);
         $this->setViewData("events", $eventRepo->findAll());

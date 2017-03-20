@@ -1,8 +1,16 @@
-{% extends "layout.twig" %} {% block title %}Select an Event{% endblock %} {% block content %}
+{% extends "layout.twig" %}
+
+{% block title %}Select an Event{% endblock %}
+
+{% block content %}
 
 <form method="post">
-	<div class="mt20">{% include "snippets/select.twig" with {name: 'location_id', items : locations, label: 'Select Location', autosubmit : true, selectedvalue : location_id} %}</div>
-	<div class="mt20">{% include "snippets/select.twig" with {name: 'event_id', items : events, label: 'Select Event', autosubmit : true, selectedvalue : event_id} %}</div>
+
+	<div class="mt20">{% include "snippets/select.twig" with {name: 'location_id', items : locations, label: 'Select Your Current Location', autosubmit : true, selectedvalue : location_id} %}</div>
+	
+	{% if location_id %}
+	<div class="mt20">{% include "snippets/select.twig" with {name: 'event_id', items : events, label: 'Select the Current Event', autosubmit : true, selectedvalue : event_id} %}</div>
+	{% endif %}
 	<div class="mt20">
 		<button type="submit" class="btn btn-sm btn-success">Submit</button>
 	</div>

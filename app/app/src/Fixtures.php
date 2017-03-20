@@ -14,7 +14,7 @@ class Fixtures
 
     public function load()
     {
-        $leadsCount = 200;
+        $leadsCount = 300;
         
         $faker = \Faker\Factory::create();
         
@@ -39,74 +39,82 @@ class Fixtures
         $hostessRole->role = "hostess";
         R::store($hostessRole);
         
-        $hostess = R::dispense(User::NAME);
-        $hostess->username = 'hostess';
-        $hostess->setPassword('hostess');
-        $hostess->addRole($hostessRole);
-        $hostess->sharedEventList = array();
-        R::store($hostess);
-        
-        // locations
-        
-        for ($i = 0; $i < 3; $i ++) {
+        for ($h = 1; $h <=2; $h ++) {
             
-            $city = $faker->city;
+            $hostess = R::dispense(User::NAME);
+            $hostess->username = "hostess$h";
             
-            $location = R::dispense(Location::NAME);
-            $location->name = $city;
-            R::store($location);
+            $hostess->name = $faker->firstNameFemale;
+            $hostess->surname = $faker->lastName;
             
-            // stores
+            $hostess->setPassword('hostess');
+            $hostess->addRole($hostessRole);
+            $hostess->sharedEventList = [];
+            R::store($hostess);
             
-            for ($y = 1; $y < 3; $y ++) {
+            // locations
+            
+            for ($i = 0; $i < 8; $i ++) {
                 
-                $store = R::dispense(Store::NAME);
-                $store->name = "Store " . $faker->name;
-                R::store($store);
+                $city = $faker->city;
                 
-                // events
+                $location = R::dispense(Location::NAME);
+                $location->name = $city;
+                R::store($location);
                 
-                for ($x = 1; $x < 3; $x ++) {
-                    $event = R::dispense(Event::NAME);
-                    $event->name = "Event $city $x";
-                    $event->location = $location;
-                    $event->permalink = "event$x-$y-$i";
-                    $event->store = $store;
-                    R::store($event);
+                // stores
+                
+                for ($y = 1; $y < 3; $y ++) {
                     
-                    for ($x = 1; $x < $leadsCount; $x ++) {
-                        $lead = R::dispense(Lead::NAME);
-                        $lead->name = $faker->firstName;
-                        $lead->surname = $faker->lastName;
-                        $lead->email = $faker->email;
-                        $lead->day = $faker->dayOfMonth();
-                        $lead->month = $faker->month();
-                        $lead->year = $faker->year();
-                        $lead->gender = $faker->randomElement(array(
-                            'm',
-                            'f'
-                        ));
-                        $lead->pp = 'y';
-                        $lead->tc = 'y';
-                        $lead->mkt = $faker->randomElement(array(
-                            'y',
-                            'n'
-                        ));
-                        $lead->date_create = R::isoDateTime();
+                    $store = R::dispense(Store::NAME);
+                    $store->name = "Store " . $faker->name;
+                    R::store($store);
+                    
+                    // events
+                    
+                    for ($x = 1; $x < 4; $x ++) {
                         
-                        $lead->event = $event;
-                        $lead->hostess = $hostess;
-                        R::store($lead);
+                        $event = R::dispense(Event::NAME);
+                        $event->name = "Event $city $x";
+                        $event->location = $location;
+                        $event->permalink = "event$x-$y-$i";
+                        $event->store = $store;
+                        R::store($event);
+                        
+                        for ($x = 1; $x < $leadsCount; $x ++) {
+                            $lead = R::dispense(Lead::NAME);
+                            $lead->name = $faker->firstName;
+                            $lead->surname = $faker->lastName;
+                            $lead->email = $faker->email;
+                            $lead->day = $faker->dayOfMonth();
+                            $lead->month = $faker->month();
+                            $lead->year = $faker->year();
+                            $lead->gender = $faker->randomElement(array(
+                                'm',
+                                'f'
+                            ));
+                            $lead->pp = 'y';
+                            $lead->tc = 'y';
+                            $lead->mkt = $faker->randomElement(array(
+                                'y',
+                                'n'
+                            ));
+                            $lead->date_create = R::isoDateTime();
+                            
+                            $lead->event = $event;
+                            $lead->hostess = $hostess;
+                            R::store($lead);
+                        }
+                        
+                        // hostess events
+                        
+                        $hostess->sharedEventList[] = $event;
                     }
-                    
-                    // hostess events
-                    
-                    $hostess->sharedEventList[] = $event;
                 }
             }
+            
+            R::store($hostess);
         }
-        
-        R::store($hostess);
     }
 
     /**

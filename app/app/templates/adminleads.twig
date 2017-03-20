@@ -5,25 +5,29 @@
 {% block body %}
 <div class="mt20">
 	<form role="form" action="/admin/leads" autocomplete="off" method="get">
-	<div class="mt20">{% include "snippets/select.twig" with {name: 'event_id', items : events, label: 'Please Select An event Event', selectedvalue : event_id, autosubmit : true} %}</div>
+	<div class="mt20">	
+        {% include "snippets/select.twig" with {name: 'event_id', items : events, label: 'Please Select An Event', selectedvalue : event_id, autosubmit : true} %}</div>
 	</form>
 </div>
 
 
-{% if event  %}
 
 	<div class="btn-toolbar mt20">
+{% if event  %}
 		<div class="btn-group">
 		  <a target="_blank" href="{{ event.url }}"  class="btn btn-default">Event Landing Page</a>
 		  <a target="_blank" href="{{ event.signupUrl }}"  class="btn btn-default">Event Register Page</a>
 		</div>
+{% endif %}	
 		<div class="btn-group pull-right">
 		  <a target="_blank" href="/admin/exporter/leads" class="btn btn-info">Export list</a>
 		</div>
 	</div>
-	
+
 
 <div class="mt20">
+
+ {% include "admin/lead-pagination.twig" %}
 
 	<table class="table table-bordered">
 		<thead>
@@ -54,29 +58,7 @@
 		</tbody>
 	</table>
 	
-<style>
-  ul {
-    list-style: none;
-  }
-  li {
-    display: inline-block;
-  }
-</style>
-<ul>
-  {% for number, position in pages %}
-    {% if position == 'first' %}
-      <li><a href="/admin/leads?event_id={{ event_id }}&page={{ number }}">&laquo;</a></li>
-    {% elseif position == 'less' or position == 'more' %}
-      <li>...</li>
-    {% elseif position == 'previous' or position == 'next' %}
-      <li><a href="/admin/leads?event_id={{ event_id }}&page={{ number }}">{{ number }}</a></li>
-    {% elseif position == 'current' %}
-      <li>{{ number }}</li>
-    {% elseif position == 'last' %}
-      <li><a href="/admin/leads?event_id={{ event_id }}&page={{ number }}">&raquo;</a></li>
-    {% endif %}
-  {% endfor %}
-</ul>
+    {% include "admin/lead-pagination.twig" %}
 
 </div>
 
@@ -87,6 +69,5 @@
 
 
 
-{% endif %}
 
 {% endblock %}

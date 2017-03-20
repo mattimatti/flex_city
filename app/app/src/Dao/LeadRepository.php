@@ -19,10 +19,8 @@ class LeadRepository extends AbstractRepository
      *
      * @param int $event_id            
      */
-    public function findByEvent($event_id = null, $offset, $limit)
+    public function findByEvent($event_id = null, $offset = null, $limit = null)
     {
-        
-        
         $params = array();
         $sql = '';
         
@@ -31,8 +29,13 @@ class LeadRepository extends AbstractRepository
             $sql = "event_id = :event_id";
         }
         
-        $sql .= " LIMIT $limit OFFSET $offset ";
+        if ($limit) {
+            $sql .= " LIMIT $limit";
+        }
         
+        if ($offset) {
+            $sql .= " OFFSET $offset ";
+        }
         
         return R::findAll($this->getType(), $sql, $params);
     }
