@@ -1,0 +1,4 @@
+---
+- name: Install PHP5-FPM
+  become: yes 
+  apt:  package=php5-fpm state=latest

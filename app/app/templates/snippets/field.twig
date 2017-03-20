@@ -1,0 +1,6 @@
+<div class="form-group">
+    <label>{{ label | default('Place a label') }}</label>
+{#     <div class="input-group"></div>#}
+	<input type="{{ type | default('text') }}" name="{{ name }}" id="{{ name }}" value="{{ selectedvalue }}" class="form-control"  {% if required %}required{% endif %}>
+	
+</div>

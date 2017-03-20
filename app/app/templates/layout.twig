@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<title>{{ page.title }}</title>
+<link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/css/bundled.min.css">
+<link href='{{ base_url() }}/css/style.css' rel='stylesheet' type='text/css'>
+{% block stylesheets %} {% endblock %}
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+<body>
+    {% block menu %}
+    {% include "snippets/menu-hostess.twig" %}
+    {% endblock %}
+	
+    
+	<div class="container mt20">
+    {% block body %}
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel">
+					<div class="panel-heading">
+						<h3 class="panel-title">{% block title %}{% endblock %}</h3>
+					</div>
+					<div class="panel-body">{% block content %} {% endblock %}</div>
+				</div>
+			</div>
+		</div>
+
+	{% endblock %}
+	</div>
+	<script type="text/javascript" src="/js/bundled.min.js"></script>
+	<script type="text/javascript" src="/bower_components/bootstrap-validator/dist/validator.js"></script>
+	<script type="text/javascript" src="/js/custom.js"></script>
+	{% block javascripts %}{% endblock %}
+
+</body>
+</html>

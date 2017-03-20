@@ -1,0 +1,4 @@
+---
+- name: Install SQLite
+  become: yes 
+  apt:  pkg=sqlite3 state=latest

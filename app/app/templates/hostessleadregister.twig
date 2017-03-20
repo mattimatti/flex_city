@@ -1,0 +1,79 @@
+{% extends "layout.twig" %} {% block title %}{{ event.label }}{% endblock %} {% block content %} {% if errors %} {{ errors }} {% endif %}
+<form method="post" class="">
+
+	<input type="hidden" name="event_id" value="{{ event.id }}">
+
+	<div class="row">
+		<div class="col-md-6">{% include "snippets/field.twig" with {name: 'name', label: 'Name'} %}</div>
+		<div class="col-md-6">{% include "snippets/field.twig" with {name: 'surname', label: 'Surname'} %}</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">{% include "snippets/field.twig" with {name: 'email', label: 'Email', type: 'email'} %}</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'day', label: 'Day'} %}</div>
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'month', label: 'Month'} %}</div>
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'year', label: 'Year'} %}</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<label>Gender</label>
+		</div>
+		<div class="col-md-10">
+			<label class="radio-inline"> <input type="radio" name="gender" id="gender" value="m"> Male
+			</label> <label class="radio-inline"> <input type="radio" name="gender" id="gender" value="f"> Female
+			</label>
+		</div>
+	</div>
+
+	<!-- privacy policy -->
+	<div class="row mt40">
+		<div class="col-md-6">
+			<a href="#">Accept privacy policy</a>
+		</div>
+		<div class="col-md-6">
+			<label class="radio-inline"> <input type="radio" name="pp" id="pp" value="y"> NO
+			</label> <label class="radio-inline"> <input type="radio" name="pp" id="pp" value="n"> YES
+			</label>
+		</div>
+	</div>
+
+
+	<!-- terms and conditions -->
+	<div class="row mt20">
+		<div class="col-md-6">
+			<a href="#">Accept contect terms and conditions </a>
+		</div>
+		<div class="col-md-6">
+			<label class="radio-inline"> <input type="radio" name="tc" id="tc" value="y"> NO
+			</label> <label class="radio-inline"> <input type="radio" name="tc" id="tc" value="n"> YES
+			</label>
+		</div>
+	</div>
+
+
+	<!-- marketing -->
+	<div class="row mt20">
+		<div class="col-md-6">
+			<a href="#">Signup for marketing and communication</a>
+		</div>
+		<div class="col-md-6">
+			<label class="radio-inline"> <input type="radio" name="mkt" id="mkt" value="y"> NO
+			</label> <label class="radio-inline"> <input type="radio" name="mkt" id="mkt" value="n"> YES
+			</label>
+		</div>
+	</div>
+
+	<div class="row mt20">
+		<div class="col-md-12">
+		<button type="submit" class="btn btn-block btn-success">Register</button>
+		</div>
+	</div>
+
+
+</form>
+</div>
+{% endblock %}

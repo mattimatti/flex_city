@@ -1,0 +1,17 @@
+<form role="form" autocomplete="off" method="post">
+
+	<input type="hidden" name="id" value="{{ item.id }}">
+
+	<div class="mt20">{% include "snippets/select.twig" with {name: 'location_id', items : locations, label: 'Select Location', selectedvalue : item.location_id, required : true} %}</div>
+	<div class="mt20">{% include "snippets/select.twig" with {name: 'store_id', items : stores, label: 'Select Store', selectedvalue : item.store_id, required : true} %}</div>
+	<div class="mt20">{% include "snippets/field.twig" with {name: 'name', label: 'Name', selectedvalue : item.name, required : true} %}</div>
+	<div class="mt20">{% include "snippets/field.twig" with {name: 'permalink', label: 'Permalink', selectedvalue : item.permalink, required : true} %}</div>
+	<div class="mt20">
+		<button type="submit" class="btn btn-block btn-success">Create Event</button>
+		<div class="text-center">
+			<a href="/admin/events">or cancel</a>
+		</div>
+	</div>
+
+
+</form>

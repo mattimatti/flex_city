@@ -1,0 +1,27 @@
+---
+- name: Install PHP packages
+  become: yes 
+  apt:  package={{ item.package }} state=latest
+  with_items: "{{ php_packages }}"
+
+- name: Enable PHP packages
+  become: yes 
+  command: /usr/sbin/php5enmod {{ item.name }} creates=/etc/php5/cli/conf.d/20-{{ item.name }}.ini
+  with_items: "{{ php_packages }}"
+  notify: restart apache
+
+- name: Install PHP extensions
+  become: yes 
+  shell: echo "\n" | /usr/bin/pecl install {{ item.package }} creates=/usr/lib/php5/20121212/{{ item.name }}.so
+  with_items: "{{ php_extensions }}"
+
+- name: Configure PHP extensions
+  become: yes 
+  template: src=extension.tpl dest=/etc/php5/mods-available/{{ item.name }}.ini
+  with_items: "{{ php_extensions }}"
+
+- name: Enable PHP extensions
+  become: yes 
+  command: /usr/sbin/php5enmod {{ item.name }} creates=/etc/php5/cli/conf.d/20-{{ item.name }}.ini
+  with_items: "{{ php_extensions }}"
+  notify: restart apache
