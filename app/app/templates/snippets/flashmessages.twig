@@ -1,0 +1,22 @@
+{% if flash('danger') %}
+<ul class="alert alert-danger">
+	{% for msg in flash('danger') %}
+	<li>{{ msg }}</li> {% endfor %}
+</ul>
+{% endif %}
+
+{% if flash('warning') %}
+<ul class="alert alert-warning">
+	{% for msg in flash('warning') %}
+	<li>{{ msg }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+{% if flash('success') %}
+<ul class="alert alert-success">
+	{% for msg in flash('success') %}
+	<li>{{ msg }}</li>
+	{% endfor %}
+</ul>
+{% endif %}

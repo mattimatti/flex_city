@@ -1,0 +1,23 @@
+<style>
+  ul {
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+  }
+</style>
+<ul class="pagination">
+  {% for number, position in pages %}
+    {% if position == 'first' %}
+      <li><a href="/admin/leads?event_id={{ event_id }}&page={{ number }}">&laquo;</a></li>
+    {% elseif position == 'less' or position == 'more' %}
+      <li><a href="javascript:;">...</a></li>
+    {% elseif position == 'previous' or position == 'next' %}
+      <li><a href="/admin/leads?event_id={{ event_id }}&page={{ number }}">{{ number }}</a></li>
+    {% elseif position == 'current' %}
+      <li><a href="javascript:;">{{ number }}</a></li>
+    {% elseif position == 'last' %}
+      <li><a href="/admin/leads?event_id={{ event_id }}&page={{ number }}">&raquo;</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>

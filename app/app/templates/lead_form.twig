@@ -1,0 +1,127 @@
+
+{# http://1000hz.github.io/bootstrap-validator/#validator-markup#}
+
+<form method="post" class="" data-toggle="validator">
+
+    {% include "snippets/errors.twig" %}
+
+    {% if not event %}
+    {% include "snippets/alert.twig" with {text : 'You must specify an event', class : 'danger'} %}
+    {% endif %}
+
+	<input type="hidden" name="event_id" value="{{ event.id }}">
+
+	<div class="row">
+		<div class="col-md-6">{% include "snippets/field.twig" with {name: 'name', label: 'Name', required : true} %}</div>
+		<div class="col-md-6">{% include "snippets/field.twig" with {name: 'surname', label: 'Surname', required : true} %}</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">{% include "snippets/field.twig" with {name: 'email', label: 'Email', type: 'email', required : true} %}</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'day', label: 'Day', required : true} %}</div>
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'month', label: 'Month', required : true} %}</div>
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'year', label: 'Year', required : true} %}</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<label>Gender</label>
+		</div>
+		<div class="col-md-10">
+			<label class="radio-inline"> <input type="radio" name="gender" id="gender" value="m" required> Male
+			</label> <label class="radio-inline"> <input type="radio" name="gender" id="gender" value="f" required> Female
+			</label>
+		</div>
+	</div>
+
+	<!-- privacy policy -->
+	<div class="row mt40">
+		<div class="col-sm-12 col-md-8">
+			<a data-toggle="modal" data-target="#privacyModal" href="javascript:;">Accept privacy policy</a>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<label class="radio-inline"> <input type="radio" name="pp" id="pp" value="y" checked="checked" required> YES
+			</label> <label class="radio-inline"> <input type="radio" name="pp" id="pp" value="n" required> NO
+			</label>
+		</div>
+	</div>
+
+
+	<!-- terms and conditions -->
+	<div class="row mt20">
+		<div class="col-sm-12 col-md-8">
+			<a data-toggle="modal" data-target="#termsModal" href="javascript:;">Accept contect terms and conditions </a>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<label class="radio-inline"> <input type="radio" name="tc" id="tc" value="y" checked="checked" required> YES
+			</label> <label class="radio-inline"> <input type="radio" name="tc" id="tc" value="n"  required> NO
+			</label>
+		</div>
+	</div>
+
+
+	<!-- marketing -->
+	<div class="row mt20">
+		<div class="col-sm-12 col-md-8">
+			<a href="#">Signup for marketing and communication</a>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<label class="radio-inline"> <input type="radio" name="mkt" id="mkt" value="y" checked="checked" required> YES
+			</label> <label class="radio-inline"> <input type="radio" name="mkt" id="mkt" value="n" required> NO
+			</label>
+		</div>
+	</div>
+
+	<div class="row mt20">
+		<div class="col-md-12">
+		<button type="submit" class="btn btn-block btn-success">Register</button>
+		</div>
+	</div>
+
+
+</form>
+
+
+<!-- Terms and Conditions Modal -->
+<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Terms And Conditions</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Privacy Modal -->
+<div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Terms And Conditions</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
