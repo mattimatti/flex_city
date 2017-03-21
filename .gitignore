@@ -1,0 +1,5 @@
+app/vendor/
+app/log/*
+app/cache/*
+app/web/node_modules
+app/web/node_modules/*
