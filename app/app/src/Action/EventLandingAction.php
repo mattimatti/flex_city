@@ -21,7 +21,7 @@ final class EventLandingAction extends AbstractAction
     public function __invoke(Request $request, Response $response, $args)
     {
         $eventRepo = new EventRepository();
-        
+        exit("Display the landing");
         Debug::dump($args);
     }
 }

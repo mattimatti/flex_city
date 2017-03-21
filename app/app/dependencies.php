@@ -19,6 +19,7 @@ use App\Dao\UserRepository;
 use App\Dao\RoleRepository;
 use App\Service\MailService;
 use App\Service\MailRenderer;
+use App\Debug;
 // DIC configuration
 
 $container = $app->getContainer();
@@ -37,7 +38,21 @@ $container['flash'] = function ()
 $container['view'] = function ($c)
 {
     $settings = $c->get('settings');
-    $view = new Slim\Views\Twig($settings['view']['template_path'], $settings['view']['twig']);
+    
+    $custompath = realpath('../domains/' . CURRENT_DOMAIN . '/templates');
+    
+    if (file_exists($custompath)) {
+        $paths = array(
+            $custompath,
+            $settings['view']['template_path']
+        );
+    } else {
+        $paths = array(
+            $settings['view']['template_path']
+        );
+    }
+    
+    $view = new Slim\Views\Twig($paths, $settings['view']['twig']);
     
     // Add extensions
     $view->addExtension(new Slim\Views\TwigExtension($c->get('router'), $c->get('request')
@@ -49,8 +64,15 @@ $container['view'] = function ($c)
     return $view;
 };
 
+// -----------------------------------------------------------------------------
+// Database
+// -----------------------------------------------------------------------------
+
 define('REDBEAN_MODEL_PREFIX', '\\App\\Dao\\');
-R::setup('mysql:host=localhost;dbname=symfony', 'root', '');
+
+$dbsettings = $container['settings']['database'];
+
+R::setup('mysql:host=' . $dbsettings['host'] . ';dbname=' . $dbsettings['dbname'], $dbsettings['user'], $dbsettings['password']);
 R::freeze(TRUE);
 
 // -----------------------------------------------------------------------------

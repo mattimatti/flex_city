@@ -4,15 +4,22 @@ return [
         // Slim Settings
         'determineRouteBeforeAppMiddleware' => false,
         'displayErrorDetails' => true,
-
+        
         // View settings
         'view' => [
             'template_path' => __DIR__ . '/templates',
             'twig' => [
                 'cache' => false,
                 'debug' => true,
-                'auto_reload' => true,
-            ],
+                'auto_reload' => true
+            ]
+        ],
+        
+        'database' => [
+                'host' => 'localhost',
+                'user' => 'root',
+                'password' => '',
+                'dbname' => 'symfony'
         ],
 /*
         // View settings
@@ -26,13 +33,13 @@ return [
         ],
 */
         'doctrine' => [
-            'entities_path' => __DIR__ . '/src/Dao',
+            'entities_path' => __DIR__ . '/src/Dao'
         ],
-
+        
         // monolog settings
         'logger' => [
             'name' => 'app',
-            'path' => __DIR__ . '/../log/app.log',
-        ],
-    ],
+            'path' => __DIR__ . '/../log/app.log'
+        ]
+    ]
 ];
