@@ -56,4 +56,14 @@ class LeadRepository extends AbstractRepository
         
         return R::count($this->getType(), $sql, $params);
     }
+
+    /**
+     *
+     * @return Lead
+     *
+     */
+    public function create(array $params)
+    {
+        return parent::create($params);
+    }
 }

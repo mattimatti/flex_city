@@ -2,8 +2,9 @@
 namespace App\Dao;
 
 use RedBeanPHP\SimpleModel;
+use App\Service\Mailing\IEmailRecipient;
 
-class Lead extends AbstractDao
+class Lead extends AbstractDao implements IEmailRecipient
 {
 
     const NAME = 'lead';
@@ -41,8 +42,8 @@ class Lead extends AbstractDao
     {
         $data = array();
         $data['id'] = $this->id;
-        $data['name'] = $this->name ;
-        $data['surname'] =  $this->surname;
+        $data['name'] = $this->name;
+        $data['surname'] = $this->surname;
         $data['email'] = $this->email;
         $data['age'] = $this->age();
         $data['year'] = $this->year;
@@ -58,5 +59,21 @@ class Lead extends AbstractDao
         $data['date_create'] = $this->date_create;
         
         return $data;
+    }
+    
+    /*
+     * (non-PHPdoc) @see \App\Service\Mailing\IEmailRecipient::getEmail()
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    
+    /*
+     * (non-PHPdoc) @see \App\Service\Mailing\IEmailRecipient::getLabel()
+     */
+    public function getLabel()
+    {
+        return $this->name;
     }
 }

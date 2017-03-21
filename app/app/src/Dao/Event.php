@@ -6,6 +6,8 @@ use RedBeanPHP\SimpleModel;
 class Event extends AbstractDao
 {
 
+    const ID_WEB = 1;
+    
     const NAME = 'event';
 
     /**

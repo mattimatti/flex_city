@@ -19,19 +19,19 @@ abstract class AbstractRepository
         return R::load($this->getType(), $id);
     }
 
-    public function validateCreate(array $params)
-    {}
-
+    /**
+     *
+     * @param array $params            
+     * @return Ambigous <multitype:, \RedBeanPHP\OODBBean, \RedBeanPHP\Util\OODBBean, unknown, multitype:Ambigous <multitype:, \RedBeanPHP\Util\OODBBean> >
+     */
     public function create(array $params)
     {
-        $this->validateCreate($params);
-        
         $bean = R::dispense($this->getType());
         $bean->import($params);
         
         R::store($bean);
         
-        return $bean;
+        return $bean->box();
     }
 
     /**

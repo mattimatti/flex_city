@@ -2,12 +2,6 @@
 use App\Acl;
 // Routes
 
-$app->get('/', "App\Action\HomeAction")
-    ->setName('homepage')
-    ->allow([
-    Acl::GUEST
-]);
-
 $app->get('/admin', "App\Action\Admin\IndexAction")
     ->setName('admin')
     ->allow([
@@ -44,12 +38,15 @@ $app->any('/admin/locations', "App\Action\Admin\LocationsAction")
     Acl::ADMIN
 ]);
 
-
 $app->any('/admin/exporter/{resource}[/{event_id}]', "App\Action\Admin\ExportAction")
     ->setName('admin_export')
     ->allow([
     Acl::ADMIN
 ]);
+
+// ////////////////////////////////////////////////////////////////////
+// AUTH
+// ////////////////////////////////////////////////////////////////////
 
 $app->any('/hostess', "App\Action\HostessEventSelectionAction")
     ->setName('hostess')
@@ -57,47 +54,55 @@ $app->any('/hostess', "App\Action\HostessEventSelectionAction")
     Acl::HOSTESS
 ]);
 
-$app->any('/hostess/register', "App\Action\HostessLeadRegisterAction")
+$app->any('/hostess/register', "App\Action\LeadRegisterAction")
     ->setName('hostess_register')
     ->allow([
     Acl::HOSTESS
 ]);
 
+// ////////////////////////////////////////////////////////////////////
+// AUTH
+// ////////////////////////////////////////////////////////////////////
 
-
-
-//////////////////////////////////////////////////////////////////////
-
-
-$app->any('/auth/login', "App\Action\LoginAction")
+$app->any('/auth/login', "App\Action\Auth\LoginAction")
     ->setName('login')
     ->allow([
     Acl::GUEST
 ]);
 
-$app->get('/auth/logout', "App\Action\LogoutAction")
+$app->get('/auth/logout', "App\Action\Auth\LogoutAction")
     ->setName('logout')
     ->allow([
     Acl::GUEST
 ]);
 
+// ////////////////////////////////////////////////////////////////////
+// PUBLIC
+// ////////////////////////////////////////////////////////////////////
 
-
-
-//////////////////////////////////////////////////////////////////////
-
-
-$app->get('/event/{permalink}', "App\Action\EventLandingAction")
-    ->setName('landing')
+$app->get('/', "App\Action\HomeAction")
+    ->setName('homepage')
     ->allow([
     Acl::GUEST
 ]);
 
-$app->get('/event/{permalink}/signup', "App\Action\EventSignupAction")
-    ->setName('landing')
+$app->post('/', "App\Action\HomeRegisterAction")
+    ->setName('homepage-post')
     ->allow([
     Acl::GUEST
 ]);
+
+$app->get('/pages/{page}', "App\Action\PagesAction")
+    ->setName('page_custom')
+    ->allow([
+    Acl::GUEST
+]);
+
+// $app->get('/event/{permalink}/signup', "App\Action\EventSignupAction")
+//     ->setName('landing')
+//     ->allow([
+//     Acl::GUEST
+// ]);
 
 
 

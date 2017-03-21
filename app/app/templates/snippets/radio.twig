@@ -1,0 +1,5 @@
+{% for opt in options %}
+<label class="radio-inline">
+    <input type="radio" name="{{ name }}" id="{{ name }}" value="{{ opt.value }}" {% if selectedvalue == opt.value %}checked="checked" {% endif %}  {% if required %} required {% endif %}> {{ opt.label }}
+</label>
+{% endfor %}

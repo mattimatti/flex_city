@@ -154,6 +154,6 @@ abstract class AbstractAction
 
     public function __redirect(Response $response, $url)
     {
-        return $response->withStatus(402)->withRedirect($url);
+        return $response->withStatus(302)->withHeader('Location', $url); // ->withRedirect($url);
     }
 }

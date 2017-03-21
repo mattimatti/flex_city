@@ -1,6 +1,8 @@
 <?php
 namespace App\Service;
 
+use App\Service\Mailing\IEmailRecipient;
+
 class MailService
 {
 
@@ -8,7 +10,7 @@ class MailService
      *
      * @var \PHPMailer
      */
-    protected $mailerer;
+    protected $mailer;
 
     /**
      *
@@ -18,13 +20,45 @@ class MailService
 
     /**
      *
-     * @param \PHPMailer $mailerer            
+     * @var IEmailRecipient []
+     */
+    protected $recipients;
+
+    /**
+     *
+     * @var IEmailRecipient
+     */
+    protected $sender;
+
+    /**
+     *
+     * @param \PHPMailer $mailer            
      * @param unknown $renderer            
      */
     public function __construct(\PHPMailer $mailer, MailRenderer $renderer)
     {
         $this->mailer = $mailer;
         $this->renderer = $renderer;
+        $this->recipients = array();
+        $this->sender = null;
+    }
+
+    /**
+     *
+     * @param IEmailRecipient $recipient            
+     */
+    public function addRecipient(IEmailRecipient $recipient)
+    {
+        $this->recipients[] = $recipient;
+    }
+
+    /**
+     *
+     * @param IEmailRecipient $sender            
+     */
+    public function addSender(IEmailRecipient $sender)
+    {
+        $this->sender = $sender;
     }
 
     /**
@@ -33,13 +67,23 @@ class MailService
     {
         $this->prepare($parameters);
         
-        $this->mailer->setFrom('mmonti@gmail.com', 'Matteo Monti');
-        $this->mailer->addReplyTo('mmonti@gmail.com', 'Matteo Monti');
-        $this->mailer->addAddress('mmonti@gmail.com', 'Matteo Monti');
+        if (! $this->sender) {
+            throw new \Exception('Missing Sender');
+        }
+        
+        if (count($this->recipients) == 0) {
+            throw new \Exception('Missing Recipient/s');
+        }
+        
+        $this->mailer->setFrom($this->sender->getEmail(), $this->sender->getLabel());
+        
+        foreach ($this->recipients as $recipient) {
+            $this->mailer->addAddress($recipient->getEmail(), $recipient->getLabel());
+        }
         
         // send the message, check for errors
         if (! $this->mailer->send()) {
-            return false;
+            throw new \Exception('Unable to send');
         } else {
             return true;
         }
@@ -49,7 +93,6 @@ class MailService
      */
     protected function prepare(array $parameters)
     {
-        $this->mailer->IsSendmail();
         
         // render with param
         $this->renderer->getMessage($parameters);
@@ -60,5 +103,14 @@ class MailService
         
         // Attach an image file
         // $this->mailer->addAttachment('images/phpmailer_mini.png');
+    }
+
+    /**
+     *
+     * @return PHPMailer
+     */
+    public function getMailer()
+    {
+        return $this->mailer;
     }
 }

@@ -27,7 +27,7 @@ if (! empty($hostname)) {
         $country_settings = require $filename;
         
         if (is_array($country_settings)) {
-            $settings = array_merge_recursive($settings, $country_settings);
+            $settings = array_replace_recursive($settings, $country_settings);
         }
     }
 }

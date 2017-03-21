@@ -1,5 +1,5 @@
 <?php
-namespace App\Action;
+namespace App\Action\Auth;
 
 use Slim\Views\Twig;
 use Psr\Log\LoggerInterface;
@@ -7,10 +7,9 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\RedbeanAdapter;
 use marcelbonnet\Slim\Auth\Authenticator;
-use App\Debug;
-use App\Dao\EventRepository;
+use App\Action\AbstractAction;
 
-final class EventLandingAction extends AbstractAction
+final class LogoutAction extends AbstractAction
 {
 
     /**
@@ -20,8 +19,11 @@ final class EventLandingAction extends AbstractAction
      */
     public function __invoke(Request $request, Response $response, $args)
     {
-        $eventRepo = new EventRepository();
-        exit("Display the landing");
-        Debug::dump($args);
+        $this->session->clearAll();
+        $this->session->destroy();
+
+        $this->auth->logout();
+        
+        return $this->__redirect($response, "/");
     }
 }

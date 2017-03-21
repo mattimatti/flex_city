@@ -16876,11 +16876,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 $( document ).ready(function() {
-	console.debug('ok');
 	$(".autosubmit").change(function() {
 	    $(this).closest('form').submit();
 	});
 });
-
-
-// DIOVELLO

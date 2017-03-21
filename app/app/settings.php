@@ -5,6 +5,9 @@ return [
         'determineRouteBeforeAppMiddleware' => false,
         'displayErrorDetails' => true,
         
+        'lang' => 'it_IT',
+        
+        
         // View settings
         'view' => [
             'template_path' => __DIR__ . '/templates',
@@ -15,11 +18,16 @@ return [
             ]
         ],
         
+        'mailer' => [
+            'email' => 'mmonti@gmail.com',
+            'label' => 'Timberland'
+        ],
+        
         'database' => [
-                'host' => 'localhost',
-                'user' => 'root',
-                'password' => '',
-                'dbname' => 'symfony'
+            'host' => 'localhost',
+            'user' => 'root',
+            'password' => '',
+            'dbname' => 'symfony'
         ],
 /*
         // View settings

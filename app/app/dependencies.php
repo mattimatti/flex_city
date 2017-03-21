@@ -4,6 +4,12 @@ use marcelbonnet\Slim\Auth\Adapter\LdapRdbmsAdapter;
 use marcelbonnet\Slim\Auth\ServiceProvider\SlimAuthProvider;
 use marcelbonnet\Slim\Auth\Handlers\RedirectHandler;
 use marcelbonnet\Slim\Auth\Middleware\Authorization;
+
+use Symfony\Bridge\Twig\Extension\TranslationExtension;
+use Symfony\Component\Translation\Loader\PhpFileLoader;
+use Symfony\Component\Translation\MessageSelector;
+use Symfony\Component\Translation\Translator;
+
 use App\Acl;
 use App\RedbeanAdapter;
 use RedBeanPHP\R;
@@ -20,6 +26,8 @@ use App\Dao\RoleRepository;
 use App\Service\MailService;
 use App\Service\MailRenderer;
 use App\Debug;
+use App\Dao\Sender;
+use App\CsrfExtension;
 // DIC configuration
 
 $container = $app->getContainer();
@@ -28,10 +36,48 @@ $container = $app->getContainer();
 // Service providers
 // -----------------------------------------------------------------------------
 
+$container['csrf'] = function ($c)
+{
+    $guard = new \Slim\Csrf\Guard();
+    $guard->setFailureCallable(function ($request, $response, $next)
+    {
+        $request = $request->withAttribute("csrf_status", false);
+        return $next($request, $response);
+    });
+    return $guard;
+};
+
 // Register provider
-$container['flash'] = function ()
+$container['flash'] = function ($c)
 {
     return new \App\Messages();
+};
+
+// Translator
+$container['translator'] = function ($c)
+{
+    $settings = $c->get('settings');
+    
+    $defaultlang = $settings['lang'];
+    
+    
+    // First param is the "default language" to use.
+    $translator = new Translator($defaultlang, new MessageSelector());
+    
+    // Set a fallback language incase you don't have a translation in the default language
+    $translator->setFallbackLocales([
+        'en_US'
+    ]);
+    
+    // Add a loader that will get the php files we are going to store our translations in
+    $translator->addLoader('php', new PhpFileLoader());
+    
+    // Add language files here
+    $translator->addResource('php', __DIR__ . '/../lang/it_IT.php', 'it_IT'); // Italian
+    $translator->addResource('php', __DIR__ . '/../lang/en_US.php', 'en_US'); // English
+    $translator->addResource('php', __DIR__ . '/../lang/fr_FR.php', 'fr_FR'); // French
+    
+    return $translator;
 };
 
 // Twig
@@ -39,8 +85,8 @@ $container['view'] = function ($c)
 {
     $settings = $c->get('settings');
     
-    $custompath = __DIR__.'/../web/domains/' . CURRENT_DOMAIN . '/templates';
-//     exit($custompath);
+    $custompath = __DIR__ . '/../web/domains/' . CURRENT_DOMAIN . '/templates';
+    // exit($custompath);
     
     if (file_exists($custompath)) {
         $paths = array(
@@ -58,7 +104,13 @@ $container['view'] = function ($c)
     // Add extensions
     $view->addExtension(new Slim\Views\TwigExtension($c->get('router'), $c->get('request')
         ->getUri()));
+    
+    $view->addExtension(new TranslationExtension($c->get('translator')));
+    
     $view->addExtension(new Twig_Extension_Debug());
+    
+    $csrf = $c->get('csrf');
+    $view->addExtension(new CsrfExtension($csrf));
     
     $view->addExtension(new Knlv\Slim\Views\TwigMessages($c->get('flash')));
     
@@ -133,11 +185,14 @@ $container['session'] = function ($c)
 // leadservice
 $container['leadService'] = function ($c)
 {
+    $mailService = $c->get('mailService');
     
     // compose the service..
     $leadRepo = new LeadRepository();
     
-    return new LeadService($leadRepo);
+    $leadService = new LeadService($leadRepo);
+    
+    return $leadService;
 };
 
 // userService
@@ -152,15 +207,25 @@ $container['userService'] = function ($c)
 $container['mailService'] = function ($c)
 {
     
-    $twig = $c->get('view')->getEnvironment();
+    $settings = $c->get('settings');
+    $twigEnv = $c->get('view')->getEnvironment();
     
     $throwExceptions = true;
     
     $mailer = new PHPMailer($throwExceptions);
+    $mailer->Timeout = 5;
     
-    $renderer = new MailRenderer($twig);
+    // use sendmail??
+    $mailer->IsSendmail();
     
+    $renderer = new MailRenderer($twigEnv);
     $service = new MailService($mailer, $renderer);
+    
+    // configure the sender
+    $config = $settings['mailer'];
+    $sender = new Sender($config);
+    
+    $service->addSender($sender);
     
     return $service;
 };

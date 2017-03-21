@@ -13,7 +13,7 @@ use RKA\SessionMiddleware;
 use App\Dao\LeadRepository;
 use App\Service\LeadService;
 
-final class HostessLeadRegisterAction extends AbstractAction
+class LeadRegisterAction extends AbstractAction
 {
 
     /**
@@ -31,31 +31,38 @@ final class HostessLeadRegisterAction extends AbstractAction
     {
         $this->leadService = $this->container->get('leadService');
         
-        $event_id = $this->session->get('event_id', null);
-        
-        $eventRepo = new EventRepository();
-        
-        $event = $eventRepo->get($event_id);
+        $event_id = $this->session->get('event_id', Event::ID_WEB);
+        $this->setViewData("event_id", $event_id);
         
         if ($request->isPost()) {
             
-            
             try {
-                
+                if (false === $request->getAttribute('csrf_status')) {
+                    throw new \Exception("Invalid check");
+                }
                 $lead = $this->leadService->create($request->getParams());
                 
+                $this->flash->addSuccess("Lead Registered Successfully");
                 
-                //Debug::dump($lead);
+                // return $this->__redirect($response, $request->getUri());
+                $url = $request->getUri();
                 
-                //return $this->__redirect($response, '/hostess/register');
+                return $response->withStatus(302)->withHeader('Location', $url);
             } catch (\Exception $ex) {
+                
+                $this->setViewData("item", $request->getParams());
+                $this->flash->addError($ex->getMessage());
+                
                 $this->setViewData("errors", $ex->getMessage());
                 $this->setViewData($request->getParams());
             }
         }
         
-        $this->setViewData("event_id", $event_id);
+        $eventRepo = new EventRepository();
         
+        
+        
+        $event = $eventRepo->get($event_id);
         $this->setViewData("event", $event);
         
         $this->__render($response);

@@ -10,4 +10,10 @@ class AbstractDao extends SimpleModel
     {
         return $this->name;
     }
+
+    
+    public function export()
+    {
+        return $this->unbox()->export();
+    }
 }

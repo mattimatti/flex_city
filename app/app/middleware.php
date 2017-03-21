@@ -1,11 +1,10 @@
 <?php
-use App\Middleware\Authentication;
 // Application middleware
+$container = $app->getContainer();
 
-// e.g: $app->add(new \Slim\Csrf\Guard);
+$app->add($container->get('csrf'));
 
-$app->add($app->getContainer()
-    ->get('sessionMiddleware'));
+$app->add($container->get('sessionMiddleware'));
 
 
 

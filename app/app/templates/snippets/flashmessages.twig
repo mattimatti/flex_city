@@ -1,12 +1,12 @@
 {% if flash('danger') %}
-<ul class="alert alert-danger">
+<ul class="alert alert-danger" style="list-style: none;">
 	{% for msg in flash('danger') %}
 	<li>{{ msg }}</li> {% endfor %}
 </ul>
 {% endif %}
 
 {% if flash('warning') %}
-<ul class="alert alert-warning">
+<ul class="alert alert-warning" style="list-style: none;">
 	{% for msg in flash('warning') %}
 	<li>{{ msg }}</li>
 	{% endfor %}
@@ -14,7 +14,7 @@
 {% endif %}
 
 {% if flash('success') %}
-<ul class="alert alert-success">
+<ul class="alert alert-success" style="list-style: none;">
 	{% for msg in flash('success') %}
 	<li>{{ msg }}</li>
 	{% endfor %}

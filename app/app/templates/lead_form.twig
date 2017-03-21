@@ -1,39 +1,52 @@
 
 {# http://1000hz.github.io/bootstrap-validator/#validator-markup#}
+<style>
 
-<form method="post" class="" data-toggle="validator">
+.registerform .mt20{
+	margin-top: 20px;
+}
+.registerform .mt40{
+	margin-top: 40px;
+}
+</style>
 
-    {% include "snippets/errors.twig" %}
+<form id="register" method="post" class="registerform" action="#register" data-toggle="validator">
 
-    {% if not event %}
+
+	{% include "snippets/csfr.twig" %}
+	
+    {% block flashmessages %}
+	{% include "snippets/flashmessages.twig" %}
+	{% endblock %}
+
+    {% if not event_id %}
+    
     {% include "snippets/alert.twig" with {text : 'You must specify an event', class : 'danger'} %}
     {% endif %}
 
-	<input type="hidden" name="event_id" value="{{ event.id }}">
+	<input type="hidden" name="event_id" value="{{ event_id }}">
 
 	<div class="row">
-		<div class="col-md-6">{% include "snippets/field.twig" with {name: 'name', label: 'Name', required : true} %}</div>
-		<div class="col-md-6">{% include "snippets/field.twig" with {name: 'surname', label: 'Surname', required : true} %}</div>
+		<div class="col-md-6">{% include "snippets/field.twig" with {name: 'name', label: 'Name', required : true, placeholder: 'Insert Name', selectedvalue : item.name} %}</div>
+		<div class="col-md-6">{% include "snippets/field.twig" with {name: 'surname', label: 'Surname', required : true, placeholder: 'Insert Surname', selectedvalue : item.surname} %}</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-12">{% include "snippets/field.twig" with {name: 'email', label: 'Email', type: 'email', required : true} %}</div>
+		<div class="col-md-12">{% include "snippets/field.twig" with {name: 'email', label: 'Email', type: 'email', required : true, placeholder: 'Insert Email', selectedvalue : item.email} %}</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'day', label: 'Day', required : true} %}</div>
-		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'month', label: 'Month', required : true} %}</div>
-		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'year', label: 'Year', required : true} %}</div>
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'day', label: 'Day', required : true, selectedvalue : item.day, placeholder: '28', extra: 'pattern=^[0-9]{2}$'} %}</div>
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'month', label: 'Month', required : true, selectedvalue : item.month, placeholder: '01', extra: 'pattern=^[0-9]{2}$'} %}</div>
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'year', label: 'Year', required : true, selectedvalue : item.year, placeholder: '2000', extra: 'pattern=^[0-9]{4}$'} %}</div>
 	</div>
 
-	<div class="row">
+	<div class="row mt20">
 		<div class="col-md-2">
 			<label>Gender</label>
 		</div>
 		<div class="col-md-10">
-			<label class="radio-inline"> <input type="radio" name="gender" id="gender" value="m" required> Male
-			</label> <label class="radio-inline"> <input type="radio" name="gender" id="gender" value="f" required> Female
-			</label>
+		  {% include "snippets/radio.twig" with {name: 'gender', required : true, selectedvalue : item.gender, options : [{value : 'm',label : 'Male'},{value : 'f',label : 'Female'}] } %}
 		</div>
 	</div>
 
@@ -43,9 +56,7 @@
 			<a data-toggle="modal" data-target="#privacyModal" href="javascript:;">Accept privacy policy</a>
 		</div>
 		<div class="col-sm-12 col-md-4">
-			<label class="radio-inline"> <input type="radio" name="pp" id="pp" value="y" checked="checked" required> YES
-			</label> <label class="radio-inline"> <input type="radio" name="pp" id="pp" value="n" required> NO
-			</label>
+		      {% include "snippets/radio.twig" with {name: 'pp', required : true, selectedvalue : item.pp|default('y'), options : [{value : 'y',label : 'YES'},{value : 'n',label : 'NO'}] } %}
 		</div>
 	</div>
 
@@ -56,9 +67,7 @@
 			<a data-toggle="modal" data-target="#termsModal" href="javascript:;">Accept contect terms and conditions </a>
 		</div>
 		<div class="col-sm-12 col-md-4">
-			<label class="radio-inline"> <input type="radio" name="tc" id="tc" value="y" checked="checked" required> YES
-			</label> <label class="radio-inline"> <input type="radio" name="tc" id="tc" value="n"  required> NO
-			</label>
+		      {% include "snippets/radio.twig" with {name: 'tc', required : true, selectedvalue : item.tc|default('y'), options : [{value : 'y',label : 'YES'},{value : 'n',label : 'NO'}] } %}
 		</div>
 	</div>
 
@@ -69,9 +78,7 @@
 			<a href="#">Signup for marketing and communication</a>
 		</div>
 		<div class="col-sm-12 col-md-4">
-			<label class="radio-inline"> <input type="radio" name="mkt" id="mkt" value="y" checked="checked" required> YES
-			</label> <label class="radio-inline"> <input type="radio" name="mkt" id="mkt" value="n" required> NO
-			</label>
+		      {% include "snippets/radio.twig" with {name: 'mkt', required : true, selectedvalue : item.mkt|default('y'), options : [{value : 'y',label : 'YES'},{value : 'n',label : 'NO'}] } %}
 		</div>
 	</div>
 
