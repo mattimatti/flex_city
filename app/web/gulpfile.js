@@ -8,6 +8,7 @@
 
 var gulp = require('gulp');
 var jshint = require("gulp-jshint");
+var merge = require("merge-stream");
 var sass = require("gulp-sass");
 var autoprefixer = require('gulp-autoprefixer');
 var minifyCss = require("gulp-minify-css");
@@ -32,9 +33,14 @@ var gulpFilter = require('gulp-filter');
 
 // Styles
 gulp.task('styles', function() {
-	return sass('src/styles/main.scss', {
+	var sassStream = sass('src/styles/main.scss',{
 		style : 'expanded'
-	}).pipe(autoprefixer('last 2 version')).pipe(gulp.dest('dist/css')).pipe(rename({
+	}).pipe(autoprefixer('last 2 version'));
+	
+	var cssStream = gulp.src('src/libs/vendor.css');
+	
+	
+	return merge(cssStream, sassStream).pipe(concat('main.css')).pipe(gulp.dest('dist/css')).pipe(rename({
 		suffix : '.min'
 	})).pipe(cssnano()).pipe(gulp.dest('dist/css')).pipe(notify({
 		message : 'Styles task complete'
@@ -98,14 +104,17 @@ gulp.task('main-bower-files', function() {
 	var filterJS = gulpFilter('**/*.js', {
 		restore : true
 	});
+	var filterCSS = gulpFilter('**/*.css', {
+		restore : true
+	});
 
 	return gulp.src('./bower.json').pipe(mainBowerFiles({
 		overrides : {
 			bootstrap : {
-				main : [ './dist/js/bootstrap.js', './dist/css/*.min.*', './dist/fonts/*.*' ]
+				main : [ './dist/js/bootstrap.js', './dist/css/*.css', './dist/fonts/*.*' ]
 			}
 		}
-	})).pipe(filterJS).pipe(concat('vendor.js')).pipe(filterJS.restore).pipe(gulp.dest('src/libs'));
+	})).pipe(filterJS).pipe(concat('vendor.js')).pipe(filterJS.restore).pipe(filterCSS).pipe(concat('vendor.css')).pipe(filterCSS.restore).pipe(gulp.dest('src/libs'));
 });
 
 

@@ -1,0 +1,23 @@
+{
+  "name": "web",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "mattimatti <mmonti@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/mattimatti/flex_city",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1.10",
+    "bootstrap": "^3.3.7",
+    "bootstrap-table": "^1.11.1",
+    "bootstrap-validator": "^0.11.9"
+  }
+}

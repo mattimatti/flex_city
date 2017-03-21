@@ -3,3 +3,6 @@ app/log/*
 app/cache/*
 app/web/node_modules
 app/web/node_modules/*
+app/web/.sass-cache
+app/web/src/libs
+app/web/bower_components

@@ -7,6 +7,7 @@
       - mcrypt
       - vim
       - sendmail
+      - libnotify-bin
     php_packages:
       - { name: dev, package: php5-dev }
       - { name: pear, package: php-pear }
