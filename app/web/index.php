@@ -22,7 +22,7 @@ $settings = require __DIR__ . '/../app/settings.php';
 // overload settings by hostname
 if (! empty($hostname)) {
     define('CURRENT_DOMAIN',$hostname);
-    $filename = __DIR__ . '/../domains/' . $hostname . '/settings.php';
+    $filename = __DIR__ . '/domains/' . $hostname . '/settings.php';
     if (file_exists($filename)) {
         $country_settings = require $filename;
         

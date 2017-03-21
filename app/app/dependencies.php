@@ -39,7 +39,8 @@ $container['view'] = function ($c)
 {
     $settings = $c->get('settings');
     
-    $custompath = realpath('../domains/' . CURRENT_DOMAIN . '/templates');
+    $custompath = __DIR__.'/../web/domains/' . CURRENT_DOMAIN . '/templates';
+//     exit($custompath);
     
     if (file_exists($custompath)) {
         $paths = array(

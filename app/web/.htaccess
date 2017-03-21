@@ -3,6 +3,11 @@
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+	RewriteRule ^css/(.*) domains/%{HTTP_HOST}/public/css/$1    
+	RewriteRule ^vendor/(.*) domains/%{HTTP_HOST}/public/vendor/$1    
+	RewriteRule ^js/(.*) domains/%{HTTP_HOST}/public/js/$1    
+	RewriteRule ^img/(.*) domains/%{HTTP_HOST}/public/img/$1    
+	RewriteRule ^font(.*) domains/%{HTTP_HOST}/public/font$1    
 
     RewriteCond %{REQUEST_FILENAME} -s [OR]
     RewriteCond %{REQUEST_FILENAME} -l [OR]
@@ -13,4 +18,8 @@
     RewriteCond %{REQUEST_URI}::$1 ^(/.+)(.+)::\2$
     RewriteRule ^(.*) - [E=BASE:%1]
     RewriteRule ^(.*)$ %{ENV:BASE}index.php [NC,L]
+
+
+    
+    
 </IfModule>
