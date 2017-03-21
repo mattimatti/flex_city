@@ -36,6 +36,8 @@
         "portphp/portphp": "1.0.x-dev",
         "portphp/csv": "1.0.x-dev",
         "portphp/steps": "1.0.x-dev",
-        "kanellov/slim-twig-flash": "^0.2.0"
+        "kanellov/slim-twig-flash": "^0.2.0",
+        "symfony/console": "^3.2",
+        "guzzlehttp/guzzle": "^6.2"
     }
 }

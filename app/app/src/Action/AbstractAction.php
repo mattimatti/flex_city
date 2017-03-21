@@ -50,7 +50,6 @@ abstract class AbstractAction
      */
     protected $session;
 
-    
     /**
      *
      * @var \App\Messages
@@ -119,7 +118,13 @@ abstract class AbstractAction
     {
         $arr = explode('\\', get_class($this));
         $arr = array_reverse($arr);
+        $folder = str_replace("action", "", strtolower($arr[1]));
         $tpl = str_replace("action", "", strtolower($arr[0])) . ".twig";
+        
+        if (! empty($folder)) {
+            return $folder . '/' . $tpl;
+        }
+        
         return $tpl;
     }
 

@@ -1,0 +1,62 @@
+{% extends "layout.twig" %} {% block menu %} {% include "admin/menu-admin.twig" %} {% endblock %} 
+
+
+{% block body %}
+
+	<div class="btn-toolbar mt20">
+{% if item  %}
+		<div class="btn-group">
+		  <a target="_blank" href="{{ item.url }}"  class="btn btn-default">Event Landing Page</a>
+		  <a target="_blank" href="{{ item.signupUrl }}"  class="btn btn-default">Event Register Page</a>
+		</div>
+{% else %}	
+		<div class="btn-group pull-right">
+		  <a data-toggle="collapse" href="#eventForm" class="btn btn-info">Create Event</a>
+		</div>
+{% endif %}	
+	</div>
+
+
+<div class="mt20">
+
+    <div id="eventForm" {% if not item  %}class="collapse"{% endif %}>
+    <h3>{% if item %}Edit Event #{{ item.id }} {% else %} Create New Event {% endif %}</h3>
+	{% include "admin/event_form.twig" %}
+    
+    </div>
+
+</div>
+<div class="mt20">
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Event Name</th>
+				<th>Location</th>
+				<th>Store</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in events %}
+			<tr>
+				<th scope="row">{{ item.id }}</th>
+				<td>{{ item.label }}</td>
+				<td>{{ item.location.label }}</td>
+				<td>{{ item.store.label }}</td>
+				<td><a target="_blank" href="{{ item.url() }}">landing</a></td>
+				<td><a target="_blank" href="{{ item.signupUrl() }}">signup</a></td>
+				<td><a href="/admin/events?id={{ item.id }}">edit</a></td>
+				<td><a href="/admin/events/delete?id={{ item.id }}"><i class="glyphicon glyphicon-trash"></i></a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+</div>
+
+{% endblock %}

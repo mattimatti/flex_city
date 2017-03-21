@@ -12,7 +12,9 @@ class Lead extends AbstractDao
      */
     public function age()
     {
-        return $this->year;
+        $date = new \DateTime();
+        $year = $date->format('Y');
+        return $year - $this->year;
     }
 
     /**
@@ -39,7 +41,8 @@ class Lead extends AbstractDao
     {
         $data = array();
         $data['id'] = $this->id;
-        $data['namesurname'] = $this->name . " " . $this->surname;
+        $data['name'] = $this->name ;
+        $data['surname'] =  $this->surname;
         $data['email'] = $this->email;
         $data['age'] = $this->age();
         $data['year'] = $this->year;

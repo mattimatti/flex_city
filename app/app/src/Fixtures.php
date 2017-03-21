@@ -12,14 +12,46 @@ use App\Dao\Lead;
 class Fixtures
 {
 
+    /**
+     *
+     * @var bool
+     */
+    private $freeze = false;
+
+    /**
+     *
+     * @param bool $freeze            
+     */
+    function __construct($freeze = false)
+    {
+        $this->freeze = $freeze;
+    }
+
+    public function truncate()
+    {
+        R::exec("SET FOREIGN_KEY_CHECKS = 0;");
+        $tables = R::getCol('SHOW TABLES');
+        
+        foreach ($tables as $table) {
+            R::wipe($table);
+        }
+        
+        R::exec("SET FOREIGN_KEY_CHECKS = 1;");
+    }
+
     public function load()
     {
         $leadsCount = 300;
         
         $faker = \Faker\Factory::create();
         
-        R::freeze(FALSE);
-        R::nuke();
+        if ($this->freeze == true) {
+            R::freeze($this->freeze);
+            $this->truncate();
+        } else {
+            R::freeze($this->freeze);
+            R::nuke();
+        }
         
         // admin role and admin
         
@@ -39,7 +71,7 @@ class Fixtures
         $hostessRole->role = "hostess";
         R::store($hostessRole);
         
-        for ($h = 1; $h <=2; $h ++) {
+        for ($h = 1; $h <= 2; $h ++) {
             
             $hostess = R::dispense(User::NAME);
             $hostess->username = "hostess$h";
@@ -54,7 +86,7 @@ class Fixtures
             
             // locations
             
-            for ($i = 0; $i < 8; $i ++) {
+            for ($i = 0; $i < 3; $i ++) {
                 
                 $city = $faker->city;
                 
@@ -72,7 +104,7 @@ class Fixtures
                     
                     // events
                     
-                    for ($x = 1; $x < 4; $x ++) {
+                    for ($x = 1; $x < 3; $x ++) {
                         
                         $event = R::dispense(Event::NAME);
                         $event->name = "Event $city $x";
@@ -81,7 +113,7 @@ class Fixtures
                         $event->store = $store;
                         R::store($event);
                         
-                        for ($x = 1; $x < $leadsCount; $x ++) {
+                        for ($l = 1; $l < $leadsCount; $l ++) {
                             $lead = R::dispense(Lead::NAME);
                             $lead->name = $faker->firstName;
                             $lead->surname = $faker->lastName;

@@ -17,6 +17,8 @@ use App\Dao\LeadRepository;
 use App\Service\UserService;
 use App\Dao\UserRepository;
 use App\Dao\RoleRepository;
+use App\Service\MailService;
+use App\Service\MailRenderer;
 // DIC configuration
 
 $container = $app->getContainer();
@@ -47,11 +49,9 @@ $container['view'] = function ($c)
     return $view;
 };
 
-
-
 define('REDBEAN_MODEL_PREFIX', '\\App\\Dao\\');
-
 R::setup('mysql:host=localhost;dbname=symfony', 'root', '');
+R::freeze(TRUE);
 
 // -----------------------------------------------------------------------------
 // Authentication/Authorization
@@ -123,6 +123,23 @@ $container['userService'] = function ($c)
     $userRepo = new UserRepository();
     $roleRepo = new RoleRepository();
     return new UserService($userRepo, $roleRepo);
+};
+
+// userService
+$container['mailService'] = function ($c)
+{
+    
+    $twig = $c->get('view')->getEnvironment();
+    
+    $throwExceptions = true;
+    
+    $mailer = new PHPMailer($throwExceptions);
+    
+    $renderer = new MailRenderer($twig);
+    
+    $service = new MailService($mailer, $renderer);
+    
+    return $service;
 };
 
 // -----------------------------------------------------------------------------
