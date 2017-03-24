@@ -7,6 +7,7 @@ use Symfony\Component\Console\Application;
 use App\Commands\LoadFixturesCommand;
 use App\Commands\DefaultCommand;
 use App\Commands\SendMailCommand;
+use App\Commands\LoadSchemaCommand;
 
 $application = new Application();
 
@@ -23,6 +24,12 @@ require __DIR__ . '/../app/bootstrap.php';
 
 $fixturesCommand = new LoadFixturesCommand();
 $fixturesCommand->setSlim($app);
-
 $application->add($fixturesCommand);
+
+
+$schemaCommand = new LoadSchemaCommand();
+$schemaCommand->setSlim($app);
+$application->add($schemaCommand);
+
+
 $application->run();
