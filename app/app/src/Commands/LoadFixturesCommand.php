@@ -88,7 +88,8 @@ class LoadFixturesCommand extends AbstractCommand
         
         $output->writeln(print_r($dbconfig, 1));
         
-        $fixtures = new Fixtures(true);
+        
+        $fixtures = new Fixtures(false);
         $fixtures->openConnection($dbconfig);
         $fixtures->load();
         $fixtures->dump();
