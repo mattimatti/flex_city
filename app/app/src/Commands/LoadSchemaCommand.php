@@ -33,18 +33,18 @@ class LoadSchemaCommand extends AbstractCommand
             ''
         ]);
         
-        // $domain = $input->getArgument('domain');
-        // $output->writeln('Domain: ' . $domain);
+        $domain = $input->getArgument('domain');
+        $output->writeln('Domain: ' . $domain);
         
-        // $dbconfig = $this->getDbConfig($domain, $output);
+        $dbconfig = $this->getDbConfig($domain, $output);
         
-        // $output->writeln(print_r($dbconfig, 1));
+        $output->writeln(print_r($dbconfig, 1));
         
-        // $out = @system('echo from sys');
-        // $output->writeln($out);
+        $out = @system('echo from sys');
+        $output->writeln($out);
         
-        // $out = @system('mysql');
-        // $output->writeln($out);
+        $out = @system('mysql');
+        $output->writeln($out);
     }
 
     /**
