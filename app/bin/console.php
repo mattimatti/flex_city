@@ -8,6 +8,7 @@ use App\Commands\LoadFixturesCommand;
 use App\Commands\DefaultCommand;
 use App\Commands\SendMailCommand;
 use App\Commands\LoadSchemaCommand;
+use App\Commands\InsertAdminCommand;
 
 $application = new Application();
 
@@ -22,14 +23,24 @@ require __DIR__ . '/../app/bootstrap.php';
 
 // $application->add(new SendMailCommand($app->getContainer()));
 
+
+//
+//
 $fixturesCommand = new LoadFixturesCommand();
 $fixturesCommand->setSlim($app);
 $application->add($fixturesCommand);
 
+//
+//
+$insertAdminCommand = new InsertAdminCommand();
+$insertAdminCommand->setSlim($app);
+$application->add($insertAdminCommand);
 
+//
+//
+//
 $schemaCommand = new LoadSchemaCommand();
 $schemaCommand->setSlim($app);
 $application->add($schemaCommand);
-
 
 $application->run();
