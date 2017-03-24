@@ -28,7 +28,7 @@ class LoadSchemaCommand extends AbstractCommand
         
         // outputs multiple lines to the console (adding "\n" at the end of each line)
         $output->writeln([
-            'Load Schema',
+            'Load Database Schema',
             '============',
             ''
         ]);
@@ -43,8 +43,14 @@ class LoadSchemaCommand extends AbstractCommand
         $out = @system('echo from sys');
         $output->writeln($out);
         
-        $out = @system('mysql');
+        $user = $dbconfig['user'];
+        $password = $dbconfig['password'];
+        $dbname = $dbconfig['dbname'];
+        
+        $out = @system("mysql -u$user -p$password $dbname < data/structure.sql");
         $output->writeln($out);
+        
+        $output->writeln("Schema loaded");
     }
 
     /**
