@@ -12,6 +12,8 @@ if (defined('CURRENT_DOMAIN')) {
         if (is_array($country_settings)) {
             $settings = array_replace_recursive($settings, $country_settings);
         }
+    }else{
+        exit("error in db config");
     }
 }
 
