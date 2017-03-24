@@ -13,7 +13,7 @@ if (defined('CURRENT_DOMAIN')) {
             $settings = array_replace_recursive($settings, $country_settings);
         }
     }else{
-        exit("error in db config: " . CURRENT_DOMAIN . " - " . __DIR__);
+        exit("error in db config: " . CURRENT_DOMAIN . " - ");
     }
 }
 
