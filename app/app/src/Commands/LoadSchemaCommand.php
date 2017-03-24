@@ -25,7 +25,7 @@ class LoadSchemaCommand extends LoadFixturesCommand
         
         // outputs multiple lines to the console (adding "\n" at the end of each line)
         $output->writeln([
-            'Load Fixtures',
+            'Load Schema',
             '============',
             ''
         ]);
