@@ -27,6 +27,16 @@ class Fixtures
         $this->freeze = $freeze;
     }
 
+    /**
+     *
+     * @param array $config            
+     */
+    public function openConnection($config)
+    {
+        R::addDatabase('fixtures', 'mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['user'], $config['password']);
+        R::selectDatabase('fixtures');
+    }
+
     public function truncate()
     {
         R::exec("SET FOREIGN_KEY_CHECKS = 0;");

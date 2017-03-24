@@ -60,7 +60,6 @@ $container['translator'] = function ($c)
     
     $defaultlang = $settings['lang'];
     
-    
     // First param is the "default language" to use.
     $translator = new Translator($defaultlang, new MessageSelector());
     
@@ -120,13 +119,16 @@ $container['view'] = function ($c)
 // -----------------------------------------------------------------------------
 // Database
 // -----------------------------------------------------------------------------
-
 define('REDBEAN_MODEL_PREFIX', '\\App\\Dao\\');
 
-$dbsettings = $container['settings']['database'];
+$container['database'] = function ($c)
+{
+    $dbsettings = $c['settings']['database'];
+    R::setup('mysql:host=' . $dbsettings['host'] . ';dbname=' . $dbsettings['dbname'], $dbsettings['user'], $dbsettings['password']);
+    R::freeze(TRUE);
+};
 
-R::setup('mysql:host=' . $dbsettings['host'] . ';dbname=' . $dbsettings['dbname'], $dbsettings['user'], $dbsettings['password']);
-R::freeze(TRUE);
+$app->getContainer()->get('database');
 
 // -----------------------------------------------------------------------------
 // Authentication/Authorization
@@ -166,6 +168,7 @@ $container['logger'] = function ($c)
     return $logger;
 };
 
+// session middleware
 $container['sessionMiddleware'] = function ($c)
 {
     $sessionMiddleware = new SessionMiddleware([
@@ -212,8 +215,7 @@ $container['mailService'] = function ($c)
     
     $throwExceptions = true;
     
-    $mailer = new PHPMailer($throwExceptions);
-    $mailer->Timeout = 5;
+    $mailer = new \PHPMailer($throwExceptions);
     
     // use sendmail??
     $mailer->IsSendmail();
@@ -229,43 +231,4 @@ $container['mailService'] = function ($c)
     
     return $service;
 };
-
-// -----------------------------------------------------------------------------
-// Action factories
-// -----------------------------------------------------------------------------
-
-$container["App\Action\HomeAction"] = function ($c)
-{
-    return new App\Action\HomeAction($c);
-};
-
-$container["App\Action\AdminAction"] = function ($c)
-{
-    return new App\Action\AdminAction($c);
-};
-
-$container["App\Action\LoginAction"] = function ($c)
-{
-    return new App\Action\LoginAction($c);
-};
-
-$container["App\Action\LogoutAction"] = function ($c)
-{
-    return new App\Action\LogoutAction($c);
-};
-
-$container["App\Action\HostessEventSelectionAction"] = function ($c)
-{
-    return new App\Action\HostessEventSelectionAction($c);
-};
-
-$container["App\Action\HostessLoginAction"] = function ($c)
-{
-    return new App\Action\HostessLoginAction($c);
-};
-
-$fixtures = new Fixtures();
-// $fixtures->load();
-// $fixtures->dump();
-
 

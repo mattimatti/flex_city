@@ -9,39 +9,15 @@ if (PHP_SAPI === 'cli-server' && $_SERVER['SCRIPT_FILENAME'] !== __FILE__) {
     return false;
 }
 
-require __DIR__ . '/../vendor/autoload.php';
 
 $hostname = '';
 if (isset($_SERVER['HTTP_HOST'])) {
     $hostname = $_SERVER['HTTP_HOST'];
 }
+define('CURRENT_DOMAIN',$hostname);
 
-// Instantiate the app
-$settings = require __DIR__ . '/../app/settings.php';
-
-// overload settings by hostname
-if (! empty($hostname)) {
-    define('CURRENT_DOMAIN',$hostname);
-    $filename = __DIR__ . '/domains/' . $hostname . '/settings.php';
-    if (file_exists($filename)) {
-        $country_settings = require $filename;
-        
-        if (is_array($country_settings)) {
-            $settings = array_replace_recursive($settings, $country_settings);
-        }
-    }
-}
-
-$app = new \Slim\App($settings);
-
-// Set up dependencies
-require __DIR__ . '/../app/dependencies.php';
-
-// Register middleware
-require __DIR__ . '/../app/middleware.php';
-
-// Register routes
-require __DIR__ . '/../app/routes.php';
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../app/bootstrap.php';
 
 // Run!
 $app->run();

@@ -2,7 +2,6 @@
 namespace App\Dao;
 
 use RedBeanPHP\R;
-use Zend\Feed\PubSubHubbub\Model\AbstractModel;
 
 abstract class AbstractRepository
 {

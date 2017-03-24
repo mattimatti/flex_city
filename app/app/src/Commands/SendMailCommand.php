@@ -7,7 +7,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Pimple\Container;
 use App\Service\MailService;
 
-class SendMailCommand extends Command
+class SendMailCommand extends AbstractCommand
 {
 
     /**
