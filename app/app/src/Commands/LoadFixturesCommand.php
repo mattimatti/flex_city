@@ -17,7 +17,7 @@ class LoadFixturesCommand extends AbstractCommand
             ->setDescription('Load The fixtures in database')
             ->setHelp('This command allows you to load fixtures');
         
-        $this->addArgument('domain', InputArgument::REQUIRED, 'The username of the user.');
+        $this->addArgument('domain', InputArgument::REQUIRED, 'The domain.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -33,6 +33,27 @@ class LoadFixturesCommand extends AbstractCommand
         $domain = $input->getArgument('domain');
         $output->writeln('Domain: ' . $domain);
         
+        $dbconfig = $this->getDbConfig($domain, $output);
+
+        $output->writeln(print_r($dbconfig, 1));
+        
+        $fixtures = new Fixtures(false);
+        $fixtures->openConnection($dbconfig);
+        $fixtures->load();
+        $fixtures->dump();
+    }
+
+    
+    
+    /**
+     * 
+     * @param unknown $domain
+     * @param unknown $output
+     * @throws \Exception
+     * @return multitype:
+     */
+    public function getDbConfig($domain, $output)
+    {
         $folder = "web/domains/$domain/";
         
         if (file_exists($folder)) {
@@ -79,19 +100,12 @@ class LoadFixturesCommand extends AbstractCommand
         
         $dbsettings = "app/dbsettings.php";
         
-        if(file_exists($dbsettings)){
+        if (file_exists($dbsettings)) {
             $output->writeln('DBSettings file FOUND');
             $settings = require $dbsettings;
             $dbconfig = array_replace_recursive($dbconfig, $settings);
         }
         
-        
-        $output->writeln(print_r($dbconfig, 1));
-        
-        
-        $fixtures = new Fixtures(false);
-        $fixtures->openConnection($dbconfig);
-        $fixtures->load();
-        $fixtures->dump();
+        return $dbconfig;
     }
 }
