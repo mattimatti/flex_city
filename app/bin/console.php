@@ -27,9 +27,9 @@ $fixturesCommand->setSlim($app);
 $application->add($fixturesCommand);
 
 
-$schemaCommand = new LoadSchemaCommand();
-$schemaCommand->setSlim($app);
-$application->add($schemaCommand);
+// $schemaCommand = new LoadSchemaCommand();
+// $schemaCommand->setSlim($app);
+// $application->add($schemaCommand);
 
 
 $application->run();
