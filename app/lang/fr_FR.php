@@ -23,7 +23,12 @@ return array(
     
     'SURNAME' => 'Cognome',
     'SURNAME-placeholder' => 'Inserisci il Cognome',
+
+    'CITY' => 'Città',
+    'CITY-placeholder' => 'Inserisci la Città',
     
+    'PHONE' => 'Telefono',
+    'PHONE-placeholder' => 'Inserisci il Telefono',
     
     'privacy-modal-title' => 'Informativa sul trattamento dei dati personali',
     'terms-modal-title' => 'Regolamento del concorso',

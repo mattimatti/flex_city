@@ -45,9 +45,11 @@ class LeadRegisterAction extends AbstractAction
                 $this->flash->addSuccess("Lead Registered Successfully");
                 
                 // return $this->__redirect($response, $request->getUri());
+                
                 $url = $request->getUri();
                 
                 return $response->withStatus(302)->withHeader('Location', $url);
+                
             } catch (\Exception $ex) {
                 
                 $this->setViewData("item", $request->getParams());

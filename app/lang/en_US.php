@@ -24,7 +24,12 @@ return array(
     
     'SURNAME' => 'Last Name',
     'SURNAME-placeholder' => 'Insert Last Name',
+
+    'CITY' => 'Città',
+    'CITY-placeholder' => 'Inserisci la Città',
     
+    'PHONE' => 'Telefono',
+    'PHONE-placeholder' => 'Inserisci il Telefono',
     
     'privacy-modal-title' => 'Privacy Policy',
     'terms-modal-title' => 'Terms and Conditions',
