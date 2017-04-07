@@ -17,38 +17,40 @@ class LoadFixturesCommand extends AbstractCommand
             ->setDescription('Load The fixtures in database')
             ->setHelp('This command allows you to load fixtures');
         
-        $this->addArgument('domain', InputArgument::REQUIRED, 'The domain.');
+        // $this->addArgument('domain', InputArgument::REQUIRED, 'The domain.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $domains = $this->getDomains();
         
-        // outputs multiple lines to the console (adding "\n" at the end of each line)
-        $output->writeln([
-            'Load Fixtures',
-            '============',
-            ''
-        ]);
-        
-        $domain = $input->getArgument('domain');
-        $output->writeln('Domain: ' . $domain);
-        
-        $dbconfig = $this->getDbConfig($domain, $output);
-
-        $output->writeln(print_r($dbconfig, 1));
-        
-        $fixtures = new Fixtures(false);
-        $fixtures->openConnection($dbconfig);
-        $fixtures->load();
-        $fixtures->dump();
+        foreach ($domains as $domain) {
+            
+            // outputs multiple lines to the console (adding "\n" at the end of each line)
+            $output->writeln([
+                'Load Fixtures',
+                '============',
+                ''
+            ]);
+            
+            // $domain = $input->getArgument('domain');
+            $output->writeln('Domain: ' . $domain);
+            
+            $dbconfig = $this->getDbConfig($domain, $output);
+            
+            $output->writeln(print_r($dbconfig, 1));
+            
+            $fixtures = new Fixtures(false);
+            $fixtures->openConnection($dbconfig);
+            $fixtures->load();
+            $fixtures->dump();
+        }
     }
 
-    
-    
     /**
-     * 
-     * @param unknown $domain
-     * @param unknown $output
+     *
+     * @param unknown $domain            
+     * @param unknown $output            
      * @throws \Exception
      * @return multitype:
      */

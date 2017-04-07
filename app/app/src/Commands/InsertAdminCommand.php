@@ -25,32 +25,34 @@ class InsertAdminCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $domains = $this->getDomains();
         
-        // outputs multiple lines to the console (adding "\n" at the end of each line)
-        $output->writeln([
-            'Load Admin',
-            '============',
-            ''
-        ]);
-        
-        $domain = $input->getArgument('domain');
-        $output->writeln('Domain: ' . $domain);
-        
-        $dbconfig = $this->getDbConfig($domain, $output);
-        
-        $output->writeln(print_r($dbconfig, 1));
-        
-        $out = @system('echo from sys');
-        $output->writeln($out);
-        
-        $user = $dbconfig['user'];
-        $password = $dbconfig['password'];
-        $dbname = $dbconfig['dbname'];
-        
-        $out = @system("mysql -u$user -p$password $dbname < data/fixtures.sql");
-        $output->writeln($out);
-        
-        $output->writeln("Fixtures loaded");
+        foreach ($domains as $domain) {
+            
+            // outputs multiple lines to the console (adding "\n" at the end of each line)
+            $output->writeln([
+                'Load Admin',
+                '============',
+                ''
+            ]);
+            
+            $domain = $input->getArgument('domain');
+            $output->writeln('Domain: ' . $domain);
+            
+            $dbconfig = $this->getDbConfig($domain, $output);
+            
+            $output->writeln(print_r($dbconfig, 1));
+            
+            
+            $user = $dbconfig['user'];
+            $password = $dbconfig['password'];
+            $dbname = $dbconfig['dbname'];
+            
+            $out = @system("mysql -u$user -p$password $dbname < data/fixtures.sql");
+            $output->writeln($out);
+            
+            $output->writeln("Fixtures loaded");
+        }
     }
 
     /**

@@ -69,6 +69,8 @@ CREATE TABLE `lead` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `surname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `day` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `month` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `year` int(11) unsigned DEFAULT NULL,

@@ -15,7 +15,7 @@ class LoadSchemaCommand extends AbstractCommand
             ->setDescription('Load schema in database')
             ->setHelp('This command allows you to load schema in database');
         
-        $this->addArgument('domain', InputArgument::REQUIRED, 'the domain.');
+        //$this->addArgument('domain', InputArgument::REQUIRED, 'the domain.');
     }
 
     /**
@@ -26,31 +26,40 @@ class LoadSchemaCommand extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         
-        // outputs multiple lines to the console (adding "\n" at the end of each line)
-        $output->writeln([
-            'Load Database Schema',
-            '============',
-            ''
-        ]);
         
-        $domain = $input->getArgument('domain');
-        $output->writeln('Domain: ' . $domain);
+        $domains = $this->getDomains();
         
-        $dbconfig = $this->getDbConfig($domain, $output);
+        foreach ($domains as $domain){
+            
+            // outputs multiple lines to the console (adding "\n" at the end of each line)
+            $output->writeln([
+                'Load Database Schema ',
+                '============',
+                ''
+            ]);
+            
+//             $domain = $input->getArgument('domain');
+            $output->writeln('Domain: ' . $domain);
+            
+            $dbconfig = $this->getDbConfig($domain, $output);
+            
+            $output->writeln(print_r($dbconfig, 1));
+            
+            //$out = @system('echo from sys');
+            //$output->writeln($out);
+            
+            $user = $dbconfig['user'];
+            $password = $dbconfig['password'];
+            $dbname = $dbconfig['dbname'];
+            
+            $out = @system("mysql -u$user -p$password $dbname < data/structure.sql");
+            $output->writeln($out);
+            
+            $output->writeln("Schema loaded");
+            
+            
+        }
         
-        $output->writeln(print_r($dbconfig, 1));
-        
-        $out = @system('echo from sys');
-        $output->writeln($out);
-        
-        $user = $dbconfig['user'];
-        $password = $dbconfig['password'];
-        $dbname = $dbconfig['dbname'];
-        
-        $out = @system("mysql -u$user -p$password $dbname < data/structure.sql");
-        $output->writeln($out);
-        
-        $output->writeln("Schema loaded");
     }
 
     /**
