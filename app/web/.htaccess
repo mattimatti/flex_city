@@ -8,6 +8,8 @@
 	RewriteRule ^js/(.*) domains/%{HTTP_HOST}/public/js/$1    
 	RewriteRule ^img/(.*) domains/%{HTTP_HOST}/public/img/$1    
 	RewriteRule ^font(.*) domains/%{HTTP_HOST}/public/font$1    
+	RewriteRule ^media(.*) domains/%{HTTP_HOST}/public/media$1    
+	RewriteRule ^data(.*) domains/%{HTTP_HOST}/public/data$1    
 
     RewriteCond %{REQUEST_FILENAME} -s [OR]
     RewriteCond %{REQUEST_FILENAME} -l [OR]
