@@ -36,7 +36,7 @@ return array(
     'marketing-modal-title' => 'Consenso all’ invio di materiale promo-pubblicitario',
     'marketing-third-modal-title' => 'Consenso  alla comunicazione dei dati alle società facenti parte del gruppo VF International',
     
-    'privacy-label' => 'Dichiaro di aver preso visione dell’informativa sul trattamento dei dati.',
+    'privacy-label' => 'Dichiaro di aver preso visione dell’<a target="_blank" href="/media/pdf/privacy-policy.pdf">informativa sul trattamento dei dati</a> e di accettare <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">il regolamento</a> del concorso.',
     'terms-label' => 'Dichiaro di accettare il regolamento del concorso.',
     'marketing-label' => 'Acconsento all’ invio di materiale promo-pubblicitario tramite posta elettronica da parte di VF Italia srl.',
     'marketing-third-label' => 'Acconsento alla comunicazione dei miei dati alle società del gruppo VF International, quali VF Italia, le  legal entities delle altre country e i partner franchisee, per finalità promozionali e di marketing delle stesse.',

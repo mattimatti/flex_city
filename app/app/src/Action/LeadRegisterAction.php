@@ -45,7 +45,7 @@ class LeadRegisterAction extends AbstractAction
                 
                 $lead = $this->leadService->create($request->getParams());
                 
-                $this->flash->addSuccess("Lead Registered Successfully");
+//                 $this->flash->addSuccess("Lead Registered Successfully");
                 
                 // $url = $request->getUri();
                 

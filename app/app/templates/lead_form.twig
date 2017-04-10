@@ -8,6 +8,12 @@
 .registerform .mt40{
 	margin-top: 40px;
 }
+.registerform .mt60{
+	margin-top: 60px;
+}
+.registerform .mt120{
+	margin-top: 120px;
+}
 </style>
 
 <form id="register" method="post" class="registerform" data-toggle="validator">
@@ -48,43 +54,41 @@
 	</div>
 
 	<div class="row mt20">
-		<div class="col-md-2">
+		<div class="col-md-6">
 			<label>{{ "GENDER"|trans }}</label>
 		</div>
 		<div class="col-md-10">
-		  {% include "snippets/radio.twig" with {name: 'gender', required : true, selectedvalue : item.gender, options : [{value : 'm',label : 'MALE'|trans},{value : 'f',label : 'FEMALE'|trans}] } %}
+			<div class="wrapper-radio">
+			  {% include "snippets/radio.twig" with {name: 'gender', required : true, selectedvalue : item.gender, options : [{value : 'm',label : 'MALE'|trans},{value : 'f',label : 'FEMALE'|trans}] } %}
+			</div>
 		</div>
 	</div>
+	
+	
+	
+	
+	<div class="mt120"></div>
 
+	
+	
 	<!-- privacy policy -->
-	<div class="row mt40">
-		<div class="col-sm-12 col-md-8">
-			<a data-toggle="modal" data-target="#privacyModal" href="javascript:;">{{ "privacy-label"|trans }}</a>
+	<div class="row mt120">
+		<div class="col-sm-12 col-md-1">
+		      {% include "snippets/checkbox.twig" with {name: 'pp', required : true, selectedvalue : item.pp, value : 'y' } %}
 		</div>
-		<div class="col-sm-12 col-md-4">
-		      {% include "snippets/radio.twig" with {name: 'pp', required : true, selectedvalue : item.pp|default('y'), options : [{value : 'y',label : 'YES'|trans},{value : 'n',label : 'NO'|trans}] } %}
-		</div>
-	</div>
-
-
-	<!-- terms and conditions -->
-	<div class="row mt20">
-		<div class="col-sm-12 col-md-8">
-			<a data-toggle="modal" data-target="#termsModal" href="javascript:;">{{ "terms-label"|trans }}</a>
-		</div>
-		<div class="col-sm-12 col-md-4">
-		      {% include "snippets/radio.twig" with {name: 'tc', required : true, selectedvalue : item.tc|default('y'), options : [{value : 'y',label : 'YES'|trans},{value : 'n',label : 'NO'|trans}] } %}
+		<div class="col-sm-12 col-md-11">
+			{{ "privacy-label"|trans|raw }}
 		</div>
 	</div>
 
 
 	<!-- marketing -->
 	<div class="row mt20">
-		<div class="col-sm-12 col-md-8">
-			<a data-toggle="modal" data-target="#marketingModal" href="javascript:;">{{ "marketing-label"|trans }}</a>
+		<div class="col-sm-12 col-md-1">
+		      {% include "snippets/checkbox.twig" with {name: 'mkt', required : true, selectedvalue : item.mkt, value : 'y' } %}
 		</div>
-		<div class="col-sm-12 col-md-4">
-		      {% include "snippets/radio.twig" with {name: 'mkt', required : true, selectedvalue : item.mkt|default('y'), options : [{value : 'y',label : 'YES'|trans},{value : 'n',label : 'NO'|trans}] } %}
+		<div class="col-sm-12 col-md-11">
+			{{ "marketing-label"|trans }}
 		</div>
 	</div>
 
@@ -92,17 +96,21 @@
 	
 	<!-- marketing-third -->
 	<div class="row mt20">
-		<div class="col-sm-12 col-md-8">
-			<a  data-toggle="modal" data-target="#marketing-thirdModal" href="javascript:;">{{ "marketing-third-label"|trans }}</a>
+		<div class="col-sm-12 col-md-1">
+		      {% include "snippets/checkbox.twig" with {name: 'mkt3rd', required : true, selectedvalue : item.mkt3rd, value : 'y' } %}
 		</div>
-		<div class="col-sm-12 col-md-4">
-		      {% include "snippets/radio.twig" with {name: 'mkt3rd', required : true, selectedvalue : item.mkt3rd|default('y'), options : [{value : 'y',label : "YES"|trans},{value : 'n',label : 'NO'|trans}] } %}
+		<div class="col-sm-12 col-md-11">
+			{{ "marketing-third-label"|trans }}
 		</div>
 	</div>
 
+{# 	<div class="mt20">#}
+{# 		*Campo obbligatorio#}
+{# 	</div>#}
+
 	<div class="row mt20">
 		<div class="col-md-12">
-		<button type="submit" class="btn btn-block btn-success">{{ "subscribe"|trans }}</button>
+		<button id="submit" type="submit" class="btn btn-block btn-success">{{ "subscribe"|trans }}</button>
 		</div>
 	</div>
 

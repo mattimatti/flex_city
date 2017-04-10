@@ -35,9 +35,18 @@ class LeadUnsubscribeAction extends AbstractAction
         if (isset($args['email'])) {
             $email = $args['email'];
             $this->leadService->remove($email);
-            exit("Unsubscribe successful");
         }
         
-        // return $response;
+        $this->__render($response);
     }
+    
+    
+    /*
+     * (non-PHPdoc) @see \App\Action\AbstractAction::getTemplate()
+    */
+    public function getTemplate()
+    {
+        return 'unsubscribe.twig';
+    }
+    
 }

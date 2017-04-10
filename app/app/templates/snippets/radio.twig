@@ -1,5 +1,6 @@
 {% for opt in options %}
-<label class="radio-inline">
-    <input type="radio" name="{{ name }}" id="{{ name }}" value="{{ opt.value }}" {% if selectedvalue == opt.value %}checked="checked" {% endif %}  {% if required %} required {% endif %}> {{ opt.label }}
-</label>
+<div class="cb">
+    <input type="radio" name="{{ name }}" id="c{{ loop.index }}" value="{{ opt.value }}" {% if selectedvalue == opt.value %}checked="checked" {% endif %}  {% if required %} required {% endif %}>
+    <label for="c{{ loop.index }}"><span></span>{{ opt.label }}</label>
+</div>
 {% endfor %}

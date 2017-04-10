@@ -92,7 +92,7 @@ class LeadService
             'year',
             'gender',
             'pp',
-            'tc',
+//             'tc', // Removed and joined to pp
             'mkt'
         ));
         
