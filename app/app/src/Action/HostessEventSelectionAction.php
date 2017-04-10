@@ -49,7 +49,7 @@ final class HostessEventSelectionAction extends AbstractAction
         $this->setViewData("event_id", $event_id);
         $this->setViewData("location_id", $location_id);
         
-        $this->setViewData("events", $eventRepo->findByLocationAndUser($location_id,$user_id));
+        $this->setViewData("events", $eventRepo->findByLocationAndUser($location_id, $user_id));
         $this->setViewData("locations", $locationRepo->findByUser($user_id));
         
         $this->__render($response);
