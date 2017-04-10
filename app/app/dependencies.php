@@ -206,21 +206,31 @@ $container['userService'] = function ($c)
     return new UserService($userRepo, $roleRepo);
 };
 
-// userService
+
+// mailRenderer
+$container['mailRenderer'] = function ($c)
+{
+    $twigEnv = $c->get('view')->getEnvironment();
+    $settings = $c->get('settings');
+    $renderer = new MailRenderer($twigEnv, $settings);
+    return $renderer;
+};
+
+
+
+// mailService
 $container['mailService'] = function ($c)
 {
     
     $settings = $c->get('settings');
-    $twigEnv = $c->get('view')->getEnvironment();
     
     $throwExceptions = true;
-    
     $mailer = new \PHPMailer($throwExceptions);
     
     // use sendmail??
     $mailer->IsSendmail();
     
-    $renderer = new MailRenderer($twigEnv);
+    $renderer = $c->get('mailRenderer');
     $service = new MailService($mailer, $renderer);
     
     // configure the sender

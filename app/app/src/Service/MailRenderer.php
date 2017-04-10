@@ -1,10 +1,20 @@
 <?php
 namespace App\Service;
 
+use App\Debug;
+
+/**
+ * This service renders
+ *
+ * @author mattimatti
+ *        
+ */
 class MailRenderer
 {
 
     protected $twig;
+
+    protected $settings;
 
     protected $subject = '';
 
@@ -12,9 +22,20 @@ class MailRenderer
 
     protected $bodyText = '';
 
-    public function __construct(\Twig_Environment $twig)
+    /**
+     *
+     * @param \Twig_Environment $twig            
+     */
+    public function __construct(\Twig_Environment $twig, $settings)
     {
         $this->twig = $twig;
+        $this->settings = $settings;
+        
+        // create a base url.
+        $domain = $this->settings['domain'];
+        $baseUrl = "http://$domain/";
+        $this->settings['baseUrl'] = $baseUrl;
+        $this->settings['unsubscribeUrl'] = $baseUrl . 'unsubscribe/';
     }
 
     /**
@@ -24,8 +45,12 @@ class MailRenderer
      */
     public function getMessage($parameters = array(), $identifier = 'default')
     {
-        $template = $this->twig->loadTemplate('mail/' . $identifier . '.twig'); // Define your own schema
+        $template = $this->twig->loadTemplate('mail/' . $identifier . '.twig');
         
+        // Append settings
+        $parameters['settings'] = $this->settings;
+        
+        // this way we render single blocks..
         $this->subject = $template->renderBlock('subject', $parameters);
         $this->bodyHtml = $template->renderBlock('body_html', $parameters);
         $this->bodyText = $template->renderBlock('body_text', $parameters);

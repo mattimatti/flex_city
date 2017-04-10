@@ -14,3 +14,18 @@ VALUES
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`)
 VALUES
 	(1, 1, 1);
+
+	
+INSERT INTO `store` (`id`, `name`)
+VALUES
+	(1, 'web');
+
+INSERT INTO `location` (`id`, `name`)
+VALUES
+	(1, 'web');
+
+	
+	
+INSERT INTO `event` (`id`, `name`, `permalink`, `location_id`, `store_id`)
+VALUES
+	(1, 'web', 'xyz', 1, 1);

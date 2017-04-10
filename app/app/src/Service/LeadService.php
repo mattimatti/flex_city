@@ -55,6 +55,8 @@ class LeadService
             'name',
             'surname',
             'email',
+            'phone',
+            'city',
             'day',
             'month',
             'year',
@@ -83,6 +85,8 @@ class LeadService
             'name',
             'surname',
             'email',
+            'phone',
+            'city',
             'day',
             'month',
             'year',
@@ -117,6 +121,17 @@ class LeadService
     }
 
     /**
+     * Remove a lead by email address.
+     *
+     * @param string $email
+     *            The email
+     */
+    public function remove($email)
+    {
+        return $this->getLeadRepo()->removeByEmail($email);
+    }
+
+    /**
      *
      * @return Lead
      */
@@ -126,7 +141,6 @@ class LeadService
         
         $this->validateCreate($param);
         
-        // Debug::dump($param);
         $lead = $this->getLeadRepo()->create($param);
         
         if ($this->getMailService()) {

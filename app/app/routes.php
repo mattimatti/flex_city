@@ -44,6 +44,13 @@ $app->any('/admin/exporter/{resource}[/{event_id}]', "App\Action\Admin\ExportAct
     Acl::ADMIN
 ]);
 
+
+$app->any('/unsubscribe[/{email}]', "App\Action\LeadUnsubscribeAction")
+    ->setName('lead_unsubscribe')
+    ->allow([
+    Acl::GUEST
+]);
+
 // ////////////////////////////////////////////////////////////////////
 // AUTH
 // ////////////////////////////////////////////////////////////////////
@@ -59,6 +66,7 @@ $app->any('/hostess/register', "App\Action\LeadRegisterAction")
     ->allow([
     Acl::HOSTESS
 ]);
+
 
 // ////////////////////////////////////////////////////////////////////
 // AUTH
@@ -76,9 +84,11 @@ $app->get('/auth/logout', "App\Action\Auth\LogoutAction")
     Acl::GUEST
 ]);
 
+
 // ////////////////////////////////////////////////////////////////////
 // PUBLIC
 // ////////////////////////////////////////////////////////////////////
+
 
 $app->get('/', "App\Action\HomeAction")
     ->setName('homepage')
@@ -97,6 +107,15 @@ $app->get('/pages/{page}', "App\Action\PagesAction")
     ->allow([
     Acl::GUEST
 ]);
+
+$app->get('/mail/preview', "App\Action\MailPreviewAction")
+    ->setName('mail_preview')
+    ->allow([
+    Acl::GUEST
+]);
+
+
+
 
 // $app->get('/event/{permalink}/signup', "App\Action\EventSignupAction")
 //     ->setName('landing')

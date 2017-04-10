@@ -7,19 +7,26 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Debug;
 use App\Dao\Event;
+use App\Service\LeadService;
 
 class HomeAction extends AbstractAction
 {
+
+    /**
+     *
+     * @var LeadService
+     */
+    protected $leadService;
     
     /*
      * (non-PHPdoc) @see \App\Action\AbstractAction::__invoke()
      */
     public function __invoke(Request $request, Response $response, $args)
     {
-        $domain = $request->getUri()->getHost();
-        
         $event_id = $this->session->get('event_id', Event::ID_WEB);
         $this->setViewData("event_id", $event_id);
+        
+        $domain = $request->getUri()->getHost();
         
         $template = "index.twig";
         

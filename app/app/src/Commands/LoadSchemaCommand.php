@@ -90,7 +90,7 @@ class LoadSchemaCommand extends AbstractCommand
                 throw new \Exception("Cannot load settings file");
             }
         } else {
-            $output->writeln('Settings file do not exists');
+            $output->writeln('Settings file do not exists: ' . $settingsfile);
             exit();
         }
         

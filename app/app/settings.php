@@ -7,7 +7,6 @@ return [
         
         'lang' => 'it_IT',
         
-        
         // View settings
         'view' => [
             'template_path' => __DIR__ . '/templates',

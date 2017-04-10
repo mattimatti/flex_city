@@ -15,7 +15,7 @@ class InsertAdminCommand extends AbstractCommand
             ->setDescription('insert Admin')
             ->setHelp('This command allows you to insert admin in database');
         
-        $this->addArgument('domain', InputArgument::REQUIRED, 'the domain.');
+//         $this->addArgument('domain', InputArgument::REQUIRED, 'the domain.');
     }
 
     /**
@@ -36,7 +36,7 @@ class InsertAdminCommand extends AbstractCommand
                 ''
             ]);
             
-            $domain = $input->getArgument('domain');
+//             $domain = $input->getArgument('domain');
             $output->writeln('Domain: ' . $domain);
             
             $dbconfig = $this->getDbConfig($domain, $output);

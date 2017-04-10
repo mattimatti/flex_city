@@ -10,7 +10,7 @@
 }
 </style>
 
-<form id="register" method="post" class="registerform" action="#register" data-toggle="validator">
+<form id="register" method="post" class="registerform" data-toggle="validator">
 
 	{% include "snippets/csfr.twig" %}
 	
@@ -36,8 +36,8 @@
 
 
 	<div class="row">
-		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'city', label: 'CITY'|trans, type: 'city', required : true, placeholder: 'CITY-placeholder'|trans, selectedvalue : item.city} %}</div>
-		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'phone', label: 'PHONE'|trans, type: 'phone', required : true, placeholder: 'PHONE-placeholder'|trans, selectedvalue : item.phone} %}</div>
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'city', label: 'CITY'|trans, required : true, placeholder: 'CITY-placeholder'|trans, selectedvalue : item.city} %}</div>
+		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'phone', label: 'PHONE'|trans, required : true, placeholder: 'PHONE-placeholder'|trans, selectedvalue : item.phone} %}</div>
 		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'email', label: 'EMAIL'|trans, type: 'email', required : true, placeholder: 'EMAIL-placeholder'|trans, selectedvalue : item.email} %}</div>
 	</div>
 

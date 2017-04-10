@@ -40,17 +40,22 @@ class LeadRegisterAction extends AbstractAction
                 if (false === $request->getAttribute('csrf_status')) {
                     throw new \Exception("Invalid check");
                 }
+                
+                $redirect = $request->getParam('redirect');
+                
                 $lead = $this->leadService->create($request->getParams());
                 
                 $this->flash->addSuccess("Lead Registered Successfully");
                 
-                // return $this->__redirect($response, $request->getUri());
+                // $url = $request->getUri();
                 
-                $url = $request->getUri();
+                $url = $redirect;
                 
                 return $response->withStatus(302)->withHeader('Location', $url);
                 
             } catch (\Exception $ex) {
+                
+                Debug::dump($ex->getMessage());
                 
                 $this->setViewData("item", $request->getParams());
                 $this->flash->addError($ex->getMessage());
@@ -61,8 +66,6 @@ class LeadRegisterAction extends AbstractAction
         }
         
         $eventRepo = new EventRepository();
-        
-        
         
         $event = $eventRepo->get($event_id);
         $this->setViewData("event", $event);

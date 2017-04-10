@@ -66,4 +66,25 @@ class LeadRepository extends AbstractRepository
     {
         return parent::create($params);
     }
+
+    /**
+     * Remove a lead by email..
+     *
+     * @return Lead
+     *
+     */
+    public function removeByEmail($email)
+    {
+        $params = array();
+        $params['email'] = $email;
+        
+        $lead = R::findOne($this->getType(), 'email = :email', $params);
+        
+        if ($lead) {
+            R::trash($lead);
+            return true;
+        }
+        
+        return false;
+    }
 }

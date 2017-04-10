@@ -1,5 +1,5 @@
 <?php
 return [
-    'user' => 'fake',
-    'password' => 'fake'
+    'user' => 'root',
+    'password' => ''
 ];
