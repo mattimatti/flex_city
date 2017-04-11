@@ -10,6 +10,7 @@ use Slim\Container;
 use RKA\SessionMiddleware;
 use RKA\Session;
 use Slim\Flash\Messages;
+use Symfony\Component\Translation\Translator;
 
 abstract class AbstractAction
 {
@@ -58,9 +59,13 @@ abstract class AbstractAction
 
     /**
      *
-     * @param Twig $view            
-     * @param LoggerInterface $logger            
-     * @param string $auth            
+     * @var Translator
+     */
+    protected $translator;
+
+    /**
+     *
+     * @param Container $container            
      */
     function __construct(Container $container)
     {
@@ -68,6 +73,9 @@ abstract class AbstractAction
         
         $this->view = $container->get("view");
         $this->logger = $container->get("logger");
+        
+        // Translator
+        $this->translator = $container->get("translator");
         
         $this->auth = $container->get("authenticator");
         

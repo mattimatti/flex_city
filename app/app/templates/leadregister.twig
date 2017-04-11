@@ -8,11 +8,15 @@
 {% block title %}{{ event.label }}{% endblock %}
 
 {% block content %}
-
 <div class="container mt20" style="padding-top: 30px; padding-bottom: 30px;">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-8 col-md-offset-2">
 	<p>Insert here client’s data to subscribe to the contest</p>
 	{% include "lead_form.twig" with {redirect : '/pages/grazie'} %}
 	</div>
 </div>
 {% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="/dist/js/main.js"></script>
+{% endblock %}
+

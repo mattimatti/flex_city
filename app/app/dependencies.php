@@ -36,6 +36,8 @@ $container = $app->getContainer();
 // Service providers
 // -----------------------------------------------------------------------------
 
+// cross forgery protection
+
 $container['csrf'] = function ($c)
 {
     $guard = new \Slim\Csrf\Guard();
@@ -188,12 +190,14 @@ $container['session'] = function ($c)
 // leadservice
 $container['leadService'] = function ($c)
 {
-    $mailService = $c->get('mailService');
-    
-    // compose the service..
+    // compose the service params
+
     $leadRepo = new LeadRepository();
+    $mailService = $c->get('mailService');
+    $translator = $c->get('translator');
+    $settings = $c->get('settings');
     
-    $leadService = new LeadService($leadRepo);
+    $leadService = new LeadService($leadRepo, $mailService, $translator,$settings);
     
     return $leadService;
 };
@@ -206,7 +210,6 @@ $container['userService'] = function ($c)
     return new UserService($userRepo, $roleRepo);
 };
 
-
 // mailRenderer
 $container['mailRenderer'] = function ($c)
 {
@@ -215,8 +218,6 @@ $container['mailRenderer'] = function ($c)
     $renderer = new MailRenderer($twigEnv, $settings);
     return $renderer;
 };
-
-
 
 // mailService
 $container['mailService'] = function ($c)

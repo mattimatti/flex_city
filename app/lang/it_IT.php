@@ -16,6 +16,15 @@ return array(
     'YEAR' => 'Anno',
     'GENDER' => 'Sesso',
     
+    'PRODUCT' => 'Prodotto',
+    'SELECT_PRODUCT' => 'Seleziona Prodotto',
+
+    
+    'CSFR_EXCEPTION' => 'Richiesta scaduta',
+    
+    'LEAD_REGISTER_SUCCESS' => 'grazie per la registrazione',
+    'EMAIL_ALREADY_REGISTERED' => 'Un concorrente con %key% %value% è già registrato',
+    
     'EMAIL' => 'Indirizzo di posta elettronica',
     'EMAIL-placeholder' => 'Inserisci l\'indirizzo di posta elettronica',
 

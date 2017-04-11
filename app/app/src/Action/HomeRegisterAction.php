@@ -23,4 +23,12 @@ final class HomeRegisterAction extends LeadRegisterAction
     {
         return 'index.twig';
     }
-}
+    
+    /*
+     * (non-PHPdoc) @see \App\Action\LeadRegisterAction::getEventId()
+     */
+    public function getEventId()
+    {
+        return Event::ID_WEB;
+    }
+}  

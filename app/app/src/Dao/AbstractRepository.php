@@ -20,6 +20,19 @@ abstract class AbstractRepository
 
     /**
      *
+     * @param string $key            
+     * @param any $value            
+     * @return boolean
+     */
+    public function existsByFieldAndValue($key, $value)
+    {
+        return (R::findOne($this->getType(), "$key = ?", array(
+            $value
+        )) !== null);
+    }
+
+    /**
+     *
      * @param array $params            
      * @return Ambigous <multitype:, \RedBeanPHP\OODBBean, \RedBeanPHP\Util\OODBBean, unknown, multitype:Ambigous <multitype:, \RedBeanPHP\Util\OODBBean> >
      */

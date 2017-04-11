@@ -7,6 +7,7 @@ use Zend\Validator\EmailAddress;
 use Symfony\Component\Validator\Validation;
 use App\Validator;
 use App\Debug;
+use Symfony\Component\Translation\Translator;
 
 class LeadService
 {
@@ -19,19 +20,40 @@ class LeadService
 
     /**
      *
+     * @var Translator
+     */
+    protected $translator;
+
+    /**
+     *
      * @var MailService
      */
     protected $mailService;
 
     /**
+     * The application settings
+     * 
+     * @var \stdClass
+     */
+    protected $settings;
+
+    /**
      *
      * @param LeadRepository $leadRepo            
      * @param MailService $mailService            
+     * @param Translator $translator            
      */
-    function __construct(LeadRepository $leadRepo, MailService $mailService = null)
+    function __construct(LeadRepository $leadRepo, MailService $mailService = null, $translator = null, $settings)
     {
         $this->leadRepo = $leadRepo;
+        
         $this->mailService = $mailService;
+        
+        $this->translator = $translator;
+        
+        $this->settings = $settings;
+        
+        
     }
     
     // Array
@@ -61,6 +83,7 @@ class LeadService
             'month',
             'year',
             'gender',
+            'product',
             'pp',
             'tc',
             'mkt'
@@ -78,7 +101,7 @@ class LeadService
      */
     public function validateCreate(array $params)
     {
-        $validator = new Validator();
+        $validator = new Validator($this->translator, $this->settings);
         
         $validator->validateNotEmpty($params, array(
             'event_id',
@@ -91,12 +114,14 @@ class LeadService
             'month',
             'year',
             'gender',
-            'pp',
-//             'tc', // Removed and joined to pp
-            'mkt'
-        ));
+            'pp'
+        // 'tc', // Removed and joined to pp
+        // 'mkt' // optional field
+                ));
         
         $validator->validateEmail($params, 'email');
+        
+        $validator->validateFieldDuplicated($params, 'email', $this->getLeadRepo());
         
         $validator->validateDigits($params, array(
             'event_id',
@@ -147,10 +172,11 @@ class LeadService
             
             $this->mailService->addRecipient($lead);
             
-            $parameters = $lead->export();
-            // Debug::dump($parameters);
+            $emailParameters = $lead->export();
             
-            $this->mailService->send($parameters);
+            // Debug::dump($emailParameters);
+            
+            $this->mailService->send($emailParameters);
         }
         
         return $lead;

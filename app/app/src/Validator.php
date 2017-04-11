@@ -5,9 +5,38 @@ use Zend\Validator\NotEmpty;
 use Zend\Validator\EmailAddress;
 use Zend\Validator\Digits;
 use Zend\Validator\Regex;
+use App\Dao\LeadRepository;
+use Symfony\Component\Translation\Translator;
 
+/**
+ *
+ * @author mattimatti
+ *        
+ */
 class Validator
 {
+
+    /**
+     *
+     * @var Translator
+     */
+    protected $translator;
+
+    /**
+     *
+     * @var \stdClass
+     */
+    protected $settings;
+
+    /**
+     *
+     * @param Translator $translator            
+     */
+    function __construct($translator, $settings)
+    {
+        $this->translator = $translator;
+        $this->settings = $settings;
+    }
 
     /**
      *
@@ -81,7 +110,8 @@ class Validator
     /**
      *
      * @param array $params            
-     * @param unknown $key            
+     * @param string $key            
+     * @param int $yearsLess            
      * @throws \InvalidArgumentException
      */
     public function validateYear(array $params, $key, $yearsLess = 100)
@@ -178,7 +208,7 @@ class Validator
         ));
         
         if (! $validator->isValid("" . $params[$key])) {
-            throw new \InvalidArgumentException("$key is not a date part");
+            throw new \InvalidArgumentException("$key is not a valid date part");
         }
     }
 
@@ -196,6 +226,32 @@ class Validator
         if (! $emailValidator->isValid($params[$key])) {
             foreach ($emailValidator->getMessages() as $messageId => $message) {
                 throw new \InvalidArgumentException($message);
+            }
+        }
+    }
+
+    /**
+     * Check wether a field is duplicated
+     *
+     * @param array $params            
+     * @param string $key            
+     * @param LeadRepository $repository            
+     * @throws \InvalidArgumentException
+     */
+    public function validateFieldDuplicated(array $params, $key, $repository)
+    {
+        if (isset($params[$key])) {
+            
+            $value = $params[$key];
+            
+            if ($repository->existsByFieldAndValue($key, $value)) {
+                
+                $message = $this->translator->trans('EMAIL_ALREADY_REGISTERED', array(
+                    '%key%' => $key,
+                    '%value%' => $value
+                ));
+                
+                throw new \Exception($message);
             }
         }
     }

@@ -40,7 +40,6 @@
 		<div class="col-md-6">{% include "snippets/field.twig" with {name: 'surname', label: 'SURNAME'|trans, required : true, placeholder: 'SURNAME-placeholder'|trans, selectedvalue : item.surname} %}</div>
 	</div>
 
-
 	<div class="row">
 		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'city', label: 'CITY'|trans, required : true, placeholder: 'CITY-placeholder'|trans, selectedvalue : item.city} %}</div>
 		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'phone', label: 'PHONE'|trans, required : true, placeholder: 'PHONE-placeholder'|trans, selectedvalue : item.phone} %}</div>
@@ -52,6 +51,25 @@
 		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'month', label: 'MONTH'|trans, required : true, selectedvalue : item.month, placeholder: '01', extra: 'pattern=^[0-9]{2}$'} %}</div>
 		<div class="col-md-4">{% include "snippets/field.twig" with {name: 'year', label: 'YEAR'|trans, required : true, selectedvalue : item.year, placeholder: '2000', extra: 'pattern=^[0-9]{4}$'} %}</div>
 	</div>
+
+	{% if event_id != 1 %}
+	<div class="row">
+		<div class="col-md-4">
+		    <div class="form-group">
+			    <label>{{ "PRODUCT"|trans }}</label>
+				<select name="product" id="product" required class="form-control">
+					<option>{{ "SELECT_PRODUCT"|trans }}</option>
+					<option>TIDELANDS</option>
+					<option>LAKEVILLE</option>
+					<option>KILLINGTON - MAN</option>
+					<option>KILLINGTON - WOMAN</option>
+					<option>AMHERST</option>
+					<option>KENNISTON</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	{% endif %}
 
 	<div class="row mt20">
 		<div class="col-md-6">
@@ -85,7 +103,8 @@
 	<!-- marketing -->
 	<div class="row mt20">
 		<div class="col-sm-12 col-md-1">
-		      {% include "snippets/checkbox.twig" with {name: 'mkt', required : true, selectedvalue : item.mkt, value : 'y' } %}
+{# 		      {% include "snippets/checkbox.twig" with {name: 'mkt', required : true, selectedvalue : item.mkt, value : 'y' } %}#}
+		      {% include "snippets/checkbox.twig" with {name: 'mkt', selectedvalue : item.mkt, value : 'y' } %}
 		</div>
 		<div class="col-sm-12 col-md-11">
 			{{ "marketing-label"|trans }}
@@ -97,7 +116,7 @@
 	<!-- marketing-third -->
 	<div class="row mt20">
 		<div class="col-sm-12 col-md-1">
-		      {% include "snippets/checkbox.twig" with {name: 'mkt3rd', required : true, selectedvalue : item.mkt3rd, value : 'y' } %}
+		      {% include "snippets/checkbox.twig" with {name: 'mkt3rd',  selectedvalue : item.mkt3rd, value : 'y' } %}
 		</div>
 		<div class="col-sm-12 col-md-11">
 			{{ "marketing-third-label"|trans }}

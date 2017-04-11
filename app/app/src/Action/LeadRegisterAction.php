@@ -31,37 +31,42 @@ class LeadRegisterAction extends AbstractAction
     {
         $this->leadService = $this->container->get('leadService');
         
-        $event_id = $this->session->get('event_id', Event::ID_WEB);
+        $event_id = $this->getEventId();
         $this->setViewData("event_id", $event_id);
         
         if ($request->isPost()) {
             
+            $redirect = $request->getParam('redirect');
+            
             try {
-                if (false === $request->getAttribute('csrf_status')) {
-                    throw new \Exception("Invalid check");
-                }
                 
-                $redirect = $request->getParam('redirect');
+                if (false === $request->getAttribute('csrf_status')) {
+                    throw new \Exception($this->translator->trans('CSFR_EXCEPTION'));
+                }
                 
                 $lead = $this->leadService->create($request->getParams());
                 
-//                 $this->flash->addSuccess("Lead Registered Successfully");
+                $this->flash->addSuccess($this->translator->trans('LEAD_REGISTER_SUCCESS'));
                 
-                // $url = $request->getUri();
+                return $response->withStatus(302)->withHeader('Location', $redirect);
+            } catch (\InvalidArgumentException $ex) {
                 
-                $url = $redirect;
-                
-                return $response->withStatus(302)->withHeader('Location', $url);
-                
-            } catch (\Exception $ex) {
-                
-                Debug::dump($ex->getMessage());
+                // Handle an invalid argument
                 
                 $this->setViewData("item", $request->getParams());
                 $this->flash->addError($ex->getMessage());
                 
                 $this->setViewData("errors", $ex->getMessage());
                 $this->setViewData($request->getParams());
+                
+                //
+            } catch (\Exception $ex) {
+                
+                // redirect a fatal exception like csrf
+                
+                $this->flash->addError($ex->getMessage());
+                
+                return $response->withStatus(302)->withHeader('Location', $redirect);
             }
         }
         
@@ -73,5 +78,14 @@ class LeadRegisterAction extends AbstractAction
         $this->__render($response);
         
         return $response;
+    }
+
+    /**
+     *
+     * @return int
+     */
+    public function getEventId()
+    {
+        return $this->session->get('event_id');
     }
 }
