@@ -31,15 +31,12 @@ class LeadRegisterAction extends AbstractAction
     {
         $this->leadService = $this->container->get('leadService');
         
-        $event_id = $this->getEventId();
-        $this->setViewData("event_id", $event_id);
-        
         if ($request->isPost()) {
             
             $redirect = $request->getParam('redirect');
             
             try {
-                
+                // validate for cross forgery requests..
                 if (false === $request->getAttribute('csrf_status')) {
                     throw new \Exception($this->translator->trans('CSFR_EXCEPTION'));
                 }
@@ -49,9 +46,13 @@ class LeadRegisterAction extends AbstractAction
                 $this->flash->addSuccess($this->translator->trans('LEAD_REGISTER_SUCCESS'));
                 
                 return $response->withStatus(302)->withHeader('Location', $redirect);
+                
+                //
             } catch (\InvalidArgumentException $ex) {
                 
-                // Handle an invalid argument
+                // Handle an invalid argument displaying the error
+                
+                // TODO: translate errors
                 
                 $this->setViewData("item", $request->getParams());
                 $this->flash->addError($ex->getMessage());
@@ -62,16 +63,17 @@ class LeadRegisterAction extends AbstractAction
                 //
             } catch (\Exception $ex) {
                 
-                // redirect a fatal exception like csrf
-                
+                // redirect a fatal exception like csrf or user already registerd
                 $this->flash->addError($ex->getMessage());
                 
                 return $response->withStatus(302)->withHeader('Location', $redirect);
             }
         }
         
-        $eventRepo = new EventRepository();
+        $event_id = $this->getEventId();
+        $this->setViewData("event_id", $event_id);
         
+        $eventRepo = new EventRepository();
         $event = $eventRepo->get($event_id);
         $this->setViewData("event", $event);
         

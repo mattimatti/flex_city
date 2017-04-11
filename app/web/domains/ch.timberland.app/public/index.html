@@ -140,77 +140,73 @@
                         Inserisci i tuoi dati e prova a vincere 4 giorni a New York.</p>
                 </div>
 
-                {% include "public/form.twig" with {redirect : '/pages/grazie'} %}
-                
-                
-                
-{#                 <form>#}
-{#                     <div class="row">#}
-{#                         <div class="col-md-6">#}
-{#                             <label>Nome</label>#}
-{#                             <input type="text" />#}
-{#                         </div>#}
-{#                         <div class="col-md-6">#}
-{#                             <label>Cognome</label>#}
-{#                             <input type="text" />#}
-{#                         </div>#}
-{#                     </div>#}
-{#                     <div class="row">#}
-{#                         <div class="col-md-6">#}
-{#                             <label>Città</label>#}
-{#                             <input type="text" />#}
-{#                         </div>#}
-{#                         <div class="col-md-6">#}
-{#                             <label>E-mail</label>#}
-{#                             <input type="email" />#}
-{#                         </div>#}
-{#                     </div>#}
-{#                     <div class="row">#}
-{#                         <div class="col-md-6">#}
-{#                             <label>Telefono</label>#}
-{#                             <input type="text" />#}
-{#                         </div>#}
-{#                         <div class="col-md-6">#}
-{#                             <label>Data di Nascita</label>#}
-{#                             <input type="text" />#}
-{#                         </div>#}
-{#                     </div>#}
-{#                     <div class="row">#}
-{#                         <div class="col-md-6">#}
-{#                             <label>Sesso</label>#}
-{#                             <div class="wrapper-radio">#}
-{#                                 <div class="cb">#}
-{#                                     <input type="radio" id="c1" name="cc" checked required />#}
-{#                                     <label for="c1"><span></span>Maschio</label>#}
-{#                                 </div>#}
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Nome</label>
+                            <input type="text" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Cognome</label>
+                            <input type="text" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Città</label>
+                            <input type="text" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>E-mail</label>
+                            <input type="email" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Telefono</label>
+                            <input type="text" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Data di Nascita</label>
+                            <input type="text" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Sesso</label>
+                            <div class="wrapper-radio">
+                                <div class="cb">
+                                    <input type="radio" id="c1" name="cc" checked required />
+                                    <label for="c1"><span></span>Maschio</label>
+                                </div>
 
-{#                                 <div class="cb">#}
-{#                                     <input type="radio" id="c2" name="cc" required />#}
-{#                                     <label for="c2"><span></span>Femmina</label>#}
-{#                                 </div>#}
-{#                             </div>#}
-{#                         </div>#}
-{#                     </div>#}
+                                <div class="cb">
+                                    <input type="radio" id="c2" name="cc" required />
+                                    <label for="c2"><span></span>Femmina</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-{#                     <div class="row privacy">#}
-{#                         <div class="col-md-10 col-md-offset-1">#}
-{#                             <div class="wrapper-radio">#}
-{#                                 <label><input type="checkbox"> Dichiaro di aver preso visione dell’<a target="_blank" href="/media/pdf/FlexinthecityInformativa.pdf">informativa sul trattamento dei dati</a> e di accettare il <a target="_blank" href="/media/pdf/FlexinthecityRegolamento.pdf">regolamento</a> del concorso*</label>#}
-{#                             </div>#}
-{#                             <div class="wrapper-radio">#}
-{#                                 <label><input type="checkbox"> Acconsento all’utilizzo dei miei dati da parte di VF Italia Srl e VF Italy Retail srl, per finalità di marketing, promozionali, analisi di mercato e profilazione.</label>#}
-{#                             </div>#}
-{#                             <div class="wrapper-radio">#}
-{#                                 <label><input type="checkbox"> Acconsento alla comunicazione dei miei dati alle società del gruppo VF International, quali VF Italia, le  legal entities delle altre country e i partner franchisee, per finalità promozionali e di marketing delle stesse.</label>#}
-{#                             </div>#}
-{#                             <p>*Campo obbligatorio</p>#}
-{#                         </div>#}
-{#                     </div>#}
+                    <div class="row privacy">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="wrapper-radio">
+                                <label><input type="checkbox"> Dichiaro di aver preso visione dell’<a target="_blank" href="/media/pdf/FlexinthecityInformativa.pdf">informativa sul trattamento dei dati</a> e di accettare il <a target="_blank" href="/media/pdf/FlexinthecityRegolamento.pdf">regolamento</a> del concorso*</label>
+                            </div>
+                            <div class="wrapper-radio">
+                                <label><input type="checkbox"> Acconsento all’utilizzo dei miei dati da parte di VF Italia Srl e VF Italy Retail srl, per finalità di marketing, promozionali, analisi di mercato e profilazione.</label>
+                            </div>
+                            <div class="wrapper-radio">
+                                <label><input type="checkbox"> Acconsento alla comunicazione dei miei dati alle società del gruppo VF International, quali VF Italia, le  legal entities delle altre country e i partner franchisee, per finalità promozionali e di marketing delle stesse.</label>
+                            </div>
+                            <p>*Campo obbligatorio</p>
+                        </div>
+                    </div>
 
-{#                     <button id="submit" type="submit">REGISTRATI</button>#}
+                    <button id="submit" type="submit">REGISTRATI</button>
 
-{#                 </form>#}
+                </form>
 
             </section>
 
@@ -381,10 +377,6 @@
 
 
         <script src="/js/scripts.min.js"></script>
-        {% include "public/form-scripts.twig" %}
+
     </body>
 </html>
-
-
-
-

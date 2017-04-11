@@ -4,7 +4,6 @@
 $settings = require __DIR__ . '/../app/settings.php';
 
 // /home/user/flex_city/app/app
-
 // overload settings by hostname
 if (defined('CURRENT_DOMAIN')) {
     $filename = __DIR__ . '/../web/domains/' . CURRENT_DOMAIN . '/settings.php';
@@ -18,6 +17,7 @@ if (defined('CURRENT_DOMAIN')) {
         exit("error in db config: " . CURRENT_DOMAIN . " - ");
     }
 } 
+
 
 $app = new \Slim\App($settings);
 

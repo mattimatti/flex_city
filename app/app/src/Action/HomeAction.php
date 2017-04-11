@@ -23,13 +23,21 @@ class HomeAction extends AbstractAction
      */
     public function __invoke(Request $request, Response $response, $args)
     {
-        $event_id = $this->session->get('event_id', Event::ID_WEB);
-        $this->setViewData("event_id", $event_id);
         
+        // ok
+        if (isset($args['locale'])) {
+            $locale = $args['locale'];
+            $this->translator->setLocale($locale);
+        }
+        
+        // Set the event as WEB, this will modify the behaviour of the lead refister form.
+        $this->setViewData("event_id", Event::ID_WEB);
+        
+        // the domain
         $domain = $request->getUri()->getHost();
         
+        // If we have a page argument let's render a ifferent template
         $template = "index.twig";
-        
         if (isset($args['page'])) {
             $template = $args['page'] . ".twig";
         }

@@ -44,7 +44,6 @@ $app->any('/admin/exporter/{resource}[/{event_id}]', "App\Action\Admin\ExportAct
     Acl::ADMIN
 ]);
 
-
 $app->any('/unsubscribe[/{email}]', "App\Action\LeadUnsubscribeAction")
     ->setName('lead_unsubscribe')
     ->allow([
@@ -67,7 +66,6 @@ $app->any('/hostess/register', "App\Action\LeadRegisterAction")
     Acl::HOSTESS
 ]);
 
-
 // ////////////////////////////////////////////////////////////////////
 // AUTH
 // ////////////////////////////////////////////////////////////////////
@@ -84,17 +82,41 @@ $app->get('/auth/logout', "App\Action\Auth\LogoutAction")
     Acl::GUEST
 ]);
 
-
 // ////////////////////////////////////////////////////////////////////
 // PUBLIC
 // ////////////////////////////////////////////////////////////////////
-
 
 $app->get('/', "App\Action\HomeAction")
     ->setName('homepage')
     ->allow([
     Acl::GUEST
 ]);
+
+// ////////////////////////////////////////////////////////////////////
+// PUBLIC
+// ////////////////////////////////////////////////////////////////////
+
+$app->get('/it_ch', "App\Action\HomeAction")
+    ->setName('homepage_it_ch')
+    ->allow([
+    Acl::GUEST
+]);
+
+$app->get('/de_ch', "App\Action\HomeAction")
+    ->setName('homepage_de_ch')
+    ->allow([
+    Acl::GUEST
+]);
+
+
+$app->get('/fr_ch', "App\Action\HomeAction")
+    ->setName('homepage_fr_ch')
+    ->allow([
+    Acl::GUEST
+]);
+
+
+
 
 $app->post('/', "App\Action\HomeRegisterAction")
     ->setName('homepage-post')
