@@ -1,19 +1,19 @@
 <?php
 return array(
-    'welcome' => 'Benvenuto',
+    'welcome' => 'Welkom',
 
     'close' => 'Chiudi',
 
     'subscribe' => 'Invia Registrazione',
 
     
-    'MALE' => 'Maschio',
-    'FEMALE' => 'Femmina',
+    'MALE' => 'Man',
+    'FEMALE' => 'Vrouw',
     'YES' => 'Accetto',
     'NO' => 'Non Accetto',
-    'DAY' => 'Data di nascita: giorno',
-    'MONTH' => 'Data di nascita: mese',
-    'YEAR' => 'Data di nascita: anno',
+    'DAY' => 'Geboortedatum: dag',
+    'MONTH' => 'Geboortedatum: maand',
+    'YEAR' => 'Geboortedatum: jaar',
     'GENDER' => 'Sesso',
     
     'PRODUCT' => 'Prodotto',
@@ -28,16 +28,16 @@ return array(
     'EMAIL' => 'Indirizzo mail',
     'EMAIL-placeholder' => 'Inserisci l\'indirizzo di posta elettronica',
 
-    'NAME' => 'Nome',
+    'NAME' => 'Voornaam',
     'NAME-placeholder' => 'Inserisci il nome',
     
-    'SURNAME' => 'Cognome',
+    'SURNAME' => 'Achternaam',
     'SURNAME-placeholder' => 'Inserisci il cognome',
 
-    'CITY' => 'Città',
+    'CITY' => 'Stad',
     'CITY-placeholder' => 'Inserisci la città',
     
-    'PHONE' => 'Telefono',
+    'PHONE' => 'Telefoon',
     'PHONE-placeholder' => 'Inserisci il telefono',
     
     'privacy-modal-title' => 'Informativa sul trattamento dei dati personali',
@@ -45,10 +45,10 @@ return array(
     'marketing-modal-title' => 'Consenso all’invio di materiale promo-pubblicitario',
     'marketing-third-modal-title' => 'Consenso  alla comunicazione dei dati alle società facenti parte del gruppo VF International',
     
-    'privacy-label' => 'Dichiaro di aver preso visione dell’<a target="_blank" href="/media/pdf/privacy-policy.pdf">informativa sul trattamento dei dati</a> e di accettare <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">il regolamento</a> del concorso*.',
+    'privacy-label' => 'Ik verklaar dat ik de <a target="_blank" href="/media/pdf/privacy-policy.pdf">informatieve mededeling</a> inzake gegevensverwerking heb gelezen en accepteer <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">de regelgeving</a> van de competitie*.',
     'terms-label' => 'Dichiaro di accettare il regolamento del concorso.',
-    'marketing-label' => 'Acconsento all’utilizzo dei miei dati da parte di VF Italia Srl e VF Italy Retail srl, per finalità di marketing, promozionali, analisi di mercato e profilazione.',
-    'marketing-third-label' => 'Acconsento alla comunicazione dei miei dati alle società del gruppo VF International, quali VF Italia, le  legal entities delle altre country e i partner franchisee, per finalità promozionali e di marketing delle stesse.',
+    'marketing-label' => 'Ik accepteer dat VF Italia Srl en VF Italy Retail Srl gebruik maken van mijn persoonlijke informatie voor marketing, promotie, marktonderzoek en profilering doeleinden.',
+    'marketing-third-label' => 'Ik accepteer dat mijn informatie kan worden gedeeld met partners van de VF International groep, zoals VF Italia, rechtspersonen uit andere landen en partner franchisee ondernemingen voor promotie- en marketingdoeleinde.',
     
     
     

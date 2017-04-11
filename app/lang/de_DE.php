@@ -1,20 +1,20 @@
 <?php
 return array(
-    'welcome' => 'Benvenuto',
+    'welcome' => 'Willkommen',
 
     'close' => 'Chiudi',
 
     'subscribe' => 'Invia Registrazione',
 
     
-    'MALE' => 'Maschio',
-    'FEMALE' => 'Femmina',
+    'MALE' => 'Männlich',
+    'FEMALE' => 'Weiblich',
     'YES' => 'Accetto',
     'NO' => 'Non Accetto',
-    'DAY' => 'Data di nascita: giorno',
-    'MONTH' => 'Data di nascita: mese',
-    'YEAR' => 'Data di nascita: anno',
-    'GENDER' => 'Sesso',
+    'DAY' => 'Geburtsdatum: Tag',
+    'MONTH' => 'Geburtsdatum: Monat',
+    'YEAR' => 'Geburtsdatum: Jahr',
+    'GENDER' => 'Geschlecht',
     
     'PRODUCT' => 'Prodotto',
     'SELECT_PRODUCT' => 'Seleziona Prodotto',
@@ -28,16 +28,16 @@ return array(
     'EMAIL' => 'Indirizzo mail',
     'EMAIL-placeholder' => 'Inserisci l\'indirizzo di posta elettronica',
 
-    'NAME' => 'Nome',
+    'NAME' => 'Vorname',
     'NAME-placeholder' => 'Inserisci il nome',
     
-    'SURNAME' => 'Cognome',
+    'SURNAME' => 'Nachname',
     'SURNAME-placeholder' => 'Inserisci il cognome',
 
-    'CITY' => 'Città',
+    'CITY' => 'Stadt',
     'CITY-placeholder' => 'Inserisci la città',
     
-    'PHONE' => 'Telefono',
+    'PHONE' => 'Telefon',
     'PHONE-placeholder' => 'Inserisci il telefono',
     
     'privacy-modal-title' => 'Informativa sul trattamento dei dati personali',
@@ -45,10 +45,10 @@ return array(
     'marketing-modal-title' => 'Consenso all’invio di materiale promo-pubblicitario',
     'marketing-third-modal-title' => 'Consenso  alla comunicazione dei dati alle società facenti parte del gruppo VF International',
     
-    'privacy-label' => 'Dichiaro di aver preso visione dell’<a target="_blank" href="/media/pdf/privacy-policy.pdf">informativa sul trattamento dei dati</a> e di accettare <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">il regolamento</a> del concorso*.',
+    'privacy-label' => 'Ich bestätige, <a target="_blank" href="/media/pdf/privacy-policy.pdf">die Datenschutzinformation gelesen zu haben</a> und akzeptiere <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">die Bedingungen</a> des Preisausschreibens*.',
     'terms-label' => 'Dichiaro di accettare il regolamento del concorso.',
-    'marketing-label' => 'Acconsento all’utilizzo dei miei dati da parte di VF Italia Srl e VF Italy Retail srl, per finalità di marketing, promozionali, analisi di mercato e profilazione.',
-    'marketing-third-label' => 'Acconsento alla comunicazione dei miei dati alle società del gruppo VF International, quali VF Italia, le  legal entities delle altre country e i partner franchisee, per finalità promozionali e di marketing delle stesse.',
+    'marketing-label' => 'Ich stimme der Nutzung meiner Daten durch VF Italia Srl und VF Italy Retail srl zu Marketing-, Werbe-, Marktforschungs- und Profilbildungszwecken zu.',
+    'marketing-third-label' => 'Ich stimme der Weitergabe meiner Daten an Gesellschaften der Gruppe VF International darunter VF Italia, Rechtspersonen anderer Länder und Franchisee-Partners zu Werbe- und Marketingzwecken derselben zu.',
     
     
     
