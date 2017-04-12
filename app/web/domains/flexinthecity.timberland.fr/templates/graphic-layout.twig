@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" href="/css/main.css">
+        <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <link href="/css/video-js.css" rel="stylesheet" type="text/css"/>
+
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]--> 
+
+        <!-- Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="/js/vendor/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body class="grazie">
+
+    
+
+    
+        <header >
+            <div class="brand">
+                <ul>
+                    <li><a target="_blank" href="https://www.timberland.it/"><img src="/media/logo-timberland.png" alt="Timberland"></a></li>
+                    <li><img src="/media/logo-flex.png" alt=""></li>
+                    <li class="txt">WALK  INTO A NEW EXPERIENCE</li>
+                </ul>
+            </div>
+
+            <div class="mainMenu">
+                <a class="logo visible-xs" target="_blank" href="https://www.timberland.it/"><img src="/media/logo-timberland.png" alt="Timberland"></a>          
+            </div>
+        </header>
+        
+        
+        {% block flashmessages %}
+		{% include "snippets/flashmessages.twig" %}
+		{% endblock %}
+
+        {% block content %}
+        {% endblock %}
+
+
+
+        <footer role="contentinfo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 logo item">
+                        <a target="_blank" href="https://www.timberland.it/"><img src="/media/logo-timberland-large.png" alt="Timberland"></a>
+                    </div>
+                    <div class="col-md-3 social item">
+                        <h1>FOLLOW US</h1>
+                        <ul class="social-icon">
+                            <li><a target="_blank" href="https://www.instagram.com/timberland_eu" class="icon-instagram"></a></li>
+                            <li><a target="_blank" href="https://www.facebook.com/TimberlandEU/" class="icon-facebook"></a></li>
+                            <li><a target="_blank" href="https://twitter.com/Timberland_EU" class="icon-twitter"></a></li>
+                            <li><a target="_blank" href="https://www.youtube.com/c/timberland" class="icon-youtube"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 regolamento item">
+                        <div class="copy verical-centered">
+                            <div class="bottom">
+                                <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">Règlement complet</a> TIMBERLAND ® 2017 all right reserved
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
+        <script src="/js/scripts.min.js"></script>
+        {% block javascripts %}{% endblock %}
+
+    </body>
+</html>
