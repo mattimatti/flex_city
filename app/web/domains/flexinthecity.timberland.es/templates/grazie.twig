@@ -1,0 +1,33 @@
+{% extends "graphic-layout.twig" %}
+
+
+{% block flashmessages %}
+{% endblock %}
+
+{% block content %}
+<div class="entry">
+
+<h1>
+{% if flash('danger') %}
+	{% for msg in flash('danger') %}
+	{{ msg }}<br/>
+	{% endfor %}
+{% endif %}
+
+{% if flash('warning') %}
+	{% for msg in flash('warning') %}
+	{{ msg }}<br/>
+	{% endfor %}
+{% endif %}
+
+{% if flash('success') %}
+	{% for msg in flash('success') %}
+	{{ msg }}<br/>
+	{% endfor %}
+{% endif %}
+</h1>
+
+	<a href="/">torna alla home</a>
+</div>
+{% endblock %}
+
