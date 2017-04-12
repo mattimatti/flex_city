@@ -28,7 +28,6 @@ if (defined('HOST_DOMAIN')) {
         
         if (startsWith($uri, '/fr_ch')) {
             define('CURRENT_DOMAIN', 'flexinthecity.timberland.ch.fr');
-            
         }
     }
     
@@ -40,21 +39,22 @@ if (defined('HOST_DOMAIN')) {
 }
 
 
-// exit(CURRENT_DOMAIN);
 
-// if (ENVIRONMENT != 'development') {
+$filename = __DIR__ . '/../web/domains/' . CURRENT_DOMAIN . '/settings.php';
+if (file_exists($filename)) {
+    $country_settings = require $filename;
     
-    $filename = __DIR__ . '/../web/domains/' . CURRENT_DOMAIN . '/settings.php';
-    if (file_exists($filename)) {
-        $country_settings = require $filename;
-        
-        if (is_array($country_settings)) {
-            $settings = array_replace_recursive($settings, $country_settings);
-        }
-    } else {
-        exit("error in db config: " . CURRENT_DOMAIN . " - ");
+    if (ENVIRONMENT != 'development') {
+        unset($country_settings['database']);
     }
-// }
+    
+    if (is_array($country_settings)) {
+        $settings = array_replace_recursive($settings, $country_settings);
+    }
+    
+} else {
+    exit("error in db config: " . CURRENT_DOMAIN . " - ");
+}
 
 $app = new \Slim\App($settings);
 
