@@ -1,0 +1,232 @@
+<regioni>
+
+    
+    <regione title="Abruzzo">
+<store><![CDATA[<strong>	Avezzano (AQ)	</strong> <br>	C.C. I Marsi	<br>	Via Tiburtina Valeria Km 112.50	]]></store>
+<store><![CDATA[<strong>	Chieti	</strong> <br>	C.C. Megalò	<br>	Località S. Filomena	]]></store>
+<store><![CDATA[<strong>	L'Aquila	</strong> <br>	C.C. L'Aquilone	<br>	Via Pile 50	]]></store>
+<store><![CDATA[<strong>	Lanciano (CH)	</strong> <br>			Corso Trento e Trieste 48	]]></store>
+<store><![CDATA[<strong>	Pescara	</strong> <br>			Piazza Sacro Cuore 24-25	]]></store>
+<store><![CDATA[<strong>	Teramo	</strong> <br>	CC Gransasso	<br>	Località Piano D'Accio	]]></store>
+
+
+    </regione>
+   
+
+	<regione title="Calabria">
+<store><![CDATA[<strong>	Catanzaro	</strong> <br>		<br>	Corso Mazzini 213	]]></store>
+<store><![CDATA[<strong>	Catanzaro Lido	</strong> <br>	C.C. Le Fontane	<br>	Via Emilia	]]></store>
+<store><![CDATA[<strong>	Cosenza	</strong> <br>			Piazza XI Settembre 10	]]></store>
+<store><![CDATA[<strong>	Crotone	</strong> <br>		<br>	Via Vittorio Veneto 87	]]></store>
+<store><![CDATA[<strong>	Lamezia Terme (CZ)	</strong> <br>		<br>	Corso Nicotera 35	]]></store>
+<store><![CDATA[<strong>	Maida	</strong> <br>	C.C. Due Mari	<br>	Loc. Comuni Condomini	]]></store>
+<store><![CDATA[<strong>	Rende (CS)	</strong> <br>	C.C. Metropolis	<br>	Viale Kennedy 	]]></store>
+<store><![CDATA[<strong>	Siderno (RC)	</strong> <br>	C.C. La Gru	<br>	SS 106 Jonica	]]></store>
+<store><![CDATA[<strong>	Vibo Valentia	</strong> <br>		<br>	Corso Vittorio Emanuele III 126	]]></store>
+
+	 </regione>
+	 
+	 
+	 
+	 <regione title="Campania">
+<store><![CDATA[<strong>	Avellino	</strong> <br>			Corso Vittorio Emanuele 310	]]></store>
+<store><![CDATA[<strong>	Benevento	</strong> <br>		<br>	Corso Garibaldi 102	]]></store>
+<store><![CDATA[<strong>	Marcianise (CE)	</strong> <br>	C.C. Campania	<br>	S.S. 87 Località Aurno	]]></store>
+<store><![CDATA[<strong>	Napoli	</strong> <br>			Via A. Scarlatti 199	]]></store>
+<store><![CDATA[<strong>	Napoli	</strong> <br>			Via Chiaia 246	]]></store>
+<store><![CDATA[<strong>	Napoli	</strong> <br>			Galleria Umberto I 35-36	]]></store>
+<store><![CDATA[<strong>	Pompei (NA)	</strong> <br>	C.C. La Cartiera	<br>	Via Macello 22	]]></store>
+<store><![CDATA[<strong>	Pontecagnano (SA)	</strong> <br>	C.C. Maximall	<br>	Via Pacinotti	]]></store>
+<store><![CDATA[<strong>	Salerno	</strong> <br>			Corso Vittorio Emanuele 158	]]></store>
+<store><![CDATA[<strong>	Salerno	</strong> <br>	C.C. Cotoniere Località Fratte	<br>	Via Dei Greci 5 	]]></store>
+
+	</regione>
+	
+	
+	
+	<regione title="Emilia Romagna">
+<store><![CDATA[<strong>	Bologna	</strong> <br>			Piazza Mercanzia 1/c	]]></store>
+<store><![CDATA[<strong>	Casalecchio di Reno (BO)	</strong> <br>	C.C. Shopville Gran Reno	<br>	Via M. Monroe 2/47	]]></store>
+<store><![CDATA[<strong>	Ferrara	</strong> <br>	C.C.Il Castello	<br>	Via Giusti 4	]]></store>
+<store><![CDATA[<strong>	Modena	</strong> <br>	C.C. Grandemilia	<br>	Via Emilia ovest 1480	]]></store>
+<store><![CDATA[<strong>	Parma	</strong> <br>			Piazzale della Macina 1/A	]]></store>
+<store><![CDATA[<strong>	Piacenza	</strong> <br>			Corso Vittorio Emanuele II 102	]]></store>
+<store><![CDATA[<strong>	Rimini	</strong> <br>	C.C. Le Befane Shopping Center	<br>	Via Caduti di Nassirya 20 	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Friuli Venezia Giulia">
+<store><![CDATA[<strong>	Pordenone	</strong> <br>			Via Garibaldi 15c 	]]></store>
+<store><![CDATA[<strong>	Torreano di Martignacco (UD)	</strong> <br>	C.C. Città Fiera	<br>	Via A.Bardelli 4 	]]></store>
+<store><![CDATA[<strong>	Trieste	</strong> <br>			Corso Italia 3	]]></store>
+<store><![CDATA[<strong>	Trieste	</strong> <br>	C.C. Torri d'Europa	<br>	Via Bartolomeo D'Alviano 23	]]></store>
+	
+	</regione>
+	
+	
+	<regione title="Lazio">
+<store><![CDATA[<strong>	Aprilia (LT)	</strong> <br>	C.C. Aprilia 2	<br>	S.S. 148 Pontina Km 44	]]></store>
+<store><![CDATA[<strong>	Fiumicino	</strong> <br>			Aeroporto L. Da Vinci 	]]></store>
+<store><![CDATA[<strong>	Ostia Lido (RM)	</strong> <br>			Via Dei Misenati 6/8	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Via Tuscolana 1336-38	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>	C.C. Cinecittà Due	<br>	Via Palmiro Togliatti 2	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>	CC Anagnina	<br>	Via di Torre di Mezzavia 35	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Viale Europa 63	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Via dei Colli Portuensi 411/417	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Via Salaria 34-36-38	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Viale Marconi 197	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>	C.C. I Granai	<br>	Via M. Rigamonti 100	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Piazza Giureconsulti 36-37	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>	C.C. Roma Est	<br>	Via Collatina   	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>	C.C. Parco Leonardo	<br>	Via Portuense 2000	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Via Cola di Rienzo 291 	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Via dei Giubbonari 99	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Via Nazionale 47	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>	C.C.Euroma 2	<br>	Viale dell'Oceano Pacifico 83	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>			Via delle Convertite 6/7/8	]]></store>
+<store><![CDATA[<strong>	Roma	</strong> <br>	C.C. Porta di Roma	<br>	Via A. Lionello 201	]]></store>
+<store><![CDATA[<strong>	Viterbo	</strong> <br>			Corso Italia 25	]]></store>
+
+	</regione>
+	
+	<regione title="Liguria">
+<store><![CDATA[<strong>	Genova	</strong> <br>			Piazza della Vittoria 122/128R	]]></store>
+<store><![CDATA[<strong>	Genova	</strong> <br>	C.C. Fiumara 	<br>	Via Operai 55	]]></store>
+<store><![CDATA[<strong>	La Spezia	</strong> <br>	C.C. Le Terrazze	<br>	Via Fontevivo 17 	]]></store>
+<store><![CDATA[<strong>	Loano (SV)	</strong> <br>			Via Garibaldi 53	]]></store>
+<store><![CDATA[<strong>	Sanremo (IM)	</strong> <br>			Via Matteotti 204 	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Lombardia">
+<store><![CDATA[<strong>	Arese (MI)	</strong> <br>	Arese Shopping Center	<br>	Viale Alfa Romeo	]]></store>
+<store><![CDATA[<strong>	Brescia	</strong> <br>	C.C. Freccia Rossa	<br>	Viale Italia 31 	]]></store>
+<store><![CDATA[<strong>	Carugate	</strong> <br>	C.C. Carosello	<br>	Strada Provinciale 208, 	]]></store>
+<store><![CDATA[<strong>	Como	</strong> <br>			Via Indipendenza 31	]]></store>
+<store><![CDATA[<strong>	Cornate d'Adda (MB)	</strong> <br>	C.C. Il Globo	<br>	Via E. Berlinguer 48	]]></store>
+<store><![CDATA[<strong>	Crema	</strong> <br>			Via Mazzini 69	]]></store>
+<store><![CDATA[<strong>	Curno (BG)	</strong> <br>	C.C. Curno	<br>	Via Fermi 1	]]></store>
+<store><![CDATA[<strong>	Erbusco (BS)	</strong> <br>	C.C. Le Porte Franche	<br>	Via Rovato 44	]]></store>
+<store><![CDATA[<strong>	Limbiate (MB)	</strong> <br>	C.C. Carrefour	<br>	10121 Torino  	]]></store>
+<store><![CDATA[<strong>	Livigno (SO)	</strong> <br>			Via Ostaria 434	]]></store>
+<store><![CDATA[<strong>	Lonato del Garda (BS)	</strong> <br>	C.C. Il Leone	<br>	Via Mantova 36	]]></store>
+<store><![CDATA[<strong>	Milano	</strong> <br>			Corso Buenos Aires 45	]]></store>
+<store><![CDATA[<strong>	Milano	</strong> <br>			Galleria San Carlo, 6	]]></store>
+<store><![CDATA[<strong>	Milano	</strong> <br>			Corso Matteotti, 7  	]]></store>
+<store><![CDATA[<strong>	Monza 	</strong> <br>			Via Vittorio Emanuele 14/D	]]></store>
+<store><![CDATA[<strong>	Morbegno (SO)	</strong> <br>			Via Vanoni 79	]]></store>
+<store><![CDATA[<strong>	Orio Aeroporto (BG)	</strong> <br>			Viale Aeroporto 13, Departure Area, Check-in 3	]]></store>
+<store><![CDATA[<strong>	Orio Al Serio (BG)	</strong> <br>	C.C. Orio Center	<br>	Via Portico 71	]]></store>
+<store><![CDATA[<strong>	Pavia	</strong> <br>			Strada Nuova 72/B	]]></store>
+<store><![CDATA[<strong>	Peschiera Borromeo (MI)	</strong> <br>	C.C. Galleria Borromea	<br>	Via della Liberazione 8	]]></store>
+<store><![CDATA[<strong>	Roncadelle (BS)	</strong> <br>	C.C. Roncadelle Shopping Centre Elnos	<br>	Via Luigi Einaudi 	]]></store>
+<store><![CDATA[<strong>	Rozzano (MI)	</strong> <br>	C.C. Fiordaliso	<br>	Via Eugenio Curiel 25	]]></store>
+<store><![CDATA[<strong>	Varese	</strong> <br>			Via Carlo Croce 6	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Marche">
+<store><![CDATA[<strong>	Ancona	</strong> <br>	C.C. Auchan	<br>	Via Scataglini 6	]]></store>
+<store><![CDATA[<strong>	Ascoli Piceno	</strong> <br>	C.C. Il Battente	<br>	Via del commercio 52	]]></store>
+<store><![CDATA[<strong>	Pesaro (PU)	</strong> <br>			Corso 11 Settembre 7/13	]]></store>
+<store><![CDATA[<strong>	S. Benedetto del Tronto (AP)	</strong> <br>			Viale Gramsci 5	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Molise">
+<store><![CDATA[<strong>	Campobasso	</strong> <br>			Via Vittorio Veneto 74	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Piemonte">
+<store><![CDATA[<strong>	Alba (CN)	</strong> <br>			Via Vittorio Emanuele 6	]]></store>
+<store><![CDATA[<strong>	Cuneo	</strong> <br>			Corso Nizza 46	]]></store>
+<store><![CDATA[<strong>	Pinerolo (TO)	</strong> <br>	C.C. Le due Valli	<br>	Via Cascina Vastameglio 3	]]></store>
+<store><![CDATA[<strong>	Torino	</strong> <br>	C.C. 8 Gallery	<br>	via Nizza 262 (sul sito giusto)	]]></store>
+<store><![CDATA[<strong>	Torino	</strong> <br>			Via Roma, 326  	]]></store>
+<store><![CDATA[<strong>	Torino	</strong> <br>	C.C. Le Grue	<br>	Via Crea, 10  Unitá 243/A	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Puglia">
+<store><![CDATA[<strong>	Casamassima (BA)	</strong> <br>	C.C. Auchan	<br>	Via Noicattaro 2	]]></store>
+<store><![CDATA[<strong>	Foggia	</strong> <br>	C.C. GrandApuglia	<br>	Zona Borgo Incoronata	]]></store>
+<store><![CDATA[<strong>	Lecce	</strong> <br>			Via Vittorio Emanuele 39	]]></store>
+<store><![CDATA[<strong>	Maglie (LE)	</strong> <br>			Piazzetta Capece 26	]]></store>
+<store><![CDATA[<strong>	Mesagne (BR)	</strong> <br>	C.C. Appia Antica	<br>	S.S. 7 Appia	]]></store>
+	
+	</regione>
+	
+	
+	<regione title="Sardegna">
+<store><![CDATA[<strong>	Quartucciu (CA)	</strong> <br>	C.C. Le Vele	<br>	Via Delle Serre	]]></store>
+<store><![CDATA[<strong>	Sassari	</strong> <br>			Piazza Azuni 18 	]]></store>
+	
+	</regione>
+	
+	
+	<regione title="Sicilia">
+<store><![CDATA[<strong>	Capo d'Orlando (ME)	</strong> <br>			Via F. Crispi 17	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Toscana">
+<store><![CDATA[<strong>	Arezzo	</strong> <br>			Corso Italia 193	]]></store>
+<store><![CDATA[<strong>	Campi Bisenzio (FI)	</strong> <br>	C.C. I Gigli	<br>	Via Quirico 165	]]></store>
+<store><![CDATA[<strong>	Firenze	</strong> <br>			Via del Corso 71	]]></store>
+<store><![CDATA[<strong>	Firenze	</strong> <br>			Via dei Cerretani 29R 	]]></store>
+<store><![CDATA[<strong>	Forte dei Marmi (LU)	</strong> <br>			Via Spinetti 12	]]></store>
+<store><![CDATA[<strong>	Incisa di Val d'Arno (FI)	</strong> <br>	C.C. Fashion Groove	<br>	Località S. Maria Maddalena	]]></store>
+<store><![CDATA[<strong>	Livorno	</strong> <br>			Via Grande 186-188	]]></store>
+<store><![CDATA[<strong>	Lucca	</strong> <br>			Via Fillungo 12	]]></store>
+<store><![CDATA[<strong>	Massa	</strong> <br>			Via Ghirlanda 11	]]></store>
+<store><![CDATA[<strong>	Pisa	</strong> <br>			Borgo Stretto 25	]]></store>
+<store><![CDATA[<strong>	Siena	</strong> <br>			Piazza Matteotti 25	]]></store>
+<store><![CDATA[<strong>	Viareggio (LU)	</strong> <br>			Via Mazzini 26	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Trentino Alto Adige">
+<store><![CDATA[<strong>	Bolzano	</strong> <br>			Galleria Europa 2	]]></store>
+<store><![CDATA[<strong>	San Candido (BZ)	</strong> <br>			Via P.P. Rainer 7/A	]]></store>
+<store><![CDATA[<strong>	Trento	</strong> <br>			Via San Pietro 37	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Umbria">
+<store><![CDATA[<strong>	Collestrada (PG)	</strong> <br>	C.C. Collestrada	<br>	Via della Valtiera 181 	]]></store>
+<store><![CDATA[<strong>	Corciano (PG)	</strong> <br>	C.C. Conad	<br>	Via Capitini 8	]]></store>
+<store><![CDATA[<strong>	Orvieto (TR)	</strong> <br>			Corso Cavour 15/17 	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Valle D'Aosta">
+<store><![CDATA[<strong>	Aosta	</strong> <br>			Via Edouard Aubert 38	]]></store>
+
+	</regione>
+	
+	
+	<regione title="Veneto">
+<store><![CDATA[<strong>	Marcon (VE)	</strong> <br>	C.C. Valecenter	<br>	Via E Mattei 52	]]></store>
+<store><![CDATA[<strong>	Marghera	</strong> <br>	C.C. Nave de Vero	<br>	Via Pietro Arduino 20	]]></store>
+<store><![CDATA[<strong>	Padova	</strong> <br>			Corso Giuseppe Garibaldi 2	]]></store>
+<store><![CDATA[<strong>	Rovigo	</strong> <br>	C.C. La Fattoria	<br>	S.S. 16 - Località Borsea 193	]]></store>
+<store><![CDATA[<strong>	Treviso	</strong> <br>			Via San Michele 3	]]></store>
+<store><![CDATA[<strong>	Verona	</strong> <br>			Piazza Erbe 23	]]></store>
+<store><![CDATA[<strong>	Vicenza	</strong> <br>			Contrà del Monte 10	]]></store>
+
+	</regione>
+	
+	
+	
+</regioni>
