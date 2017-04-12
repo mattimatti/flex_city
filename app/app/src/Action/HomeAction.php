@@ -14,6 +14,12 @@ class HomeAction extends AbstractAction
 
     /**
      *
+     * @var string
+     */
+    protected $loacale;
+
+    /**
+     *
      * @var LeadService
      */
     protected $leadService;
@@ -23,11 +29,10 @@ class HomeAction extends AbstractAction
      */
     public function __invoke(Request $request, Response $response, $args)
     {
-        
         // ok
         if (isset($args['locale'])) {
-            $locale = $args['locale'];
-            $this->translator->setLocale($locale);
+            $this->locale = $args['locale'];
+            $this->translator->setLocale($this->locale);
         }
         
         // Set the event as WEB, this will modify the behaviour of the lead refister form.
@@ -36,10 +41,14 @@ class HomeAction extends AbstractAction
         // the domain
         $domain = $request->getUri()->getHost();
         
-        // If we have a page argument let's render a ifferent template
+        // If we have a page argument let's render a different template
         $template = "index.twig";
         if (isset($args['page'])) {
             $template = $args['page'] . ".twig";
+        }
+        
+        if ($this->locale) {
+            $template = str_replace('.twig', '_' . $this->locale . '.twig', $template);
         }
         
         $data = array();

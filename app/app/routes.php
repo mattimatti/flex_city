@@ -96,24 +96,12 @@ $app->get('/', "App\Action\HomeAction")
 // PUBLIC
 // ////////////////////////////////////////////////////////////////////
 
-$app->get('/it_ch', "App\Action\HomeAction")
+$app->get('/lang/{locale}', "App\Action\HomeAction")
     ->setName('homepage_it_ch')
     ->allow([
     Acl::GUEST
 ]);
 
-$app->get('/de_ch', "App\Action\HomeAction")
-    ->setName('homepage_de_ch')
-    ->allow([
-    Acl::GUEST
-]);
-
-
-$app->get('/fr_ch', "App\Action\HomeAction")
-    ->setName('homepage_fr_ch')
-    ->allow([
-    Acl::GUEST
-]);
 
 
 

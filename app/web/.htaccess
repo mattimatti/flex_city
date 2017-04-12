@@ -9,7 +9,11 @@
 	RewriteRule ^img/(.*) domains/%{HTTP_HOST}/public/img/$1    
 	RewriteRule ^font(.*) domains/%{HTTP_HOST}/public/font$1    
 	RewriteRule ^media(.*) domains/%{HTTP_HOST}/public/media$1    
-	RewriteRule ^data(.*) domains/%{HTTP_HOST}/public/data$1    
+	RewriteRule ^data(.*) domains/%{HTTP_HOST}/public/data$1  
+	 
+	RewriteRule ^it_ch$ /lang/it_ch  [R=301,L]
+	RewriteRule ^fr_ch$ /lang/fr_ch  [R=301,L]
+	RewriteRule ^de_ch$ /lang/de_ch  [R=301,L]
 
     RewriteCond %{REQUEST_FILENAME} -s [OR]
     RewriteCond %{REQUEST_FILENAME} -l [OR]
