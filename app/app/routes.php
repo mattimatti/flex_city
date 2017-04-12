@@ -87,10 +87,14 @@ $app->get('/auth/logout', "App\Action\Auth\LogoutAction")
 // ////////////////////////////////////////////////////////////////////
 
 $app->get('/', "App\Action\HomeAction")
-    ->setName('homepage')
+    ->setName('root')
     ->allow([
     Acl::GUEST
 ]);
+
+
+
+
 
 $app->post('/', "App\Action\HomeRegisterAction")
     ->setName('homepage-post')
@@ -98,11 +102,25 @@ $app->post('/', "App\Action\HomeRegisterAction")
     Acl::GUEST
 ]);
 
+
+
+
 $app->get('/pages/{page}', "App\Action\PagesAction")
     ->setName('page_custom')
     ->allow([
     Acl::GUEST
 ]);
+
+
+
+$app->get('/lang/{locale}', "App\Action\LangDriverAction")
+    ->setName('page_lang')
+    ->allow([
+    Acl::GUEST
+]);
+
+
+
 
 $app->get('/mail/preview', "App\Action\MailPreviewAction")
     ->setName('mail_preview')
