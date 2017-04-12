@@ -92,20 +92,6 @@ $app->get('/', "App\Action\HomeAction")
     Acl::GUEST
 ]);
 
-// ////////////////////////////////////////////////////////////////////
-// PUBLIC
-// ////////////////////////////////////////////////////////////////////
-
-$app->get('/lang/{locale}', "App\Action\HomeAction")
-    ->setName('homepage_it_ch')
-    ->allow([
-    Acl::GUEST
-]);
-
-
-
-
-
 $app->post('/', "App\Action\HomeRegisterAction")
     ->setName('homepage-post')
     ->allow([
@@ -123,8 +109,8 @@ $app->get('/mail/preview', "App\Action\MailPreviewAction")
     ->allow([
     Acl::GUEST
 ]);
-
-
+    
+    
 
 
 // $app->get('/event/{permalink}/signup', "App\Action\EventSignupAction")

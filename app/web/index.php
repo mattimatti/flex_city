@@ -8,13 +8,14 @@
 if (PHP_SAPI === 'cli-server' && $_SERVER['SCRIPT_FILENAME'] !== __FILE__) {
     return false;
 }
-
+// Define application environment
+defined('ENVIRONMENT') || define('ENVIRONMENT', (getenv('ENVIRONMENT') ? getenv('ENVIRONMENT') : 'production'));
 
 $hostname = '';
 if (isset($_SERVER['HTTP_HOST'])) {
     $hostname = $_SERVER['HTTP_HOST'];
 }
-define('CURRENT_DOMAIN',$hostname);
+define('HOST_DOMAIN', $hostname);
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../app/bootstrap.php';
