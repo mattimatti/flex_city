@@ -6,7 +6,6 @@ use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Dao\EventRepository;
-use App\Dao\StoretRepository;
 use App\Dao\LocationRepository;
 use App\Dao\StoreRepository;
 use App\Debug;

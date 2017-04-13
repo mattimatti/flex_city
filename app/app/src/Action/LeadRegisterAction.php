@@ -33,7 +33,7 @@ class LeadRegisterAction extends AbstractAction
         
         if ($request->isPost()) {
             
-            $redirect = $request->getParam('redirect');
+            $redirect = $request->getParam('redirect','/pages/grazie');
             
             try {
                 // validate for cross forgery requests..
