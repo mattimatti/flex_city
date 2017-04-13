@@ -76,8 +76,11 @@ $container['translator'] = function ($c)
     // Add language files here
     $translator->addResource('php', __DIR__ . '/../lang/it_IT.php', 'it_IT'); // Italian
     $translator->addResource('php', __DIR__ . '/../lang/de_DE.php', 'de_DE'); // German
-    $translator->addResource('php', __DIR__ . '/../lang/en_US.php', 'en_US'); // English
+    $translator->addResource('php', __DIR__ . '/../lang/en_US.php', 'en_US'); // English US
+    $translator->addResource('php', __DIR__ . '/../lang/en_EN.php', 'en_EN'); // English
     $translator->addResource('php', __DIR__ . '/../lang/fr_FR.php', 'fr_FR'); // French
+    $translator->addResource('php', __DIR__ . '/../lang/es_ES.php', 'es_ES'); // Spanish
+    $translator->addResource('php', __DIR__ . '/../lang/nl_NL.php', 'nl_NL'); // Spanish
     
     
     
