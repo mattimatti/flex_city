@@ -4,7 +4,7 @@
 
 	<div class="mt20">{% include "snippets/field.twig" with {name: 'name', label: 'Name', selectedvalue : item.name, required : true} %}</div>
 	<div class="mt20">
-		<button type="submit" class="btn btn-block btn-success">Create Location</button>
+		<button type="submit" class="btn btn-block btn-success">{% if item %}Edit{% else %}Create{% endif %} Location</button>
 		<div class="text-center">
 			<a href="/admin/locations">or cancel</a>
 		</div>

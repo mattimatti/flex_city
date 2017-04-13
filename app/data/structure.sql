@@ -70,6 +70,7 @@ CREATE TABLE `lead` (
   `surname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `day` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `month` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,

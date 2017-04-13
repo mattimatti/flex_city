@@ -28,8 +28,8 @@ final class LocationsAction extends AbstractAction
     
         if (isset($args['id'])) {
             $id = $args['id'];
-            $user = $this->locationRepo->get($id);
-            $this->setViewData("item", $user);
+            $location = $this->locationRepo->get($id);
+            $this->setViewData("item", $location);
         }
     
         if ($request->isPost()) {

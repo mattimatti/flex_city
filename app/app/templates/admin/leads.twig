@@ -13,12 +13,6 @@
 
 
 	<div class="btn-toolbar mt20">
-{% if event  %}
-		<div class="btn-group">
-		  <a target="_blank" href="{{ event.url }}"  class="btn btn-default">Event Landing Page</a>
-		  <a target="_blank" href="{{ event.signupUrl }}"  class="btn btn-default">Event Register Page</a>
-		</div>
-{% endif %}	
 		<div class="btn-group pull-right">
 		{% if event  %}
 		  <a href="/admin/exporter/leads/{{ event_id }}" class="btn btn-info">Export Event List</a>
@@ -50,6 +44,7 @@ function monthSorter(a, b) {
 				<th>Age</th>
 				<th data-field="location"  data-sortable="true">Location</th>
 				<th data-field="type"  data-sortable="true">Store</th>
+				<th data-field="product"  data-sortable="true">Product</th>
 				<th data-field="type"  data-sortable="true">Hostess</th>
 				<th data-field="date"  data-sortable="true">Date</th>
 			</tr>
@@ -63,6 +58,7 @@ function monthSorter(a, b) {
 				<td scope="row">{{ item.age()  }}</td>
 				<td scope="row">{{ item.event.location.label }}</td>
 				<td scope="row">{{ item.event.store.label }}</td>
+				<td scope="row">{{ item.product }}</td>
 				<td scope="row">{{ item.hostess().label }}</td>
 				<td scope="row">{{ item.date_create }}</td>
 			</tr>

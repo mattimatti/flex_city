@@ -55,8 +55,12 @@ class Lead extends AbstractDao implements IEmailRecipient
         $data['store'] = $this->event()
             ->store()
             ->label();
-        $data['hostess'] = $this->hostess()->label();
+        if ($this->hostess()) {
+            $data['hostess'] = $this->hostess()->label();
+        	
+        }
         $data['date_create'] = $this->date_create;
+        $data['product'] = $this->product;
         
         return $data;
     }

@@ -23,6 +23,9 @@ require __DIR__ . '/../app/bootstrap.php';
 
 // $application->add(new SendMailCommand($app->getContainer()));
 
+// Define application environment
+defined('ENVIRONMENT') || define('ENVIRONMENT', (getenv('ENVIRONMENT') ? getenv('ENVIRONMENT') : 'production'));
+// defined('ENVIRONMENT') || define('ENVIRONMENT', (getenv('ENVIRONMENT') ? getenv('ENVIRONMENT') : 'development'));
 
 //
 //

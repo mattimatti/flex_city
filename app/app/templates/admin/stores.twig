@@ -6,7 +6,7 @@
 
 {% block body %}
 <div class="mt20">
-<h3>{% if item %}Edit Stores #{{ item.id }} {% else %}Create New Store {% endif %}</h3>
+<h3>{% if item %}Edit Store #{{ item.id }} {% else %}Create New Store {% endif %}</h3>
 	{% include "admin/store_form.twig" %}
 </div>
 <div class="mt20">
@@ -24,7 +24,7 @@
 			<tr>
 				<th scope="row">{{ item.id }}</th>
 				<td>{{ item.name }}</td>
-				<td><a href="/admin/store/edit/id/{{ item.id }}">edit</a></td>
+				<td><a href="/admin/stores/edit/id/{{ item.id }}">edit</a></td>
 			</tr>
 			{% endfor %}
 		</tbody>

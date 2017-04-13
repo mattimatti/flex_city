@@ -28,8 +28,8 @@ final class StoresAction extends AbstractAction
         
         if (isset($args['id'])) {
             $id = $args['id'];
-            $user = $this->storeRepo->get($id);
-            $this->setViewData("item", $user);
+            $store = $this->storeRepo->get($id);
+            $this->setViewData("item", $store);
         }
         
         if ($request->isPost()) {
