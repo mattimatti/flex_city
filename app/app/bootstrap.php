@@ -34,10 +34,7 @@ if (defined('HOST_DOMAIN')) {
     if (! defined('CURRENT_DOMAIN')) {
         define('CURRENT_DOMAIN', HOST_DOMAIN);
     }
-} else {
-    exit('invalid host');
 }
-
 
 
 
