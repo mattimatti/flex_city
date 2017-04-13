@@ -10,8 +10,9 @@
 {% block content %}
 <div class="container mt20" style="padding-top: 30px; padding-bottom: 30px;">
 	<div class="col-md-8 col-md-offset-2">
-	<p>Insert here client’s data to subscribe to the contest</p>
-	{% include "lead_form.twig" with {redirect : '/pages/grazie'} %}
+	<section id="estrazione">
+	{% include "lead_form.twig" with {redirect : '/hostess/register'} %}
+	</section>
 	</div>
 </div>
 {% endblock %}

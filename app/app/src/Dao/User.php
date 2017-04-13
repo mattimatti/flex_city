@@ -13,6 +13,13 @@ class User extends AbstractDao
         return $this->username;
     }
 
+    
+    
+    public function events()
+    {
+        return $this->sharedEventList;
+    }
+
     /**
      * Set a password hashed
      *

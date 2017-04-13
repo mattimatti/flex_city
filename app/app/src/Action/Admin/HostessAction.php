@@ -37,6 +37,7 @@ final class HostessAction extends AbstractAction
         }
         
         $userRepo = new UserRepository();
+        $eventRepo = new EventRepository();
         
         if ($request->isPost()) {
             
@@ -63,6 +64,7 @@ final class HostessAction extends AbstractAction
         }
         
         $this->setViewData("hostess", $userRepo->findByRole(Acl::HOSTESS));
+        $this->setViewData("events", $eventRepo->findAll());
         
         
         $this->__render($response);
