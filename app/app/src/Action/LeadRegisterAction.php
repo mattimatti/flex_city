@@ -72,6 +72,17 @@ class LeadRegisterAction extends AbstractAction
         
         $event_id = $this->getEventId();
         $this->setViewData("event_id", $event_id);
+
+        
+        // get the hostess        
+        $identity = $this->auth->getIdentity();
+        $username = $identity["username"];
+        $userRepo = new UserRepository();
+        $user = $userRepo->findByUsername($username);
+        $hostess_id = $user->getID();
+        $this->setViewData("hostess_id", $hostess_id);
+        
+        
         
         $eventRepo = new EventRepository();
         $event = $eventRepo->get($event_id);
