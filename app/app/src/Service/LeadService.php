@@ -3,6 +3,7 @@ namespace App\Service;
 
 use App\Dao\LeadRepository;
 use App\Dao\Lead;
+use RedBeanPHP\R;
 use Zend\Validator\EmailAddress;
 use Symfony\Component\Validator\Validation;
 use App\Validator;
@@ -32,7 +33,7 @@ class LeadService
 
     /**
      * The application settings
-     * 
+     *
      * @var \stdClass
      */
     protected $settings;
@@ -52,8 +53,6 @@ class LeadService
         $this->translator = $translator;
         
         $this->settings = $settings;
-        
-        
     }
     
     // Array
@@ -166,6 +165,8 @@ class LeadService
         
         $this->validateCreate($param);
         
+        $param['date_create'] = R::isoDateTime();
+
         $lead = $this->getLeadRepo()->create($param);
         
         if ($this->getMailService()) {
