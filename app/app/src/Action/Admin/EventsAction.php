@@ -6,11 +6,15 @@ use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Dao\EventRepository;
-use App\Dao\StoretRepository;
 use App\Dao\LocationRepository;
 use App\Dao\StoreRepository;
 use App\Debug;
 use App\Action\AbstractAction;
+use App\Dao\UserRepository;
+use App\Dao\User;
+use App\Dao\Role;
+use App\Acl;
+use App\Dao\EventUserRepository;
 
 final class EventsAction extends AbstractAction
 {
@@ -37,6 +41,8 @@ final class EventsAction extends AbstractAction
         $eventRepo = new EventRepository();
         $storeRepo = new StoreRepository();
         $locationRepo = new LocationRepository();
+        $userRepo = new UserRepository();
+        $eventUserRepo = new EventUserRepository();
         
         // the event id
         $event_id = $request->getQueryParam('id');
@@ -59,6 +65,7 @@ final class EventsAction extends AbstractAction
         $this->setViewData("events", $eventRepo->findAll());
         $this->setViewData("stores", $storeRepo->findAll());
         $this->setViewData("locations", $locationRepo->findAll());
+        $this->setViewData("hostess", $userRepo->findByRole(Acl::HOSTESS));
         
         $this->__render($response);
         

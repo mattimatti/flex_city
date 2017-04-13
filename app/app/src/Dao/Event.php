@@ -21,11 +21,11 @@ class Event extends AbstractDao
 
     /**
      *
-     * @return User
+     * @return User[]
      */
     public function hostess()
     {
-        return $this->user;
+        return $this->sharedUserList;
     }
 
     /**

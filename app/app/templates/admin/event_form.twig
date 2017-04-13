@@ -1,3 +1,8 @@
+<div class="panel panel-default">
+<div class="panel-heading">
+{% if item %}Edit Event #{{ item.id }} {% else %} Create New Event {% endif %}
+</div>
+<div class="panel-body">
 <form role="form" autocomplete="off" method="post">
 	<input type="hidden" name="id" value="{{ item.id }}">
 	<div class="mt20">{% include "snippets/select.twig" with {name: 'location_id', items : locations, label: 'Select Location', selectedvalue : item.location_id, required : true} %}</div>
@@ -11,16 +16,28 @@
 	</div>
 </form>
 
+</div>
+</div>
 
 
 
 {% if item.id %}
 
 
-<div class="well">
-
-
+<div class="panel panel-default">
+<div class="panel-heading">
+Linked Hostess
 </div>
+<div class="panel-body">
+<table class="table">
+{% for hu in item.hostess %}
+<tr>
+<td>{{ hu.name }} {{ hu.surname }}</td>
+</tr>
+{% endfor %}
+</table>
+
+
 
 
 
@@ -29,18 +46,18 @@
 	<input type="hidden" name="event_id" value="{{ item.id }}">
 
 	<div class="mt20">
-	<select name="hostess_id">
-	{% for item in hostess %}
-	   <option value="{{ item.id }}">{{ item.name }} {{ item.surname }}</option>
+	<select name="user_id" id="user_id">
+	<option>Select hostess</option>
+	{% for mitem in hostess %}
+	   <option value="{{ mitem.id }}">{{ mitem.name }} {{ mitem.surname }}</option>
 	{% endfor %}
 	</select>
 	</div>
 
 	<div class="mt20">
-		<button type="submit" class="btn btn-block btn-success">Assign hostess to Event</button>
-		<div class="text-center">
-			<a href="/admin/events">or cancel</a>
-		</div>
+		<button type="submit" class="btn btn-block btn-default">Assign hostess to Event</button>
 	</div>
 </form>
+</div>
+</div>
 {% endif %}

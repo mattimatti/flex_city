@@ -8,6 +8,8 @@ use Slim\Http\Response;
 use App\Action\AbstractAction;
 use App\Dao\StoreRepository;
 use App\Dao\EventUserRepository;
+use App\Dao\EventRepository;
+use App\Dao\UserRepository;
 
 final class EventUserAction extends AbstractAction
 {
@@ -25,18 +27,22 @@ final class EventUserAction extends AbstractAction
      */
     public function __invoke(Request $request, Response $response, $args)
     {
-        $this->repo = new EventUserRepository();
+        $this->repo = new EventRepository();
+        $userRepo = new UserRepository();
         
         if ($request->isPost()) {
             
-            $event = $request->getParam('event_id');
-            $user = $request->getParam('user_id');
+            $event_id = $request->getParam('event_id');
             
-            $payload = array();
-            $payload['event_id'] = $event;
-            $payload['user_id'] = $user;
+            $event = $this->repo->get($event_id);
             
-            $this->repo->create($payload);
+            $user_id = $request->getParam('user_id');
+            
+            $user = $userRepo->get($user_id);
+            
+            $event->sharedUserList[] = $user;
+            
+            $this->repo->store($event);
             
             return $this->__redirect($response, $request->getHeader('HTTP_REFERER'));
         }
