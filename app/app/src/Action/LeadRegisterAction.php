@@ -12,6 +12,7 @@ use App\Dao\LocationRepository;
 use RKA\SessionMiddleware;
 use App\Dao\LeadRepository;
 use App\Service\LeadService;
+use App\Dao\UserRepository;
 
 class LeadRegisterAction extends AbstractAction
 {
