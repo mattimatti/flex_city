@@ -5,10 +5,10 @@
 
 	<div class="btn-toolbar mt20">
 {% if item  %}
-		<div class="btn-group">
-		  <a target="_blank" href="{{ item.url }}"  class="btn btn-default">Event Landing Page</a>
-		  <a target="_blank" href="{{ item.signupUrl }}"  class="btn btn-default">Event Register Page</a>
-		</div>
+{# 		<div class="btn-group">#}
+{# 		  <a target="_blank" href="{{ item.url }}"  class="btn btn-default">Event Landing Page</a>#}
+{# 		  <a target="_blank" href="{{ item.signupUrl }}"  class="btn btn-default">Event Register Page</a>#}
+{# 		</div>#}
 {% else %}	
 		<div class="btn-group pull-right">
 		  <a data-toggle="collapse" href="#eventForm" class="btn btn-info">Create Event</a>
@@ -38,7 +38,6 @@
 				<th></th>
 				<th></th>
 				<th></th>
-				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -48,10 +47,9 @@
 				<td>{{ item.label }}</td>
 				<td>{{ item.location.label }}</td>
 				<td>{{ item.store.label }}</td>
-				<td><a target="_blank" href="{{ item.url() }}">landing</a></td>
 				<td><a target="_blank" href="{{ item.signupUrl() }}">signup</a></td>
 				<td><a href="/admin/events?id={{ item.id }}">edit</a></td>
-				<td><a href="/admin/events/delete?id={{ item.id }}"><i class="glyphicon glyphicon-trash"></i></a></td>
+				<td><a href="/admin/events/delete?id={{ item.id }}">delete</a></td>
 			</tr>
 			{% endfor %}
 		</tbody>

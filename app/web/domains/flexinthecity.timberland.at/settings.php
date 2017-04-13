@@ -1,7 +1,7 @@
 <?php
 return [
     'settings' => [
-        'lang' => 'de_AT',
+        'lang' => 'de_DE',
         'domain' => 'flexinthecity.timberland.at',
         'database' => [
             'host' => 'localhost',

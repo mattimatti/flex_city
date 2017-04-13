@@ -1,11 +1,21 @@
 <form role="form" autocomplete="off" method="post">
 		<fieldset>
 			<div class="form-group">
-				<input class="form-control" autocomplete="off" placeholder="Username" name="username" type="text" autofocus="">
+				<label>Username</label>
+				<input class="form-control" autocomplete="off" placeholder="Username" name="username" type="text" autofocus="" value="{{ item.username }}">
 			</div>
 			<div class="form-group">
+				<label>Password</label>
 				<input class="form-control" autocomplete="off" placeholder="Password" name="password" type="password" value="">
 			</div>
-			<button type="submit" class="btn btn-block btn-success">Create Hostess</button>
+			<div class="form-group">
+			     <label>Name</label>
+				<input class="form-control" autocomplete="off" placeholder="Name" name="name" type="text" value="{{ item.name }}" >
+			</div>
+			<div class="form-group">
+				<label>Surname</label>
+				<input class="form-control" autocomplete="off" placeholder="Surname" name="surname" type="text" value="{{ item.surname }}">
+			</div>
+			<button type="submit" class="btn btn-block btn-success">{% if item %}Edit{% else %}Create{% endif %} Hostess</button>
 		</fieldset>
 	</form>

@@ -21,7 +21,13 @@ $app->any('/admin/leads', "App\Action\Admin\LeadsAction")
 ]);
 
 $app->any('/admin/hostess', "App\Action\Admin\HostessAction")
-    ->setName('admin_leads')
+    ->setName('admin_hostess')
+    ->allow([
+    Acl::ADMIN
+]);
+
+$app->any('/admin/hostess/edit/id/{id}', "App\Action\Admin\HostessAction")
+    ->setName('hostess_edit')
     ->allow([
     Acl::ADMIN
 ]);

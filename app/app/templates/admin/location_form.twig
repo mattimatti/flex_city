@@ -1,0 +1,16 @@
+<form role="form" autocomplete="off" method="post">
+
+	<input type="hidden" name="id" value="{{ item.id }}">
+
+	<div class="mt20">{% include "snippets/field.twig" with {name: 'name', label: 'Name', selectedvalue : item.name, required : true} %}</div>
+	<div class="mt20">
+		<button type="submit" class="btn btn-block btn-success">Create Location</button>
+		<div class="text-center">
+			<a href="/admin/locations">or cancel</a>
+		</div>
+	</div>
+
+
+</form>
+
+

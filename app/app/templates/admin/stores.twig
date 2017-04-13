@@ -5,5 +5,31 @@
 
 
 {% block body %}
-<h1>Stores</h1>
-{% endblock  %}
+<div class="mt20">
+<h3>{% if item %}Edit Stores #{{ item.id }} {% else %}Create New Store {% endif %}</h3>
+	{% include "admin/store_form.twig" %}
+</div>
+<div class="mt20">
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in stores %}
+			<tr>
+				<th scope="row">{{ item.id }}</th>
+				<td>{{ item.name }}</td>
+				<td><a href="/admin/store/edit/id/{{ item.id }}">edit</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+</div>
+
+{% endblock %}

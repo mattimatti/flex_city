@@ -36,6 +36,9 @@ class UserService
      */
     public function create(array $params, $password, $role)
     {
+        if (isset($params['password'])) {
+            unset($params['password']);
+        }
         
         /* @var $user User */
         $user = $this->getRepo()->create($params);
@@ -43,6 +46,26 @@ class UserService
         $this->getRepo()->store($user);
         
         $this->addRole($user, $role);
+        
+        return $user;
+    }
+
+    /**
+     *
+     * @param array $params            
+     * @param User $bean            
+     * @return User
+     */
+    public function update(array $params, $bean)
+    {
+        if (isset($params['password']) && ! empty($params['password'])) {
+            $password = $params['password'];
+        }
+        unset($params['password']);
+        
+        $user = $this->getRepo()->update($params, $bean);
+        $user->setPassword($password);
+        $this->getRepo()->store($user);
         
         return $user;
     }

@@ -46,6 +46,20 @@ abstract class AbstractRepository
         return $bean->box();
     }
 
+    
+    /**
+     * 
+     * @param array $params
+     */
+    public function update(array $params, $bean)
+    {
+        $bean->import($params);
+        
+        R::store($bean);
+        
+        return $bean->box();
+    }
+
     /**
      *
      * @param int $id            

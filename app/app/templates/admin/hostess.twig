@@ -2,7 +2,7 @@
 
 
 <div class="mt20">
-<h3>{% if item %}Edit Event #{{ item.id }} {% else %} Create New Hostess {% endif %}</h3>
+<h3>{% if item %}Edit Hostess #{{ item.id }} {% else %} Create New Hostess {% endif %}</h3>
 	{% include "admin/hostess_form.twig" %}
 </div>
 <div class="mt20">
@@ -11,10 +11,9 @@
 		<thead>
 			<tr>
 				<th>#</th>
+				<th>Name</th>
+				<th>Surname</th>
 				<th>Username</th>
-				<th>Email</th>
-				<th>Password</th>
-				<th></th>
 				<th></th>
 			</tr>
 		</thead>
@@ -22,11 +21,10 @@
 			{% for item in hostess %}
 			<tr>
 				<th scope="row">{{ item.id }}</th>
+				<td>{{ item.name }}</td>
+				<td>{{ item.surname }}</td>
 				<td>{{ item.username }}</td>
-				<td>{{ item.email }}</td>
-				<td>{{ item.password }}</td>
 				<td><a href="/admin/hostess/edit/id/{{ item.id }}">edit</a></td>
-				<td><a href="/admin/hostess/delete/id/{{ item.id }}">delete</a></td>
 			</tr>
 			{% endfor %}
 		</tbody>

@@ -16,7 +16,7 @@ class HomeAction extends AbstractAction
      *
      * @var string
      */
-    protected $loacale;
+    protected $locale;
 
     /**
      *
