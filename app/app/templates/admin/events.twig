@@ -36,8 +36,7 @@
 				<th>Location</th>
 				<th>Store</th>
 				<th></th>
-				<th></th>
-				<th></th>
+{# 				<th></th>#}
 			</tr>
 		</thead>
 		<tbody>
@@ -47,9 +46,8 @@
 				<td>{{ item.label }}</td>
 				<td>{{ item.location.label }}</td>
 				<td>{{ item.store.label }}</td>
-				<td><a target="_blank" href="{{ item.signupUrl() }}">signup</a></td>
 				<td><a href="/admin/events?id={{ item.id }}">edit</a></td>
-				<td><a href="/admin/events/delete?id={{ item.id }}">delete</a></td>
+{# 				<td><a href="/admin/events/delete?id={{ item.id }}">delete</a></td>#}
 			</tr>
 			{% endfor %}
 		</tbody>
