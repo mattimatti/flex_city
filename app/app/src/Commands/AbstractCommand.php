@@ -36,9 +36,9 @@ class AbstractCommand extends Command
      */
     public function getDomains()
     {
-        return array(
-            "jp.timberland.app"
-        );
+//         return array(
+//             "jp.timberland.app"
+//         );
         
         return array(
             "flexinthecity.timberland.co.uk",
