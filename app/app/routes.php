@@ -32,6 +32,13 @@ $app->any('/admin/hostess/edit/id/{id}', "App\Action\Admin\HostessAction")
     Acl::ADMIN
 ]);
 
+
+$app->any('/admin/event_user', "App\Action\Admin\EventUserAction")
+    ->setName('event_user')
+    ->allow([
+    Acl::ADMIN
+]);
+
 $app->any('/admin/stores', "App\Action\Admin\StoresAction")
     ->setName('admin_stores')
     ->allow([
