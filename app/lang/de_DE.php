@@ -2,51 +2,51 @@
 return array(
     'welcome' => 'Willkommen',
 
-    'close' => 'Chiudi',
+    'close' => 'Schließen',
 
-    'subscribe' => 'Invia Registrazione',
+    'subscribe' => 'Anmeldung senden',
 
     
     'MALE' => 'Männlich',
     'FEMALE' => 'Weiblich',
-    'YES' => 'Accetto',
-    'NO' => 'Non Accetto',
+    'YES' => 'Ich stimme zu',
+    'NO' => 'Ich stimme nicht zu',
     'DAY' => 'Geburtsdatum: Tag',
     'MONTH' => 'Geburtsdatum: Monat',
     'YEAR' => 'Geburtsdatum: Jahr',
     'GENDER' => 'Geschlecht',
     
-    'PRODUCT' => 'Prodotto',
-    'SELECT_PRODUCT' => 'Seleziona Prodotto',
+    'PRODUCT' => 'Produkt',
+    'SELECT_PRODUCT' => 'Produkt auswählen',
 
     
-    'CSFR_EXCEPTION' => 'Richiesta scaduta',
+    'CSFR_EXCEPTION' => 'Anfrage verfallen',
     
-    'LEAD_REGISTER_SUCCESS' => 'Grazie per la registrazione',
-    'EMAIL_ALREADY_REGISTERED' => 'Un concorrente con %key% %value% è già registrato',
+    'LEAD_REGISTER_SUCCESS' => 'Danke für Ihre Anmeldung',
+    'EMAIL_ALREADY_REGISTERED' => 'Unter dieser E-Mail-Adresse ist bereits ein Teilnehmer registriert.',
     
-    'EMAIL' => 'Indirizzo mail',
-    'EMAIL-placeholder' => 'Inserisci l\'indirizzo di posta elettronica',
+    'EMAIL' => 'E-Mail-Adresse',
+    'EMAIL-placeholder' => 'E-Mail-Adresse eingeben',
 
     'NAME' => 'Vorname',
-    'NAME-placeholder' => 'Inserisci il nome',
+    'NAME-placeholder' => 'Vorname eingeben',
     
     'SURNAME' => 'Nachname',
-    'SURNAME-placeholder' => 'Inserisci il cognome',
+    'SURNAME-placeholder' => 'Nachname eingeben',
 
     'CITY' => 'Stadt',
-    'CITY-placeholder' => 'Inserisci la città',
+    'CITY-placeholder' => 'Stadt eingeben',
     
-    'PHONE' => 'Telefon',
-    'PHONE-placeholder' => 'Inserisci il telefono',
+    'PHONE' => 'Telefonnummer',
+    'PHONE-placeholder' => 'Telefonnummer eingeben',
     
-    'privacy-modal-title' => 'Informativa sul trattamento dei dati personali',
-    'terms-modal-title' => 'Regolamento del concorso',
-    'marketing-modal-title' => 'Consenso all’invio di materiale promo-pubblicitario',
-    'marketing-third-modal-title' => 'Consenso  alla comunicazione dei dati alle società facenti parte del gruppo VF International',
+    'privacy-modal-title' => 'Datenschutzinformation',
+    'terms-modal-title' => 'Reglement des Preisauschreibens',
+    'marketing-modal-title' => 'Zustimmung zur Sendung von Werbezuschriften',
+    'marketing-third-modal-title' => 'Zustimmung zur Weitergabe der Daten an Gesellschaften des VF International Konzerns',
     
     'privacy-label' => 'Ich bestätige, <a target="_blank" href="/media/pdf/privacy-policy.pdf">die Datenschutzinformation gelesen zu haben</a> und akzeptiere <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">die Bedingungen</a> des Preisausschreibens*.',
-    'terms-label' => 'Dichiaro di accettare il regolamento del concorso.',
+    'terms-label' => 'Ich akzeptiere das Reglement des Preisauschreibens.',
     'marketing-label' => 'Ich stimme der Nutzung meiner Daten durch VF Italia Srl und VF Italy Retail srl zu Marketing-, Werbe-, Marktforschungs- und Profilbildungszwecken zu.',
     'marketing-third-label' => 'Ich stimme der Weitergabe meiner Daten an Gesellschaften der Gruppe VF International darunter VF Italia, Rechtspersonen anderer Länder und Franchisee-Partners zu Werbe- und Marketingzwecken derselben zu.',
     
