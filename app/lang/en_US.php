@@ -17,19 +17,19 @@ return array(
     'GENDER' => 'Gender',
     
     'EMAIL' => 'Email address',
-    'EMAIL-placeholder' => 'Insert Email address',
+    'EMAIL-placeholder' => 'Enter Email address',
 
     'NAME' => 'First Name',
-    'NAME-placeholder' => 'Insert First Name',
+    'NAME-placeholder' => 'Enter First Name',
     
     'SURNAME' => 'Last Name',
-    'SURNAME-placeholder' => 'Insert Last Name',
+    'SURNAME-placeholder' => 'Enter Last Name',
 
     'CITY' => 'City',
-    'CITY-placeholder' => 'Inserisci la Città',
+    'CITY-placeholder' => 'Enter city',
     
     'PHONE' => 'Telephone',
-    'PHONE-placeholder' => 'Inserisci il Telefono',
+    'PHONE-placeholder' => 'Enter telephone',
     
     'privacy-modal-title' => 'Privacy Policy',
     'terms-modal-title' => 'Terms and Conditions',
