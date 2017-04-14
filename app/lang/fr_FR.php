@@ -4,36 +4,36 @@ return array(
     
     'close' => 'Fermer',
     
-    'subscribe' => 'Invia Registrazione',
+    'subscribe' => 'Envoyer l&apos;inscription',
     
     'MALE' => 'Masculin',
     'FEMALE' => 'Féminin',
-    'YES' => 'Accetto',
-    'NO' => 'Non Accetto',
+    'YES' => 'J&apos;accepte',
+    'NO' => 'Je refuse',
     'DAY' => 'Date de naissance: jour',
     'MONTH' => 'Date de naissance: mois',
     'YEAR' => 'Date de naissance: année',
     'GENDER' => 'Sexe',
     
-    'EMAIL' => 'Indirizzo di posta elettronica',
-    'EMAIL-placeholder' => 'Inserisci l\'indirizzo di posta elettronica',
+    'EMAIL' => 'Adresse e-mail',
+    'EMAIL-placeholder' => 'Saissisez votre adresse e-mail',
 
-    'NAME' => 'Nom',
-    'NAME-placeholder' => 'Inserisci il Nome',
+    'NAME' => 'Prénom',
+    'NAME-placeholder' => 'Saisissez votre prénom',
     
-    'SURNAME' => 'Prénom',
-    'SURNAME-placeholder' => 'Inserisci il Cognome',
+    'SURNAME' => 'Nom',
+    'SURNAME-placeholder' => 'Saisissez votre nom',
 
     'CITY' => 'Ville',
-    'CITY-placeholder' => 'Inserisci la Città',
+    'CITY-placeholder' => 'Saisissez votre ville',
     
     'PHONE' => 'Téléphone',
-    'PHONE-placeholder' => 'Inserisci il Telefono',
+    'PHONE-placeholder' => 'Saisissez votre n° de téléphone',
     
-    'privacy-modal-title' => 'Informativa sul trattamento dei dati personali',
-    'terms-modal-title' => 'Regolamento del concorso',
-    'marketing-modal-title' => 'Consenso all’invio di materiale promo-pubblicitario',
-    'marketing-third-modal-title' => 'Consenso  alla comunicazione dei dati alle società facenti parte del gruppo VF International',
+    'privacy-modal-title' => 'Note d&apos;information sur le traitement des données personnelles',
+    'terms-modal-title' => 'Règlement du concours',
+    'marketing-modal-title' => 'Consentement à l&apos;envoi de matériel promotionnel et publicitaire',
+    'marketing-third-modal-title' => 'Consentement à la communication des données aux sociétés faisant partie du groupe VF International',
     
     'privacy-label' => 'Je déclare avoir pris connaissance de la <a target="_blank" href="/media/pdf/privacy-policy.pdf">note d’information sur le traitement des données</a> et accepter <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">le règlement</a> du concours*.',
     'terms-label' => 'Je déclare accepter le règlement du concours.',
