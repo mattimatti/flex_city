@@ -23,17 +23,17 @@
         <!--[if lt IE 9]>
           <script src="/js/vendor/respond.min.js"></script>
         <![endif]-->
-<script>
+
+    <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-97191749-1', 'auto');
+  ga('create', 'UA-97201642-1', 'auto');
   ga('send', 'pageview');
 
 </script>
-
 
     </head>
     <body>
@@ -44,7 +44,7 @@
 
             <div class="brand">
                 <ul>
-                    <li><a target="_blank" href="https://www.timberland.it/"><img src="/media/logo-timberland.png" alt="Timberland"></a></li>
+                    <li><a target="_blank" href="https://www.timberland.de/"><img src="/media/logo-timberland.png" alt="Timberland"></a></li>
                    
                     <li class="txt">WALK  INTO A NEW EXPERIENCE</li>
                 </ul>
@@ -52,7 +52,7 @@
 
             <div class="mainMenu">
 
-                <a class="logo visible-xs" target="_blank" href="https://www.timberland.it/"><img src="/media/logo-timberland.png" alt="Timberland"></a>
+                <a class="logo visible-xs" target="_blank" href="https://www.timberland.de/"><img src="/media/logo-timberland.png" alt="Timberland"></a>
 
                 <div class="navbar-toggle" data-toggle="collapse" data-target=".menu">
                     <span></span>
@@ -63,11 +63,11 @@
 
                 <nav class="collapse menu" itemscope itemtype="http://schema.org/SiteNavigationElement">
                     <ul>
-                        <li><a class="page-scroll" href="#intro">CONCORSO</a></li>
-                        <li><a class="page-scroll" href="#ny">VINCI NEW YORK</a></li>
-                        <li><a class="page-scroll" href="#estrazione">PARTECIPA ALL’ESTRAZIONE</a></li>
-                        <li><a class="page-scroll" href="#store">VIENI IN NEGOZIO</a></li>
-                        <li><a class="page-scroll" href="#eventi">EVENTI IN STORE</a></li>
+                        <li><a class="page-scroll" href="#intro">PREISAUSSCHREIBEN</a></li>
+                        <li><a class="page-scroll" href="#ny">GEWINNEN SIE NEW YORK </a></li>
+                        <li><a class="page-scroll" href="#estrazione">NEHMEN SIE AN DER VERLOSUNG TEIL</a></li>
+                        <li><a class="page-scroll" href="#store">UNSERER FILIALEN</a></li>
+                        <li><a class="page-scroll" href="#eventi">EVENTS IM STORE</a></li>
                     </ul>
                 </nav>
             </div>
@@ -78,8 +78,9 @@
             <div class="section" style="background-image: url(/media/header.jpg)">
 
                 <div class="caption centered">
-                    <h2>PARTECIPA AL CONCORSO<br>FLEX IN THE CITY</h2>
-                    <h1>VINCI<br>NEW YORK</h1>
+                    <h2>NEHMEN SIE AM PREISAUSCHREIBEN<br>FLEX IN THE CITY</h2>
+                    <h1>GEWINNEN SIE EINE <br>
+                    REISE NACH<NEW YORK</h1>
                 </div>
 
           
@@ -99,9 +100,12 @@
                     <div class="col-md-6 item">
                         <div class="verical-centered">
                             <div class="centered entry">
-                                <p>Con <strong>Sensorflex</strong> puoi vincere un fantastico<br> viaggio di <strong>quattro giorni per due persone<br> a New York</strong>, la metropoli per eccellenza,<br> una città che non si ferma mai.</p>
-                                <h1>PREPARATI A PARTIRE</h1>
-                                <p>Scopri ogni angolo della Grande Mela<br> e soggiorna in uno degli hotel<br> più esclusivi del Meatpacking District.</p>
+                                <p>Mit <strong>Sensorflex</strong> können Sie eine viertägige Reise <br>
+                                nach New York  <strong>für zwei Personen gewinnen</strong>.
+                                <br> Besuchen Sie die Metropolis par excellence,
+                                <br> die Stadt, die nie schläft.</p>
+                                <h1>BEREITEN SIE SICH <br>FÜR DIE REISE VOR</h1>
+                                <p>Entdecken Sie jeden Winkel des „Big Apple“<br>  und wohnen Sie in einem der exklusivesten <br>Hotels des Meatpacking Districts.</p>
                             </div>
                         </div>
 
@@ -127,7 +131,10 @@
                         <div class="verical-centered">
                             <div class="centered entry">
                                 <h1 class="underline">STANDARD HIGH LINE HOTEL</h1>
-                                <p>Esplora con Timberland<br> il cuore pulsante della città<br> Cammina lungo l’High Line e immergiti nella<br> New York più trendy e autentica.</p>
+                                <p>Erkunden Sie mit Timberland das pulsierende <br>
+                                   Herz der Stadt. Schlendern Sie die High Line entlang<br>  
+                                   und stürzen Sie sich in die authentischsten <br>
+                                   und trendigsten Stadteile New Yorks.</p>
                             </div>
                         </div>
                     </div>
@@ -144,12 +151,12 @@
 
             <section id="estrazione">
                 <div class="entry">
-                    <h1 class="underline">PARTECIPA ALL’ESTRAZIONE</h1>
-                    <p>Iscriviti subito e partecipa all’estrazione.<br>
-                        Inserisci i tuoi dati e prova a vincere 4 giorni a New York.</p>
+                    <h1 class="underline">NEHMEN SIE AN DER VERLOSUNG TEIL</h1>
+                    <p>Registrieren Sie sich sofort und nehmen Sie an der Verlosung teil.<br>
+                        Geben Sie Ihre Daten ein und versuchen Sie, 4 Tage in New York zu gewinnen.</p>
                 </div>
 
-                {% include "public/form.twig" with {redirect : '/pages/grazie'} %}
+                {% include "public/form.twig" %}
                 
                 
                 
@@ -225,19 +232,20 @@
 
             <section id="store">
                 <div class="entry">
-                    <h1 class="underline">VIENI IN NEGOZIO</h1>
+                    <h1 class="underline">BESUCHEN SIE EINE UNSERER FILIALEN</h1>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 no-padding item image">
                         <img src="/media/sensorlex.jpg">
-                        <a target="_blank" href="https://www.timberland.it/treehouse/sensorflex-technology.html">ESPLORA SENSORLEX</a>
+                        <a target="_blank" href="https://www.timberland.de/treehouse/sensorflex-technology.html">ERFAHREN SIE MEHR ÜBER SENSORLEX</a>
                     </div>
                     <div class="col-lg-6 no-padding item text">
                         <div class="verical-centered">
                             <div class="centered">
-                                <h2>ACQUISTA IN STORE<br> UN MODELLO SENSORFLEX</h2>
-                                <p>E SCOPRI IMMEDIATAMENTE SE HAI VINTO<br> UNO DEI FANTASTICI PREMI IN PALIO.</p>
-                                <a href="#" data-toggle="modal" data-target="#search-store">TROVA TUTTI GLI STORE ADERENTI</a>
+                                <h2>KAUFEN SIE IM STORE EIN<br> SENSORFLEX-MODELL</h2>
+                                <p>UND ENTDECKEN SIE SOFORT OB SIE EINEN
+                                <br>DER FANTASTISCHEN PREISE GEWONNEN HABEN.</p>
+                                <a href="#" data-toggle="modal" data-target="#search-store">ENTDECKEN SIE ALLE TEILNEHMENDEN STORES</a>
 
                             </div>
                         </div>
@@ -254,7 +262,7 @@
 
             <section id="eventi">
                 <div class="entry">
-                    <h1 class="underline">EVENTI IN STORE</h1>
+                    <h1 class="underline">EVENTS IM STORE</h1>
                 </div>
 
                 <div class="row">
@@ -274,9 +282,12 @@
                     <div class="col-lg-6 no-padding item">
                         <div class="entry verical-centered">
                             <div class="centered">
-                                <p>Indossa le tue Sensorflex preferite e prova </p>
+                                <p>Erleben Sie Sensorflex. Ziehen Sie <br>Ihr Lieblingsmodell an und probieren Sie</p>
                                 <h1>FLEX IN THE CITY</h1>
-                                <p> la fantastica experience interattiva che ti farà<br> esplorare una città virtuale. Scopri come ci si<br> sente a camminare comodamente<br> da mattina a sera.</p>
+                                <p>das fantastische interaktive Erlebnis, bei dem Sie
+                                <br> eine virtuelle Stadt erkunden können. Entdecken Sie, 
+                                <br>wie es sich anfühlt, von morgens bis abends 
+                                <br> bequeme Schuhe zu tragen.</p>
                             </div>
                         </div>
                     </div>
@@ -287,40 +298,36 @@
 
             <div class="sensorflex">
                 <div class="title">
-                    <h1>prova l'experience sensorflex in questi store</h1>
+                    <h1>TESTEN SIE DAS ERLEBNIS IN UNSEREN STORES</h1>
                 </div>
-                <section class="row">
-                    <div class="col-sm-6 col-md-3 item">
+                 <section class="row">
+                    <div class="col-sm-4 item">
                         <div class="wrapper">
-                            FOGGIA<br>
-                            Centro Commerciale<br>
-                            Grandapulia<br>
-                            <div class="date">22-23 aprile</div>
+                            MÜNCHEN<br>
+                            Sendlinger Strasse 18<br>
+                            
+                            <div class="date">21-22 april</div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-3 item">
+                    <div class="col-sm-4 item">
                         <div class="wrapper">
-                            ARESE<br>
-                            Centro Commerciale <br>
-                            Il Centro<br>
-                            <div class="date">6-7 maggio</div>
+                            HAMBURG<br>
+                            Poststrasse 35 <br>
+                            Am Hanse-Viertel<br>
+                            <div class="date">5-6 mai</div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-3 item">
+                    <div class="col-sm-4 item">
                         <div class="wrapper">
-                            MILANO<br>
-                            Corso Giacomo Matteotti, 7 <br>
-                            <div class="date">12-13 maggio</div>
+                            GARMISCH-PARTENKIRCHEN<br>
+                            Am Kurpark 11 <br>
+                            <div class="date">12-13 mai</div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <div class="wrapper">
-                            MARGHERA<br>
-                            Centro Commerciale <br>
-                            La Nave de Vero<br>
-                            <div class="date">20-21 maggio</div>
-                        </div>
-                    </div>
+
+
+                </section>
+            </div>
 
 
                 </section>
@@ -336,7 +343,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 logo item">
-                        <a target="_blank" href="https://www.timberland.it/"><img src="/media/logo-timberland-large.png" alt="Timberland"></a>
+                        <a target="_blank" href="https://www.timberland.de/"><img src="/media/logo-timberland-large.png" alt="Timberland"></a>
                     </div>
                     <div class="col-md-3 social item">
                         <h1>FOLLOW US</h1>
@@ -350,7 +357,7 @@
                     <div class="col-md-4 regolamento item">
                         <div class="copy verical-centered">
                             <div class="bottom">
-                                <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">Regolamento completo</a> TIMBERLAND ® 2017 all right reserved
+                                <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">Komplettes Reglement</a> TIMBERLAND ® 2017 all right reserved
                             </div>
                         </div>
                     </div>
@@ -365,18 +372,44 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1>STORE ADERENTI</h1>
+                        <h1>ALLE TEILNEHMENDEN STORES</h1>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">X</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="styled-select">
-
-                            <select id="store-select">
-                                <option>Seleziona Regione</option>
-                            </select>
-                        </div>
+                     <div id="stores-list">
+    
+<div class="store"> <strong>	Aschaffenburg	</strong> <br>	Frohnsinnstraße 5	<br> </div>
+<div class="store"> <strong>	Darmstadt	</strong> <br>	Ernst-Ludwig-Str. 5	<br> </div>
+<div class="store"> <strong>	Berlin	</strong> <br>	Alexa Shopping Center <br>Grunerstrasse 20	<br> </div>
+<div class="store"> <strong>	Berlin	</strong> <br>	Kurfürstendamm 26a	<br> </div>
+<div class="store"> <strong>	Berlin	</strong> <br>	Friedrichstrasse 94	<br> </div>
+<div class="store"> <strong>	Düsseldorf	</strong> <br>	Mittelstasse 23	<br> </div>
+<div class="store"> <strong>	Frankfurt	</strong> <br>	Zeil 127 / An der Katherinenpforte	<br> </div>
+<div class="store"> <strong>	Garmisch-Partenkirchen	</strong> <br>	Am Kurpark 11	<br> </div>
+<div class="store"> <strong>	Hamburg	</strong> <br>	Poststrasse 35, Am Hanse-Viertel	<br> </div>
+<div class="store"> <strong>	Hamburg	</strong> <br>	Alstertal-Einkaufszentrum AEZ<br>Heegbarg 31-35<br> </div>
+<div class="store"> <strong>	Hanau	</strong> <br>	Nürnberger Str. 37	<br> </div>
+<div class="store"> <strong>	Heidelberg	</strong> <br>	Hauptstrasse 106	<br> </div>
+<div class="store"> <strong>	Karlsruhe	</strong> <br>	Amalienstraße 13	<br> </div>
+<div class="store"> <strong>	Karlsruhe ETC	</strong> <br>	Ettlinger-Tor-Platz 1	<br> </div>
+<div class="store"> <strong>	Köln	</strong> <br>	Am Alten Posthof 4-6	<br> </div>
+<div class="store"> <strong>	München	</strong> <br>	Burgstrasse 12	<br> </div>
+<div class="store"> <strong>	München	</strong> <br>	Olympia-Einkaufszentrum OEZ<br>Hanauer Straße 68<br> </div>
+<div class="store"> <strong>	München	</strong> <br>	Sendlinger Strasse 18	<br> </div>
+<div class="store"> <strong>	München	</strong> <br>	Neuhauser Strasse 47	<br> </div>
+<div class="store"> <strong>	Nürnberg	</strong> <br>	Königstrasse 2	<br> </div>
+<div class="store"> <strong>	Oberhausen 	</strong> <br>	Centroallee 232, Unit D 122	<br> </div>
+<div class="store"> <strong>	Passau	</strong> <br>	Wittgasse 2 	<br> </div>
+<div class="store"> <strong>	Puffer	</strong> <br>	VF GERMANY TEXTIL-HANDELS GMBH<br>Walter- Gropius- Strasse 23<br> </div>
+<div class="store"> <strong>	Regensburg	</strong> <br>	Spiegelgasse 1	<br> </div>
+<div class="store"> <strong>	Stuttgart	</strong> <br>	Königstrasse 40	<br> </div>
+<div class="store"> <strong>	Stuttgart	</strong> <br>	Mailänder Platz 7	<br> </div>
+<div class="store"> <strong>	Sulzbach im Taunus	</strong> <br>	Main-Taunus-Zentrum	<br> </div>
+<div class="store"> <strong>	Wiesbaden	</strong> <br>	Kirchgasse 19	<br> </div>
+    
+</div>
 
                         <div id="stores-list">
 
