@@ -9,8 +9,8 @@ return array(
     
     'MALE' => 'Male',
     'FEMALE' => 'Female',
-    'YES' => 'Accept',
-    'NO' => 'Deny',
+    'YES' => 'I agree',
+    'NO' => 'I do not agree',
     'DAY' => 'Date of birth: day',
     'MONTH' => 'Date of birth: month',
     'YEAR' => 'Date of birth: year',
