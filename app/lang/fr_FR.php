@@ -4,7 +4,7 @@ return array(
     
     'close' => 'Fermer',
     
-    'subscribe' => 'Envoyer l&apos;inscription',
+    'subscribe' => 'Envoyer inscription',
     
     'MALE' => 'Masculin',
     'FEMALE' => 'Féminin',
