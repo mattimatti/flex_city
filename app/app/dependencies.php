@@ -236,18 +236,19 @@ $container['mailService'] = function ($c)
     $throwExceptions = true;
     $mailer = new \PHPMailer($throwExceptions);
     
-    
-    //$mailer->Host = "mail.yourdomain.com"; // SMTP server
-                                           
     $mailer->SMTPDebug = 2; // enables SMTP debug information (for testing)
     
     $mailer->SMTPAuth = true; // enable SMTP authentication
-    $mailer->SMTPSecure = "tls"; // sets the prefix to the servier
+//     $mailer->SMTPSecure = "tls"; // sets the prefix to the servier
+    $mailer->SMTPSecure = "ssl"; // sets the prefix to the servier
     $mailer->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
-    $mailer->Port = 587; // set the SMTP port for the GMAIL server
+//     $mailer->Port = 587; // set the SMTP port for the GMAIL server
+    $mailer->Port = 465; // set the SMTP port for the GMAIL server
     $mailer->Username = "noreply.flexinthecity@gmail.com"; // GMAIL username
     $mailer->Password = "Flex7102"; // GMAIL password
     $mailer->isSMTP();
+    
+    
     
     
     // Set who the message is to be sent from
