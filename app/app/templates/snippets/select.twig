@@ -1,5 +1,8 @@
+<div class="form-group">
 <label>{{ label | default('Select') }}</label>
-<select name="{{ name }}" class="form-control {% if autosubmit %}autosubmit{% endif %}" {% if required %}required{% endif %}>
+<select name="{{ name }}" class="form-control {% if autosubmit %}autosubmit{% endif %}" {% if required %} required {% endif %}>
 <option value="">{{ label | default('Select') }}</option>
 {% for item in items %}<option {% if selectedvalue == item.id %} selected="selected"{% endif %} value="{{ item.id }}">{{ item.label }}</option>{% endfor %}
 </select>
+<div class="help-block with-errors"></div>
+</div>

@@ -34,7 +34,7 @@
 				<th>Location</th>
 				<th>Store</th>
 				<th></th>
-{# 				<th></th>#}
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -45,7 +45,7 @@
 				<td>{{ item.location.label }}</td>
 				<td>{{ item.store.label }}</td>
 				<td><a href="/admin/events?id={{ item.id }}">edit</a></td>
-{# 				<td><a href="/admin/events/delete?id={{ item.id }}">delete</a></td>#}
+				<td><a data-confirm="Are you sure you want to permanently delete this event and all it's realted data? " href="/admin/events/delete?id={{ item.id }}">delete</a></td>
 			</tr>
 			{% endfor %}
 		</tbody>
