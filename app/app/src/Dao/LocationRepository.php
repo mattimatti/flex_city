@@ -2,6 +2,7 @@
 namespace App\Dao;
 
 use RedBeanPHP\R;
+use App\Acl;
 
 class LocationRepository extends AbstractRepository
 {
@@ -12,6 +13,15 @@ class LocationRepository extends AbstractRepository
     public function getType()
     {
         return Location::NAME;
+    }
+
+    /**
+     *
+     * @return Ambigous <multitype:, multitype:NULL >
+     */
+    public function findAllButWeb()
+    {
+        return R::findAll($this->getType(), 'id != 1');
     }
 
     /**

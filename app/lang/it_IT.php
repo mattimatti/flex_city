@@ -52,5 +52,7 @@ return array(
     
     
     
-    'random' => 'Sono un testo ad minchiam, mi usano come esempio, scusatemi.'
+    'random' => 'Sono un testo ad minchiam, mi usano come esempio, scusatemi.',
+
+    'required-fields' => 'Consenso obbligatorio per partecipare al concorso'
 );

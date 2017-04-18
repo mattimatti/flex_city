@@ -17,7 +17,8 @@ class LeadRepository extends AbstractRepository
 
     /**
      *
-     * @param int $event_id            
+     * @param int $event_id
+     * @return Lead []        
      */
     public function findByEvent($event_id = null, $offset = null, $limit = null)
     {

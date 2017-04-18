@@ -14,4 +14,13 @@ class StoreRepository extends AbstractRepository
     {
         return Store::NAME;
     }
+
+    /**
+     *
+     * @return Ambigous <multitype:, multitype:NULL >
+     */
+    public function findAllButWeb()
+    {
+        return R::findAll($this->getType(), 'id != 1');
+    }
 }

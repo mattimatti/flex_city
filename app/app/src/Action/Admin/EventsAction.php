@@ -63,8 +63,8 @@ final class EventsAction extends AbstractAction
         }
         
         $this->setViewData("events", $eventRepo->findAll());
-        $this->setViewData("stores", $storeRepo->findAll());
-        $this->setViewData("locations", $locationRepo->findAll());
+        $this->setViewData("stores", $storeRepo->findAllButWeb());
+        $this->setViewData("locations", $locationRepo->findAllButWeb());
         $this->setViewData("hostess", $userRepo->findByRole(Acl::HOSTESS));
         
         $this->__render($response);

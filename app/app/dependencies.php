@@ -239,6 +239,7 @@ $container['mailService'] = function ($c)
     $throwExceptions = true;
     $mailer = new \PHPMailer($throwExceptions);
     
+    
     // use sendmail??
     $mailer->IsSendmail();
     

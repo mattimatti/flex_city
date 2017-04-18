@@ -49,18 +49,37 @@ class Lead extends AbstractDao implements IEmailRecipient
         $data['year'] = $this->year;
         $data['month'] = $this->month;
         $data['day'] = $this->day;
-        $data['location'] = $this->event()
-            ->location()
-            ->label();
-        $data['store'] = $this->event()
-            ->store()
-            ->label();
-        if ($this->hostess()) {
-            $data['hostess'] = $this->hostess()->label();
-        	
-        }
+        
         $data['date_create'] = $this->date_create;
         $data['product'] = $this->product;
+        
+        //
+        //
+        // privacy policy
+        $data['pp'] = $this->pp;
+        // terms and cond
+        $data['tc'] = $this->tc;
+        // marketing consens
+        $data['mkt'] = $this->mkt;
+        
+        // location
+        if ($this->event()->location()) {
+            $data['location'] = $this->event()
+                ->location()
+                ->label();
+        }
+        
+        // store
+        if ($this->event()->store()) {
+            $data['store'] = $this->event()
+                ->store()
+                ->label();
+        }
+        
+        // hostess
+        if ($this->hostess()) {
+            $data['hostess'] = $this->hostess()->label();
+        }
         
         return $data;
     }
