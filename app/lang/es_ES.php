@@ -50,10 +50,10 @@ return array(
     'marketing-label' => 'Autorizo el tratamiento de mis datos personales por parte de VF Italia Srl y VF Italy Retail srl, para fines de marketing, promocionales, estudios de mercado y elaboración de perfiles.',
     'marketing-third-label' => 'Autorizo la comunicación de mis datos personales a las sociedades del grupo VF International, como VF Italia, las entidades jurídicas en otros países y a sus franquiciados, para fines promocionales y de marketing de las mismas.',
     
-    'ERROR-required' => 'Compila questo campo',
-    'ERROR-email' => "Formato email non valido",
-    'ERROR-format' => "Rispetta il formato richiesto",
-    'required-fields' => 'Consenso obbligatorio per partecipare al concorso',    
+    'ERROR-required' => 'Rellena este campo',
+    'ERROR-email' => "Formato e-mail no válido",
+    'ERROR-format' => "Respeta el formato solicitado",
+    'required-fields' => 'Consenso obligatorio para participar en el concurso',    
     
     'random' => 'Sono un testo ad minchiam, mi usano come esempio, scusatemi.'
 );
