@@ -236,9 +236,10 @@ $container['mailService'] = function ($c)
     $throwExceptions = true;
     $mailer = new \PHPMailer($throwExceptions);
     
-    $mailer->Host = "mail.yourdomain.com"; // SMTP server
+    
+    //$mailer->Host = "mail.yourdomain.com"; // SMTP server
                                            
-    // $mailer->SMTPDebug = 2; // enables SMTP debug information (for testing)
+    $mailer->SMTPDebug = 2; // enables SMTP debug information (for testing)
     
     $mailer->SMTPAuth = true; // enable SMTP authentication
     $mailer->SMTPSecure = "tls"; // sets the prefix to the servier
