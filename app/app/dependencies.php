@@ -82,12 +82,9 @@ $container['translator'] = function ($c)
     $translator->addResource('php', __DIR__ . '/../lang/es_ES.php', 'es_ES'); // Spanish
     $translator->addResource('php', __DIR__ . '/../lang/nl_NL.php', 'nl_NL'); // Spanish
     
-    
-    
     $translator->addResource('php', __DIR__ . '/../lang/it_IT.php', 'it_ch'); // Italian Sweitz
     $translator->addResource('php', __DIR__ . '/../lang/fr_FR.php', 'fr_ch'); // French
     $translator->addResource('php', __DIR__ . '/../lang/de_DE.php', 'de_ch'); // Italian
-    
     
     return $translator;
 };
@@ -202,13 +199,13 @@ $container['session'] = function ($c)
 $container['leadService'] = function ($c)
 {
     // compose the service params
-
+    
     $leadRepo = new LeadRepository();
     $mailService = $c->get('mailService');
     $translator = $c->get('translator');
     $settings = $c->get('settings');
     
-    $leadService = new LeadService($leadRepo, $mailService, $translator,$settings);
+    $leadService = new LeadService($leadRepo, $mailService, $translator, $settings);
     
     return $leadService;
 };
@@ -239,9 +236,24 @@ $container['mailService'] = function ($c)
     $throwExceptions = true;
     $mailer = new \PHPMailer($throwExceptions);
     
+    $mailer->Host = "mail.yourdomain.com"; // SMTP server
+                                           
+    // $mailer->SMTPDebug = 2; // enables SMTP debug information (for testing)
     
-    // use sendmail??
-    $mailer->IsSendmail();
+    $mailer->SMTPAuth = true; // enable SMTP authentication
+    $mailer->SMTPSecure = "tls"; // sets the prefix to the servier
+    $mailer->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
+    $mailer->Port = 587; // set the SMTP port for the GMAIL server
+    $mailer->Username = "noreply.flexinthecity@gmail.com"; // GMAIL username
+    $mailer->Password = "Flex7102"; // GMAIL password
+    $mailer->isSMTP();
+    
+    
+    // Set who the message is to be sent from
+    $mailer->setFrom('noreply.flexinthecity@gmail.com', 'Flex in the City');
+    
+    // use sendmail?? NO IF GMAIL
+    // $mailer->IsSendmail();
     
     $renderer = $c->get('mailRenderer');
     $service = new MailService($mailer, $renderer);
