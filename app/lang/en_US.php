@@ -40,7 +40,11 @@ return array(
     'terms-label' => 'Terms and conditions.',
     'marketing-label' => 'I agree to VF Italia Srl and VF Italy Retail srl using my information for marketing, promotional, market analysis and profiling purposes.',
     'marketing-third-label' => 'I agree to my information being communicated to member companies of the group VF International, such as VF Italia, the legal entities of other countries and partner franchisees for promotional and marketing purposes.',
-    
+
+    'ERROR-required' => 'Compila questo campo',
+    'ERROR-email' => "Formato email non valido",
+    'ERROR-format' => "Rispetta il formato richiesto",
+    'required-fields' => 'Consenso obbligatorio per partecipare al concorso',
     
     'random' => 'I am a random text string, I am only using it as an example'
 );

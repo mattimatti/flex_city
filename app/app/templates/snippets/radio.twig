@@ -2,5 +2,6 @@
 <div class="cb">
     <input type="radio" name="{{ name }}" id="c{{ loop.index }}" value="{{ opt.value }}" {% if selectedvalue == opt.value %}checked="checked" {% endif %}  {% if required %} required {% endif %}>
     <label for="c{{ loop.index }}"><span></span>{{ opt.label }}</label>
+    <div class="help-block with-errors"></div>
 </div>
 {% endfor %}

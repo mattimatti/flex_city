@@ -50,7 +50,10 @@ return array(
     'marketing-label' => 'Ich stimme der Nutzung meiner Daten durch VF Italia Srl und VF Italy Retail srl zu Marketing-, Werbe-, Marktforschungs- und Profilbildungszwecken zu.',
     'marketing-third-label' => 'Ich stimme der Weitergabe meiner Daten an Gesellschaften der Gruppe VF International darunter VF Italia, Rechtspersonen anderer Länder und Franchisee-Partners zu Werbe- und Marketingzwecken derselben zu.',
     
-    
+    'ERROR-required' => 'Compila questo campo',
+    'ERROR-email' => "Formato email non valido",
+    'ERROR-format' => "Rispetta il formato richiesto",
+    'required-fields' => 'Consenso obbligatorio per partecipare al concorso',
     
     'random' => 'Sono un testo ad minchiam, mi usano come esempio, scusatemi.'
 );

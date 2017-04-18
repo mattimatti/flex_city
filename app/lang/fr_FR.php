@@ -39,6 +39,11 @@ return array(
     'terms-label' => 'Je déclare accepter le règlement du concours.',
     'marketing-label' => 'J’autorise l’utilisation de mes données de la part de VF Italia Srl et VF Italy Retail srl, à des fins de marketing, promotionnelles, d’analyses de marché et de profilage.',
     'marketing-third-label' => 'J’autorise la communication de mes données aux sociétés du groupe VF International, comme VF Italia, les entités juridiques des autres pays et les partenaires de franchise, pour des finalités promotionnelles et de marketing de ces derniers.',
+
+    'ERROR-required' => 'Compila questo campo',
+    'ERROR-email' => "Formato email non valido",
+    'ERROR-format' => "Rispetta il formato richiesto",
+    'required-fields' => 'Consenso obbligatorio per partecipare al concorso',
     
     'random' => 'Je suis charlie'
 );

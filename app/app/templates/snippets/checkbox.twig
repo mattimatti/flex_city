@@ -1,3 +1,14 @@
-<label class="radio-inline">
-    <input type="checkbox" name="{{ name }}" id="{{ name }}" value="{{ value }}" {% if selectedvalue == value %}checked="checked" {% endif %}  {% if required %} required {% endif %}> {{ label }}
-</label>
+<div class="form-group">
+	<div class="checkbox">
+	<label>
+	    <input type="checkbox" name="{{ name }}" id="{{ name }}" value="{{ value }}" {% if selectedvalue == value %}checked="checked" {% endif %}  {% if required %} data-error="{{ data_error }}" required {% endif %}> {{ label|raw }}
+	</label>
+	<div class="help-block with-errors"></div>
+	</div>
+</div>
+{# <label class="radio-inline">#}
+{#     <input type="checkbox" name="{{ name }}" id="{{ name }}" value="{{ value }}" {% if selectedvalue == value %}checked="checked" {% endif %}  {% if required %} data-error="{{ data-error }}" required {% endif %}> {{ label }}#}
+{# </label>#}
+
+
+

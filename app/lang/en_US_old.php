@@ -40,7 +40,11 @@ return array(
     'terms-label' => 'Terms and conditions.',
     'marketing-label' => 'Marketing Actions.',
     'marketing-third-label' => 'Third Parts Marketing Actions',
-    
+
+    'ERROR-required' => 'Compila questo campo',
+    'ERROR-email' => "Formato email non valido",
+    'ERROR-format' => "Rispetta il formato richiesto",
+    'required-fields' => 'Consenso obbligatorio per partecipare al concorso',
     
     'random' => 'I am a random text string, I am only using it as an example'
 );

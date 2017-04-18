@@ -50,7 +50,10 @@ return array(
     'marketing-label' => 'Acconsento all’ invio di materiale promo-pubblicitario tramite posta elettronica da parte di VF Italia srl.',
     'marketing-third-label' => 'Acconsento alla comunicazione dei miei dati alle società del gruppo VF International, quali VF Italia, le  legal entities delle altre country e i partner franchisee, per finalità promozionali e di marketing delle stesse.',
     
-    
+    'ERROR-required' => 'Compila questo campo',
+    'ERROR-email' => "Formato email non valido",
+    'ERROR-format' => "Rispetta il formato richiesto",
+    'required-fields' => 'Consenso obbligatorio per partecipare al concorso',    
     
     'random' => 'Sono un testo ad minchiam, mi usano come esempio, scusatemi.'
 );
