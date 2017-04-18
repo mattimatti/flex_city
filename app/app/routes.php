@@ -38,7 +38,7 @@ $app->any('/admin/event_user', "App\Action\Admin\EventUserAction")
     Acl::ADMIN
 ]);
 
-$app->any('/admin/stores', "App\Action\Admin\StoresAction")
+$app->any('/admin/stores[/{action}]', "App\Action\Admin\StoresAction")
     ->setName('admin_stores')
     ->allow([
     Acl::ADMIN
@@ -51,7 +51,7 @@ $app->any('/admin/stores/edit/id/{id}', "App\Action\Admin\StoresAction")
     Acl::ADMIN
     ]);
 
-$app->any('/admin/locations', "App\Action\Admin\LocationsAction")
+$app->any('/admin/locations[/{action}]', "App\Action\Admin\LocationsAction")
     ->setName('admin_locations')
     ->allow([
     Acl::ADMIN

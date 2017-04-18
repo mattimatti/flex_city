@@ -18,6 +18,22 @@ final class StoresAction extends AbstractAction
     protected $storeRepo;
 
     /**
+     *
+     * @param Request $request            
+     * @param Response $response            
+     * @param unknown $args            
+     */
+    public function delete(Request $request, Response $response, $args)
+    {
+        // instance repos
+        $repo = new StoreRepository();
+        // the id
+        $id = $request->getQueryParam('id');
+        $repo->trash($id);
+        return $this->__redirect($response, '/admin/stores');
+    }
+
+    /**
      * (non-PHPdoc)
      *
      * @see \App\Action\AbstractAction::__invoke()
@@ -30,6 +46,11 @@ final class StoresAction extends AbstractAction
             $id = $args['id'];
             $store = $this->storeRepo->get($id);
             $this->setViewData("item", $store);
+        }
+        
+        // id we have a delete action
+        if (isset($args['action']) && $args['action'] == 'delete') {
+            return $this->delete($request, $response, $args);
         }
         
         if ($request->isPost()) {
