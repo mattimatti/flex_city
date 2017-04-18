@@ -38,7 +38,21 @@
 
 
 <script type="text/javascript" src="/dist/js/main.js"></script>
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+<script type="text/javascript">
+
+$('a[data-confirm]').click(function(ev) {
+		var href = $(this).attr('href');
+		var title = $(this).attr('data-confirm');
+		if(confirm(title)){
+			 window.location.href = href;
+			 return false;
+		}
+		return false;
+	});
+</script>
+
+{% endblock %}
 
 </body>
 </html>
