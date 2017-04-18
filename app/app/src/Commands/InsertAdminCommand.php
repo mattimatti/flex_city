@@ -41,9 +41,6 @@ class InsertAdminCommand extends AbstractCommand
             
             $dbconfig = $this->getDbConfig($domain, $output);
             
-            $output->writeln(print_r($dbconfig, 1));
-            
-            
             $user = $dbconfig['user'];
             $password = $dbconfig['password'];
             $dbname = $dbconfig['dbname'];
