@@ -24,8 +24,18 @@
 			<tr>
 				<th scope="row">{{ item.id }}</th>
 				<td>{{ item.name }}</td>
-				<td><a href="/admin/locations/edit/id/{{ item.id }}">edit</a></td>
-			    <td><a data-confirm="Are you sure you want to permanently delete this locations?" href="/admin/locations/delete?id={{ item.id }}">delete</a></td>
+				<td>
+				
+			    {% if item.id != 1 %}
+				<a href="/admin/locations/edit/id/{{ item.id }}">edit</a>
+			    {% endif %}
+				
+				</td>
+			    <td>
+			    {% if item.id != 1 %}
+			    <a data-confirm="Are you sure you want to permanently delete this locations?" href="/admin/locations/delete?id={{ item.id }}">delete</a>
+			    {% endif %}
+			    </td>
 			</tr>
 			{% endfor %}
 		</tbody>

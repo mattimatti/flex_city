@@ -44,8 +44,17 @@
 				<td>{{ item.label }}</td>
 				<td>{{ item.location.label }}</td>
 				<td>{{ item.store.label }}</td>
-				<td><a href="/admin/events?id={{ item.id }}">edit</a></td>
-				<td><a data-confirm="Are you sure you want to permanently delete this event and all it's realted data? This action cannot be undone " href="/admin/events/delete?id={{ item.id }}">delete</a></td>
+				<td>
+				{% if item.id != 1 %}
+				<a href="/admin/events?id={{ item.id }}">edit</a>
+				{% endif %}
+				</td>
+				<td>
+				{% if item.id != 1 %}
+				<a data-confirm="Are you sure you want to permanently delete this event and all it's realted data? This action cannot be undone " href="/admin/events/delete?id={{ item.id }}">delete</a>
+				{% endif %}
+				</td>
+			
 			</tr>
 			{% endfor %}
 		</tbody>
