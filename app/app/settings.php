@@ -18,7 +18,7 @@ return [
         ],
         
         'mailer' => [
-            'email' => 'mmonti@gmail.com',
+            'email' => 'noreply.flexinthecity@gmail.com',
             'label' => 'Timberland'
         ],
         

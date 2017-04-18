@@ -253,8 +253,6 @@ $container['mailService'] = function ($c)
     
     
     
-    // Set who the message is to be sent from
-    $mailer->setFrom('noreply.flexinthecity@gmail.com', 'Flex in the City');
     
     // use sendmail?? NO IF GMAIL
     // $mailer->IsSendmail();
