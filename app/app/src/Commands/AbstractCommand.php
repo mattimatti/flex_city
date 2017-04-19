@@ -7,6 +7,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputOption;
 use Slim\App;
+use RedBeanPHP\R;
 
 class AbstractCommand extends Command
 {
@@ -29,6 +30,19 @@ class AbstractCommand extends Command
     {
         $output->writeln('Hello World');
     }
+    
+    
+    /**
+     *
+     * @param array $config
+     */
+    public function openConnection($config)
+    {
+        R::addDatabase('command', 'mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['user'], $config['password']);
+        R::selectDatabase('command');
+    }
+    
+    
 
     /**
      *
