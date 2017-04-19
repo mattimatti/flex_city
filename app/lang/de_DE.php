@@ -48,7 +48,7 @@ return array(
     'privacy-label' => 'Ich erkläre mich den <a target="_blank" href="/media/pdf/privacy-policy.pdf">Datenschutzbedingungen </a> und den allgemeinen <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">Teilnahmebedingungen </a>  einverstanden*.',
     'terms-label' => 'Ich akzeptiere das Reglement des Preisauschreibens.',
     'marketing-label' => 'Ich willige ein, dass meine personenbezogenen Daten auch für folgende Zwecke erhoben, verarbeitet und genutzt werden: Marketing- und Markforschungszweche; Werbemaßnahmen und individuelles oder auf Kategorien beruhendes Profiling, um mir per Mail auf mich persönlich zugeschnittene Werbeung zu  Produkten zu übersenden, die von der VF ihren Konzernunternehmen vertrieben werden. Diese Einwilligung gilt nur innerhalb der EU und der Schweiz, sie gult für di VF Germany Textile-Handels GmbH, Otto-Hahn-Straße 36, 63303 Dreieich, Tel: 08001800182, E-mail: Tbl_deshop@vfc.com und ihre Konzerngesellschaften',
-    'marketing-third-label' => 'Ich stimme der Weitergabe meiner Daten an Gesellschaften der Gruppe VF International darunter VF Italia, Rechtspersonen anderer Länder und Franchisee-Partners zu Werbe- und Marketingzwecken derselben zu.',
+    'marketing-third-label' => '',
     
     'ERROR-required' => 'Bitte füllen Sie dieses Feld aus',
     'ERROR-email' => 'Ungültiges E-Mail-Format',
