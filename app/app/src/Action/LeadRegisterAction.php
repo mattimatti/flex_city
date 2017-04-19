@@ -31,10 +31,6 @@ class LeadRegisterAction extends AbstractAction
     public function __invoke(Request $request, Response $response, $args)
     {
         $this->leadService = $this->container->get('leadService');
-        $settings = $this->container->get('settings');
-        
-        
-        Debug::dump($settings);
         
         if ($request->isPost()) {
             
