@@ -9,6 +9,7 @@ use App\Commands\DefaultCommand;
 use App\Commands\SendMailCommand;
 use App\Commands\LoadSchemaCommand;
 use App\Commands\InsertAdminCommand;
+use App\Commands\ChangeAdminPasswordCommand;
 
 $application = new Application();
 
@@ -45,5 +46,10 @@ $application->add($insertAdminCommand);
 $schemaCommand = new LoadSchemaCommand();
 $schemaCommand->setSlim($app);
 $application->add($schemaCommand);
+
+
+$changeAdminPasswordCommand = new ChangeAdminPasswordCommand();
+$changeAdminPasswordCommand->setSlim($app);
+$application->add($changeAdminPasswordCommand);
 
 $application->run();

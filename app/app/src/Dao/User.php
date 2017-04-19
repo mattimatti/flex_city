@@ -13,8 +13,6 @@ class User extends AbstractDao
         return $this->username;
     }
 
-    
-    
     public function events()
     {
         return $this->sharedEventList;
@@ -27,9 +25,9 @@ class User extends AbstractDao
      */
     public function setPassword($password)
     {
-        if (! $this->passwordHash) {
-            $this->passwordHash = password_hash($password, PASSWORD_DEFAULT);
-        }
+        // if (! $this->passwordHash) {
+        $this->passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        // }
     }
 
     /**

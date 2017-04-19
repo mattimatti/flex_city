@@ -70,13 +70,23 @@ class AbstractCommand extends Command
     
     /**
      *
-     * @return the $slim
+     * @return \Slim\App
      */
     public function getSlim()
     {
         return $this->slim;
     }
 
+    /**
+     *
+     * @return ContainerInterface
+     */
+    public function getServiceContainer()
+    {
+        return $this->getSlim()->getContainer();
+    }
+
+    
     /**
      *
      * @param \Slim\App $slim            
