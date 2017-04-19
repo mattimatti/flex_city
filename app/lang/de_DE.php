@@ -45,15 +45,15 @@ return array(
     'marketing-modal-title' => 'Zustimmung zur Sendung von Werbezuschriften',
     'marketing-third-modal-title' => 'Zustimmung zur Weitergabe der Daten an Gesellschaften des VF International Konzerns',
     
-    'privacy-label' => 'Ich bestätige, <a target="_blank" href="/media/pdf/privacy-policy.pdf">die Datenschutzinformation gelesen zu haben</a> und akzeptiere <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">die Bedingungen</a> des Preisausschreibens*.',
+    'privacy-label' => 'Ich erkläre mich den <a target="_blank" href="/media/pdf/privacy-policy.pdf">Datenschutzbedingungen </a> und den allgemeinen <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">Teilnahmebedingungen </a>  einverstanden*.',
     'terms-label' => 'Ich akzeptiere das Reglement des Preisauschreibens.',
     'marketing-label' => 'Ich stimme der Nutzung meiner Daten durch VF Italia Srl und VF Italy Retail srl zu Marketing-, Werbe-, Marktforschungs- und Profilbildungszwecken zu.',
     'marketing-third-label' => 'Ich stimme der Weitergabe meiner Daten an Gesellschaften der Gruppe VF International darunter VF Italia, Rechtspersonen anderer Länder und Franchisee-Partners zu Werbe- und Marketingzwecken derselben zu.',
     
-    'ERROR-required' => 'Bitte dieses Feld ausfüllen',
-    'ERROR-email' => "Ungültiges E-Mail-Format ",
+    'ERROR-required' => 'Bitte füllen Sie dieses Feld aus',
+    'ERROR-email' => 'Ungültiges E-Mail-Format',
     'ERROR-format' => "Bitte das Format beachten",
-    'required-fields' => 'Zwingende Zustimmung um teilzunehmen',
+    'required-fields' => 'Pflichtfeld',
     
     'random' => 'Sono un testo ad minchiam, mi usano come esempio, scusatemi.'
 );
