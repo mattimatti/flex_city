@@ -37,7 +37,7 @@ class AbstractCommand extends Command
      */
     public function openConnection($config)
     {
-        if (!R::hasDatabase($config['dbname'])) {
+        if (! R::hasDatabase($config['dbname'])) {
             R::addDatabase($config['dbname'], 'mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['user'], $config['password']);
         }
         R::selectDatabase($config['dbname']);
