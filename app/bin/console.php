@@ -28,6 +28,9 @@ require __DIR__ . '/../app/bootstrap.php';
 defined('ENVIRONMENT') || define('ENVIRONMENT', (getenv('ENVIRONMENT') ? getenv('ENVIRONMENT') : 'production'));
 // defined('ENVIRONMENT') || define('ENVIRONMENT', (getenv('ENVIRONMENT') ? getenv('ENVIRONMENT') : 'development'));
 
+echo ENVIRONMENT;
+
+
 //
 //
 $fixturesCommand = new LoadFixturesCommand();

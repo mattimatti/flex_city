@@ -57,7 +57,7 @@ class ChangeAdminPasswordCommand extends AbstractCommand
             
             $dbconfig = $this->getDbConfig($domain, $output);
             
-            // $output->writeln(print_r($dbconfig, 1));
+            $output->writeln(print_r($dbconfig, 1));
             
             $userService = $this->getServiceContainer()->get('userService');
             
