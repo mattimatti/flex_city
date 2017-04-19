@@ -85,7 +85,6 @@
 	
 	
 	
-	
 	<div class="mt120"></div>
 
 	
@@ -98,6 +97,7 @@
 	</div>
 
 
+	{% if not settings.minimalfields == 1 %}
 	<!-- marketing -->
 	<div class="row mt20">
 		<div class="col-sm-12 col-md-12">
@@ -114,6 +114,8 @@
 		      {% include "snippets/checkbox.twig" with {name: 'mkt3rd',  selectedvalue : item.mkt3rd, value : 'y', label: "marketing-third-label"|trans } %}
 		</div>
 	</div>
+	
+	{% endif %}
 
 	<div class="mt40">
 		* {{ "required-fields"|trans }}

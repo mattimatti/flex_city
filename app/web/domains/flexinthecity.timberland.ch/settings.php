@@ -2,6 +2,7 @@
 return [
     'settings' => [
         'lang' => 'de_DE',
+        'minimalfields' => true,
         'domain' => 'flexinthecity.timberland.ch',
         'database' => [
             'host' => 'localhost',

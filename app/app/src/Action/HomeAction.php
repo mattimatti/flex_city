@@ -29,8 +29,11 @@ class HomeAction extends AbstractAction
      */
     public function __invoke(Request $request, Response $response, $args)
     {
+        
+        
         // Set the event as WEB, this will modify the behaviour of the lead refister form.
         $this->setViewData("event_id", Event::ID_WEB);
+        
         
         // the domain
         $domain = $request->getUri()->getHost();
