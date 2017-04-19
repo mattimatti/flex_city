@@ -30,19 +30,18 @@ class AbstractCommand extends Command
     {
         $output->writeln('Hello World');
     }
-    
-    
+
     /**
      *
-     * @param array $config
+     * @param array $config            
      */
     public function openConnection($config)
     {
-        R::addDatabase('command', 'mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['user'], $config['password']);
-        R::selectDatabase('command');
+        if (!R::hasDatabase($config['dbname'])) {
+            R::addDatabase($config['dbname'], 'mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['user'], $config['password']);
+        }
+        R::selectDatabase($config['dbname']);
     }
-    
-    
 
     /**
      *
@@ -100,7 +99,6 @@ class AbstractCommand extends Command
         return $this->getSlim()->getContainer();
     }
 
-    
     /**
      *
      * @param \Slim\App $slim            
