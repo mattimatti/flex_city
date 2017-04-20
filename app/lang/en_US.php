@@ -44,7 +44,7 @@ return array(
     'ERROR-required' => 'Fill out this field',
     'ERROR-email' => "Invalid e-mail format",
     'ERROR-format' => "Please provide with requested format",
-    'required-fields' => 'Your consent is mandatory to participate in the competition',
+    'required-fields' => 'Summary Terms and Conditions: UK, 18+ only. Enter between: 18.04.17 – 28.05.17. Normal entry restrictions apply. No purchase necessary. The Prize: 1x 3 night trip to NYC for two (flights & hotel). Guest must be 18+. Trip must be taken within 1 yeah of acceptance of the prize.',
     
     'random' => 'I am a random text string, I am only using it as an example'
 );
