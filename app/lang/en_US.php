@@ -36,10 +36,10 @@ return array(
     'marketing-modal-title' => 'Marketing Actions Disclosure ',
     'marketing-third-modal-title' => 'Third Parts Marketing Actions Disclosure',
     
-    'privacy-label' => 'I declare that I have read <a target="_blank" href="/media/pdf/privacy-policy.pdf">the informative notice on data processing</a> and accept <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">the regulation</a> of the contest*.',
+    'privacy-label' => 'I declare that I have examined and agree to <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">summary of terms</a>*.',
     'terms-label' => 'Terms and conditions.',
-    'marketing-label' => 'I agree to VF Italia Srl and VF Italy Retail srl using my information for marketing, promotional, market analysis and profiling purposes.',
-    'marketing-third-label' => 'I agree to my information being communicated to member companies of the group VF International, such as VF Italia, the legal entities of other countries and partner franchisees for promotional and marketing purposes.',
+    'marketing-label' => 'Agree to the sending of advertising-promotional material by VF International Group.',
+    'marketing-third-label' => 'Agree that my data may be sent to companies belonging to the VF International Group & VF Northern Europe, the legal bodies of other countries and franchise partners, for promotional and marketing purposes.',
 
     'ERROR-required' => 'Fill out this field',
     'ERROR-email' => "Invalid e-mail format",
