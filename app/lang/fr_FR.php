@@ -37,7 +37,7 @@ return array(
     
     'privacy-label' => 'Je déclare avoir pris connaissance de la <a target="_blank" href="/media/pdf/privacy-policy.pdf">note d’information sur le traitement des données</a> et accepter <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">le règlement</a> du concours*.',
      'terms-label' => 'Je déclare accepter le règlement du concours.',
-    'marketing-label' => 'J’autorise l’utilisation de mes données de la part de VF Italia Srl et VF France, à des fins de marketing, promotionnelles, d’analyses de marché et de profilage.',
+    'marketing-label' => 'J’autorise l’utilisation de mes données de la part de VF France, à des fins de marketing, promotionnelles, d’analyses de marché et de profilage.',
     'marketing-third-label' => 'J’autorise la communication de mes données aux sociétés du groupe VF International, comme VF France, les entités juridiques des autres pays et les partenaires de franchise, pour des finalités promotionnelles et de marketing de ces derniers.',
 
     'ERROR-required' => 'Veuillez remplir ce champ',
