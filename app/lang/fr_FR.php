@@ -15,6 +15,14 @@ return array(
     'YEAR' => 'Date de naissance: année',
     'GENDER' => 'Sexe',
     
+    'PRODUCT' => 'Produit',
+    'SELECT_PRODUCT' => 'Sélectionner un produit',
+    
+    'CSFR_EXCEPTION' => 'Demande expirée',
+    
+    'LEAD_REGISTER_SUCCESS' => 'Merci de vous être inscrit(e)',
+    'EMAIL_ALREADY_REGISTERED' => 'Un concurrent avec %key% %value% est déjà inscrit',
+    
     'EMAIL' => 'Adresse e-mail',
     'EMAIL-placeholder' => 'Saissisez votre adresse e-mail',
 
