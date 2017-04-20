@@ -23,7 +23,7 @@ return array(
     'CSFR_EXCEPTION' => 'Anfrage verfallen',
     
     'LEAD_REGISTER_SUCCESS' => 'Danke für Ihre Anmeldung',
-    'EMAIL_ALREADY_REGISTERED' => 'Unter dieser E-Mail-Adresse ist bereits ein Teilnehmer registriert.',
+    'EMAIL_ALREADY_REGISTERED' => 'Unter %key% %value% ist bereits ein Teilnehmer registriert.',
     
     'EMAIL' => 'E-Mail-Adresse',
     'EMAIL-placeholder' => 'E-Mail-Adresse eingeben',
