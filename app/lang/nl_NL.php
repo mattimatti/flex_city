@@ -23,7 +23,7 @@ return array(
     'CSFR_EXCEPTION' => 'Verzoek verlopen',
     
     'LEAD_REGISTER_SUCCESS' => 'Bedankt voor je registratie',
-    'EMAIL_ALREADY_REGISTERED' => 'Dit e-mail adres is al eens geregistreerd.',
+    'EMAIL_ALREADY_REGISTERED' => '%key% %value% is al eens geregistreerd.',
     
     'EMAIL' => 'E-mail adres',
     'EMAIL-placeholder' => 'Voer e-mail adres in',
