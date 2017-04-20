@@ -16,14 +16,14 @@ return array(
     'YEAR' => 'Date of birth: year',
     'GENDER' => 'Gender',
     
-     'PRODUCT' => 'Prodotto',
-    'SELECT_PRODUCT' => 'Seleziona Prodotto',
+    'PRODUCT' => 'Product',
+    'SELECT_PRODUCT' => 'Select product',
 
     
-    'CSFR_EXCEPTION' => 'Richiesta scaduta',
+    'CSFR_EXCEPTION' => 'Request expired',
     
-    'LEAD_REGISTER_SUCCESS' => 'Grazie per la registrazione',
-    'EMAIL_ALREADY_REGISTERED' => 'Un concorrente con %key% %value% è già registrato',
+    'LEAD_REGISTER_SUCCESS' => 'Thank you for registering',
+    'EMAIL_ALREADY_REGISTERED' => 'A registration has already been made with %key% %value%',
     
     
     'EMAIL' => 'Email address',
