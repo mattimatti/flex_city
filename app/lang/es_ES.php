@@ -23,7 +23,7 @@ return array(
     'CSFR_EXCEPTION' => 'Solicitud vencida',
     
     'LEAD_REGISTER_SUCCESS' => 'Gracias por la inscripción',
-    'EMAIL_ALREADY_REGISTERED' => 'Un participante ya está inscrito con este e-mail',
+    'EMAIL_ALREADY_REGISTERED' => 'Un participante ya está inscrito con %key% %value%',
     
     'EMAIL' => 'Dirección e-mail',
     'EMAIL-placeholder' => 'Introduce la dirección de correo electrónico',
