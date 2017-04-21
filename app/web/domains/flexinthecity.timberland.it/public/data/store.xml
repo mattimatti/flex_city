@@ -14,29 +14,29 @@
    
 
 	<regione title="Calabria">
-<store><![CDATA[<strong>	Catanzaro	</strong> <br>		<br>	Corso Mazzini 213	]]></store>
+<store><![CDATA[<strong>	Catanzaro	</strong> <br>Corso Mazzini 213	]]></store>
 <store><![CDATA[<strong>	Catanzaro Lido	</strong> <br>	C.C. Le Fontane	<br>	Via Emilia	]]></store>
-<store><![CDATA[<strong>	Cosenza	</strong> <br>			Piazza XI Settembre 10	]]></store>
-<store><![CDATA[<strong>	Crotone	</strong> <br>		<br>	Via Vittorio Veneto 87	]]></store>
-<store><![CDATA[<strong>	Lamezia Terme (CZ)	</strong> <br>		<br>	Corso Nicotera 35	]]></store>
+<store><![CDATA[<strong>	Cosenza	</strong> <br>Piazza XI Settembre 10	]]></store>
+<store><![CDATA[<strong>	Crotone	</strong> <br>Via Vittorio Veneto 87	]]></store>
+<store><![CDATA[<strong>	Lamezia Terme (CZ)	</strong> <br>Corso Nicotera 35	]]></store>
 <store><![CDATA[<strong>	Maida	</strong> <br>	C.C. Due Mari	<br>	Loc. Comuni Condomini	]]></store>
 <store><![CDATA[<strong>	Rende (CS)	</strong> <br>	C.C. Metropolis	<br>	Viale Kennedy 	]]></store>
 <store><![CDATA[<strong>	Siderno (RC)	</strong> <br>	C.C. La Gru	<br>	SS 106 Jonica	]]></store>
-<store><![CDATA[<strong>	Vibo Valentia	</strong> <br>		<br>	Corso Vittorio Emanuele III 126	]]></store>
+<store><![CDATA[<strong>	Vibo Valentia	</strong> <br>Corso Vittorio Emanuele III 126	]]></store>
 
 	 </regione>
 	 
 	 
 	 
 	 <regione title="Campania">
-<store><![CDATA[<strong>	Avellino	</strong> <br>			Corso Vittorio Emanuele 310	]]></store>
-<store><![CDATA[<strong>	Benevento	</strong> <br>		<br>	Corso Garibaldi 102	]]></store>
+<store><![CDATA[<strong>	Avellino</strong> <br>			Corso Vittorio Emanuele 310	]]></store>
+<store><![CDATA[<strong>	Benevento</strong> <br>	Corso Garibaldi 102	]]></store>
 <store><![CDATA[<strong>	Marcianise (CE)	</strong> <br>	C.C. Campania	<br>	S.S. 87 Località Aurno	]]></store>
 <store><![CDATA[<strong>	Napoli	</strong> <br>			Via A. Scarlatti 199	]]></store>
 <store><![CDATA[<strong>	Napoli	</strong> <br>			Via Chiaia 246	]]></store>
 <store><![CDATA[<strong>	Napoli	</strong> <br>			Galleria Umberto I 35-36	]]></store>
-<store><![CDATA[<strong>	Pompei (NA)	</strong> <br>	C.C. La Cartiera	<br>	Via Macello 22	]]></store>
-<store><![CDATA[<strong>	Pontecagnano (SA)	</strong> <br>	C.C. Maximall	<br>	Via Pacinotti	]]></store>
+<store><![CDATA[<strong>	Pompei (NA)</strong> <br>C.C. La Cartiera	<br>	Via Macello 22	]]></store>
+<store><![CDATA[<strong>	Pontecagnano (SA)</strong> <br>	C.C. Maximall	<br>	Via Pacinotti	]]></store>
 <store><![CDATA[<strong>	Salerno	</strong> <br>			Corso Vittorio Emanuele 158	]]></store>
 <store><![CDATA[<strong>	Salerno	</strong> <br>	C.C. Cotoniere Località Fratte	<br>	Via Dei Greci 5 	]]></store>
 
@@ -109,7 +109,7 @@
 <store><![CDATA[<strong>	Crema	</strong> <br>			Via Mazzini 69	]]></store>
 <store><![CDATA[<strong>	Curno (BG)	</strong> <br>	C.C. Curno	<br>	Via Fermi 1	]]></store>
 <store><![CDATA[<strong>	Erbusco (BS)	</strong> <br>	C.C. Le Porte Franche	<br>	Via Rovato 44	]]></store>
-<store><![CDATA[<strong>	Limbiate (MB)	</strong> <br>	C.C. Carrefour	<br>	10121 Torino  	]]></store>
+<store><![CDATA[<strong>	Limbiate (MB)	</strong> <br>	C.C. Carrefour	<br>	Via Giuseppe Garibaldi Ex SS 527]]></store>
 <store><![CDATA[<strong>	Livigno (SO)	</strong> <br>			Via Ostaria 434	]]></store>
 <store><![CDATA[<strong>	Lonato del Garda (BS)	</strong> <br>	C.C. Il Leone	<br>	Via Mantova 36	]]></store>
 <store><![CDATA[<strong>	Milano	</strong> <br>			Corso Buenos Aires 45	]]></store>
@@ -147,7 +147,7 @@
 <store><![CDATA[<strong>	Alba (CN)	</strong> <br>			Via Vittorio Emanuele 6	]]></store>
 <store><![CDATA[<strong>	Cuneo	</strong> <br>			Corso Nizza 46	]]></store>
 <store><![CDATA[<strong>	Pinerolo (TO)	</strong> <br>	C.C. Le due Valli	<br>	Via Cascina Vastameglio 3	]]></store>
-<store><![CDATA[<strong>	Torino	</strong> <br>	C.C. 8 Gallery	<br>	via Nizza 262 (sul sito giusto)	]]></store>
+<store><![CDATA[<strong>	Torino	</strong> <br>	C.C. 8 Gallery	<br>	via Nizza 262 ]]></store>
 <store><![CDATA[<strong>	Torino	</strong> <br>			Via Roma, 326  	]]></store>
 <store><![CDATA[<strong>	Torino	</strong> <br>	C.C. Le Grue	<br>	Via Crea, 10  Unitá 243/A	]]></store>
 
@@ -155,6 +155,7 @@
 	
 	
 	<regione title="Puglia">
+		<store><![CDATA[<strong>Bari</strong> <br>	Via Calefati 61/F	]]></store>
 <store><![CDATA[<strong>	Casamassima (BA)	</strong> <br>	C.C. Auchan	<br>	Via Noicattaro 2	]]></store>
 <store><![CDATA[<strong>	Foggia	</strong> <br>	C.C. GrandApuglia	<br>	Zona Borgo Incoronata	]]></store>
 <store><![CDATA[<strong>	Lecce	</strong> <br>			Via Vittorio Emanuele 39	]]></store>
