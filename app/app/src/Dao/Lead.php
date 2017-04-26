@@ -49,7 +49,7 @@ class Lead extends AbstractDao implements IEmailRecipient
         $data['year'] = $this->year;
         $data['month'] = $this->month;
         $data['day'] = $this->day;
-        $data['telephone'] = $this->telephone;
+        $data['phone'] = $this->phone;
         $data['gender'] = $this->gender;
         
         $data['date_create'] = $this->date_create;
