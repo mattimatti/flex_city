@@ -23,7 +23,7 @@ return array(
     'CSFR_EXCEPTION' => 'Solicitud vencida',
     
     'LEAD_REGISTER_SUCCESS' => 'Gracias por la inscripción',
-    'EMAIL_ALREADY_REGISTERED' => 'Un participante ya está inscrito con este e-mail',
+    'EMAIL_ALREADY_REGISTERED' => 'Un participante ya está inscrito con %key% %value%',
     
     'EMAIL' => 'Dirección e-mail',
     'EMAIL-placeholder' => 'Introduce la dirección de correo electrónico',
@@ -47,8 +47,8 @@ return array(
     
     'privacy-label' => 'Declaro que he leído la <a target="_blank" href="/media/pdf/privacy-policy.pdf">nota informativa sobre el tratamiento de los datos</a> de carácter personal y que acepto <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">el reglamento</a> del concurso*.',
     'terms-label' => 'Declaro que acepto el reglamento del concurso.',
-    'marketing-label' => 'Autorizo el tratamiento de mis datos personales por parte de VF Italia Srl y VF Italy Retail srl, para fines de marketing, promocionales, estudios de mercado y elaboración de perfiles.',
-    'marketing-third-label' => 'Autorizo la comunicación de mis datos personales a las sociedades del grupo VF International, como VF Italia, las entidades jurídicas en otros países y a sus franquiciados, para fines promocionales y de marketing de las mismas.',
+    'marketing-label' => 'Autorizo el tratamiento de mis datos personales por parte de VF JEANSWEAR ESPAÑA S.L., para fines de marketing, promocionales, estudios de mercado y elaboración de perfiles.',
+    'marketing-third-label' => 'Autorizo la comunicación de mis datos personales a las sociedades del grupo VF International, como VF JEANSWEAR ESPAÑA S.L., las entidades jurídicas en otros países y a sus franquiciados, para fines promocionales y de marketing de las mismas.',
     
     'ERROR-required' => 'Rellena este campo',
     'ERROR-email' => "Formato e-mail no válido",

@@ -16,6 +16,16 @@ return array(
     'YEAR' => 'Date of birth: year',
     'GENDER' => 'Gender',
     
+    'PRODUCT' => 'Product',
+    'SELECT_PRODUCT' => 'Select product',
+
+    
+    'CSFR_EXCEPTION' => 'Request expired',
+    
+    'LEAD_REGISTER_SUCCESS' => 'Thank you for registering',
+    'EMAIL_ALREADY_REGISTERED' => 'A registration has already been made with %key% %value%',
+    
+    
     'EMAIL' => 'Email address',
     'EMAIL-placeholder' => 'Enter Email address',
 
@@ -36,15 +46,15 @@ return array(
     'marketing-modal-title' => 'Marketing Actions Disclosure ',
     'marketing-third-modal-title' => 'Third Parts Marketing Actions Disclosure',
     
-    'privacy-label' => 'I declare that I have read <a target="_blank" href="/media/pdf/privacy-policy.pdf">the informative notice on data processing</a> and accept <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">the regulation</a> of the contest*.',
+    'privacy-label' => 'I declare that I have examined and agree to <a target="_blank" href="/media/pdf/terms-and-conditions.pdf">summary of terms</a>*.',
     'terms-label' => 'Terms and conditions.',
-    'marketing-label' => 'I agree to VF Italia Srl and VF Italy Retail srl using my information for marketing, promotional, market analysis and profiling purposes.',
-    'marketing-third-label' => 'I agree to my information being communicated to member companies of the group VF International, such as VF Italia, the legal entities of other countries and partner franchisees for promotional and marketing purposes.',
+    'marketing-label' => 'Agree to the sending of advertising-promotional material by VF International Group.',
+    'marketing-third-label' => 'Agree that my data may be sent to companies belonging to the VF International Group & VF Northern Europe, the legal bodies of other countries and franchise partners, for promotional and marketing purposes.',
 
     'ERROR-required' => 'Fill out this field',
     'ERROR-email' => "Invalid e-mail format",
     'ERROR-format' => "Please provide with requested format",
-    'required-fields' => 'Your consent is mandatory to participate in the competition',
+    'required-fields' => 'Summary Terms and Conditions: UK, 18+ only. Enter between: 18.04.17 – 28.05.17. Normal entry restrictions apply. No purchase necessary. The Prize: 1x 3 night trip to NYC for two (flights & hotel). Guest must be 18+. Trip must be taken within 1 yeah of acceptance of the prize.',
     
     'random' => 'I am a random text string, I am only using it as an example'
 );
