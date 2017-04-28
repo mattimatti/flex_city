@@ -1,4 +1,15 @@
-<script>
-$.noConflict();
+{# <script type="text/javascript" src="/dist/js/main.min.js"></script>#}
+<script type="text/javascript">
+
+if(typeof jQuery=='undefined') {
+    var headTag = document.getElementsByTagName("head")[0];
+    var jqTag = document.createElement('script');
+    jqTag.type = 'text/javascript';
+    jqTag.src = '/bower_components/jquery/dist/jquery.min.js';
+    jqTag.onload = myJQueryCode;
+    headTag.appendChild(jqTag);
+}
 </script>
-<script type="text/javascript" src="/dist/js/main.min.js"></script>
+<script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bower_components/bootstrap-validator/dist/validator.min.js"></script>
+<script type="text/javascript" src="/bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
