@@ -41,6 +41,7 @@ function monthSorter(a, b) {
 				<th>#</th>
 				<th data-field="fruit" data-sortable="true">Name/Surname</th>
 				<th data-field="email" data-sortable="true">Email</th>
+				<th data-field="city" data-sortable="true">City</th>
 				<th>Age</th>
 				<th data-field="location"  data-sortable="true">Location</th>
 				<th data-field="type"  data-sortable="true">Store</th>
@@ -55,6 +56,7 @@ function monthSorter(a, b) {
 				<td scope="row">{{ item.id }}</td>
 				<td scope="row">{{ item.name }} {{ item.surname }}</td>
 				<td scope="row">{{ item.email }}</td>
+				<td scope="row">{{ item.city }}</td>
 				<td scope="row">{{ item.age()  }}</td>
 				<td scope="row">{{ item.event.location.label }}</td>
 				<td scope="row">{{ item.event.store.label }}</td>
