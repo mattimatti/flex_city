@@ -15,7 +15,7 @@ class LoadSchemaCommand extends AbstractCommand
             ->setDescription('Load schema in database')
             ->setHelp('This command allows you to load schema in database');
         
-        //$this->addArgument('domain', InputArgument::REQUIRED, 'the domain.');
+        // $this->addArgument('domain', InputArgument::REQUIRED, 'the domain.');
     }
 
     /**
@@ -25,11 +25,9 @@ class LoadSchemaCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        
-        
         $domains = $this->getDomains();
         
-        foreach ($domains as $domain){
+        foreach ($domains as $domain) {
             
             // outputs multiple lines to the console (adding "\n" at the end of each line)
             $output->writeln([
@@ -38,15 +36,15 @@ class LoadSchemaCommand extends AbstractCommand
                 ''
             ]);
             
-//             $domain = $input->getArgument('domain');
+            // $domain = $input->getArgument('domain');
             $output->writeln('Domain: ' . $domain);
             
             $dbconfig = $this->getDbConfig($domain, $output);
             
             $output->writeln(print_r($dbconfig, 1));
             
-            //$out = @system('echo from sys');
-            //$output->writeln($out);
+            // $out = @system('echo from sys');
+            // $output->writeln($out);
             
             $user = $dbconfig['user'];
             $password = $dbconfig['password'];
@@ -58,8 +56,11 @@ class LoadSchemaCommand extends AbstractCommand
             $output->writeln("Schema loaded");
             
             
+            $out = @system("mysql -u$user -p$password $dbname < data/permissions.sql");
+            $output->writeln($out);
+            
+            $output->writeln("Schema loaded");
         }
-        
     }
 
     /**
@@ -71,57 +72,11 @@ class LoadSchemaCommand extends AbstractCommand
      */
     public function getDbConfig($domain, $output)
     {
-        $folder = "web/domains/$domain/";
-        
-        if (file_exists($folder)) {
-            $output->writeln("Folder $domain exists");
-        }
-        
-        $settingsfile = $folder . "settings.php";
-        
-        $settings = array();
-        
-        if (file_exists($folder)) {
-            $output->writeln('Settings file exists');
-            $settings = require $settingsfile;
-            $settings = $settings['settings'];
-            
-            if (! is_array($settings)) {
-                throw new \Exception("Cannot load settings file");
-            }
-        } else {
-            $output->writeln('Settings file do not exists: ' . $settingsfile);
-            exit();
-        }
-        
         $config = $this->getSlim()
-            ->getContainer()
-            ->get('settings');
-        
+        ->getContainer()
+        ->get('settings');
         $config = $config->all();
-        
-        if (! is_array($config)) {
-            throw new \Exception("Cannot load settings file");
-        }
-        
-        // $output->writeln(print_r($config, 1));
-        // $output->writeln(print_r($settings, 1));
-        
-        $config = array_replace_recursive($config, $settings);
-        
-        if (! is_array($config)) {
-            throw new \Exception("unable to merge");
-        }
-        
         $dbconfig = $config['database'];
-        
-        $dbsettings = "app/dbsettings.php";
-        
-        if (file_exists($dbsettings)) {
-            $output->writeln('DBSettings file FOUND');
-            $settings = require $dbsettings;
-            $dbconfig = array_replace_recursive($dbconfig, $settings);
-        }
         
         return $dbconfig;
     }

@@ -28,6 +28,8 @@ use App\Service\MailRenderer;
 use App\Debug;
 use App\Dao\Sender;
 use App\CsrfExtension;
+use Monolog\Logger;
+use RedBeanPHP\Util\Dump;
 // DIC configuration
 
 $container = $app->getContainer();
@@ -74,17 +76,8 @@ $container['translator'] = function ($c)
     $translator->addLoader('php', new PhpFileLoader());
     
     // Add language files here
-    $translator->addResource('php', __DIR__ . '/../lang/it_IT.php', 'it_IT'); // Italian
-    $translator->addResource('php', __DIR__ . '/../lang/de_DE.php', 'de_DE'); // German
-    $translator->addResource('php', __DIR__ . '/../lang/en_US.php', 'en_US'); // English US
+    // $translator->addResource('php', __DIR__ . '/../lang/it_IT.php', 'it_IT'); // Italian
     $translator->addResource('php', __DIR__ . '/../lang/en_EN.php', 'en_EN'); // English
-    $translator->addResource('php', __DIR__ . '/../lang/fr_FR.php', 'fr_FR'); // French
-    $translator->addResource('php', __DIR__ . '/../lang/es_ES.php', 'es_ES'); // Spanish
-    $translator->addResource('php', __DIR__ . '/../lang/nl_NL.php', 'nl_NL'); // Spanish
-    
-    $translator->addResource('php', __DIR__ . '/../lang/it_IT.php', 'it_ch'); // Italian Sweitz
-    $translator->addResource('php', __DIR__ . '/../lang/fr_FR.php', 'fr_ch'); // French
-    $translator->addResource('php', __DIR__ . '/../lang/de_DE.php', 'de_ch'); // Italian
     
     return $translator;
 };
@@ -94,19 +87,9 @@ $container['view'] = function ($c)
 {
     $settings = $c->get('settings');
     
-    $custompath = __DIR__ . '/../web/domains/' . CURRENT_DOMAIN . '/templates';
-    // exit($custompath);
-    
-    if (file_exists($custompath)) {
-        $paths = array(
-            $custompath,
-            $settings['view']['template_path']
-        );
-    } else {
-        $paths = array(
-            $settings['view']['template_path']
-        );
-    }
+    $paths = array(
+        $settings['view']['template_path']
+    );
     
     $view = new Slim\Views\Twig($paths, $settings['view']['twig']);
     
@@ -134,6 +117,10 @@ define('REDBEAN_MODEL_PREFIX', '\\App\\Dao\\');
 $container['database'] = function ($c)
 {
     $dbsettings = $c['settings']['database'];
+    
+//    print_r($dbsettings);
+//    exit();
+    
     R::setup('mysql:host=' . $dbsettings['host'] . ';dbname=' . $dbsettings['dbname'], $dbsettings['user'], $dbsettings['password']);
     R::freeze(TRUE);
 };
@@ -236,24 +223,18 @@ $container['mailService'] = function ($c)
     $throwExceptions = true;
     $mailer = new \PHPMailer($throwExceptions);
     
+    // $mailer->SMTPDebug = 2; // enables SMTP debug information (for testing)
     
-    
-//     $mailer->SMTPDebug = 2; // enables SMTP debug information (for testing)
-    
-//     $mailer->SMTPAuth = true; // enable SMTP authentication
-// //     $mailer->SMTPSecure = "tls"; // sets the prefix to the servier
-// //     $mailer->SMTPSecure = "ssl"; // sets the prefix to the servier
-//     $mailer->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
-// //     $mailer->Port = 587; // set the SMTP port for the GMAIL server
-// //     $mailer->Port = 465; // set the SMTP port for the GMAIL server
-//     $mailer->Port = 25; // set the SMTP port for the GMAIL server
-//     $mailer->Username = "noreply.flexinthecity@gmail.com"; // GMAIL username
-//     $mailer->Password = "Flex7102"; // GMAIL password
-//     $mailer->isSMTP();
-    
-    
-    
-    
+    // $mailer->SMTPAuth = true; // enable SMTP authentication
+    // // $mailer->SMTPSecure = "tls"; // sets the prefix to the servier
+    // // $mailer->SMTPSecure = "ssl"; // sets the prefix to the servier
+    // $mailer->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
+    // // $mailer->Port = 587; // set the SMTP port for the GMAIL server
+    // // $mailer->Port = 465; // set the SMTP port for the GMAIL server
+    // $mailer->Port = 25; // set the SMTP port for the GMAIL server
+    // $mailer->Username = "noreply.flexinthecity@gmail.com"; // GMAIL username
+    // $mailer->Password = "Flex7102"; // GMAIL password
+    // $mailer->isSMTP();
     
     // use sendmail?? NO IF GMAIL
     $mailer->IsSendmail();
