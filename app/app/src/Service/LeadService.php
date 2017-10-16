@@ -9,6 +9,9 @@ use Symfony\Component\Validator\Validation;
 use App\Validator;
 use App\Debug;
 use Symfony\Component\Translation\Translator;
+use Port\Reader\ArrayReader;
+use Port\Steps\StepAggregator;
+use Port\Csv\CsvWriter;
 
 class LeadService
 {
@@ -195,12 +198,12 @@ class LeadService
         $summary = array();
         
         if ($daysSince !== 0) {
-            $daysSince = " - $daysSince days";
+            $daysSince = "$daysSince days";
         } else {
             $daysSince = '';
         }
         
-        $summary['howmany'] = $this->leadRepo->count( $daysSince);
+        $summary['howmany'] = $this->leadRepo->count($daysSince);
         $summary['prizes'] = $this->leadRepo->countBy('prize', $daysSince);
         $summary['gender'] = $this->leadRepo->countBy('gender', $daysSince);
         $summary['country'] = $this->leadRepo->countBy('country', $daysSince);
@@ -209,8 +212,51 @@ class LeadService
         return $summary;
     }
 
-
-    
+    /**
+     *
+     * @return the $mailService
+     */
+    public function export($items)
+    {
+        $data = array();
+        
+        foreach ($items as $lead) {
+            $data[] = $lead->getView();
+        }
+        
+        $fileName = 'all_leads_' . time() . '.csv';
+        $filePath = '' . $fileName;
+        
+        // Your input data
+        $reader = new ArrayReader($data);
+        
+        // Create the workflow from the reader
+        $workflow = new StepAggregator($reader);
+        
+        $writer = new CsvWriter(';', '"', null, true, true);
+        $writer->setStream(fopen($filePath, 'w'));
+        
+        // Add the writer to the workflow
+        $workflow->addWriter($writer);
+        
+        // Process the workflow
+        $workflow->process();
+        
+        if (file_exists($filePath)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment;filename="' . basename($filePath) . '"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($filePath));
+            readfile($filePath);
+            
+            @unlink($filePath);
+            
+            exit();
+        }
+    }
 
     /**
      *

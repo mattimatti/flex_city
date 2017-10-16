@@ -25,38 +25,8 @@
 
 DROP TABLE IF EXISTS `event`;
 
-CREATE TABLE `event` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `permalink` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location_id` int(11) unsigned DEFAULT NULL,
-  `store_id` int(11) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_foreignkey_event_location` (`location_id`),
-  KEY `index_foreignkey_event_store` (`store_id`),
-  CONSTRAINT `c_fk_event_location_id` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
-  CONSTRAINT `c_fk_event_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
-
-# Dump of table event_user
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `event_user`;
-
-CREATE TABLE `event_user` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `event_id` int(11) unsigned DEFAULT NULL,
-  `user_id` int(11) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UQ_9df9d50cb42eff75e318936e917d7665255fef22` (`event_id`,`user_id`),
-  KEY `index_foreignkey_event_user_event` (`event_id`),
-  KEY `index_foreignkey_event_user_user` (`user_id`),
-  CONSTRAINT `c_fk_event_user_event_id` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `c_fk_event_user_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 
 
 # Dump of table lead
@@ -69,39 +39,28 @@ CREATE TABLE `lead` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `surname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `model` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `prize` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lang` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `day` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `month` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `year` int(11) unsigned DEFAULT NULL,
   `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `pp` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mkt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mvf` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mgr` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date_create` datetime DEFAULT NULL,
-  `event_id` int(11) unsigned DEFAULT NULL,
-  `hostess_id` int(11) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_foreignkey_lead_event` (`event_id`),
-  KEY `index_foreignkey_lead_hostess` (`hostess_id`),
-  CONSTRAINT `c_fk_lead_event_id` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
-  CONSTRAINT `c_fk_lead_hostess_id` FOREIGN KEY (`hostess_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
-
-# Dump of table location
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `location`;
-
-CREATE TABLE `location` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+
+
+DROP TABLE IF EXISTS `location`;
 
 
 # Dump of table role
@@ -140,13 +99,6 @@ CREATE TABLE `role_user` (
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `store`;
-
-CREATE TABLE `store` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 
 
 # Dump of table user

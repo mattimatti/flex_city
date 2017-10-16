@@ -11,11 +11,10 @@
 <body>
 
     {% block menu %}
-    {% include "snippets/menu-hostess.twig" %}
     {% endblock %}
 	
     
-	<div class="container mt20">
+	<div class="container-fluid mt20">
 	
 	{% block flashmessages %}
 	{% include "snippets/flashmessages.twig" %}
@@ -23,7 +22,7 @@
 	
     {% block body %}
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-12">
 				<div class="panel">
 					<div class="panel-heading">
 						<h3 class="panel-title">{% block title %}{% endblock %}</h3>
@@ -52,6 +51,8 @@ $('a[data-confirm]').click(function(ev) {
 	});
 </script>
 
+{% endblock %}
+{% block pagescripts %}
 {% endblock %}
 
 </body>

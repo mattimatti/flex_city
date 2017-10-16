@@ -3,22 +3,18 @@
 {% include "admin/menu-admin.twig" %}
 {% endblock %}
 {% block body %}
-<div class="mt20">
-	<form role="form" action="/admin/leads" autocomplete="off" method="get">
-	<div class="mt20">	
-        {% include "snippets/select.twig" with {name: 'event_id', items : events, label: 'Please Select An Event', selectedvalue : event_id, autosubmit : true} %}</div>
-	</form>
-</div>
-
+{# <div class="mt20">#}
+{# 	<form role="form" action="/admin/leads" autocomplete="off" method="get">#}
+{# 	<div class="mt20">	#}
+{#         {% include "snippets/select.twig" with {name: 'event_id', items : events, label: 'Please Select An Event', selectedvalue : event_id, autosubmit : true} %}</div>#}
+{# 	</form>#}
+{# </div>#}
+	<form role="form" action="/admin/leads" autocomplete="off" method="post">
 
 
 	<div class="btn-toolbar mt20">
 		<div class="btn-group pull-right">
-		{% if event  %}
-		  <a href="/admin/exporter/leads/{{ event_id }}" class="btn btn-info">Export Event List</a>
-		{% else %}	
-		  <a href="/admin/exporter/leads" class="btn btn-info">Export Full List</a>
-		{% endif %}	
+		  <button type="submit" name="action" value="export" class="btn btn-info">Export CSV</button>
 		</div>
 	</div>
 
@@ -35,33 +31,54 @@ function monthSorter(a, b) {
 }
 
  </script>
-	<table class="table table-bordered" data-toggle="table">
+	<table class="table table-bordered filterable" data-toggle="table">
 		<thead>
 			<tr>
 				<th>#</th>
-				<th data-field="fruit" data-sortable="true">Name/Surname</th>
+				<th data-field="fruit" data-sortable="true">Name</th>
+				<th data-field="fruit" data-sortable="true">Surname</th>
 				<th data-field="email" data-sortable="true">Email</th>
-				<th data-field="city" data-sortable="true">City</th>
-				<th>Age</th>
-				<th data-field="location"  data-sortable="true">Location</th>
-				<th data-field="type"  data-sortable="true">Store</th>
-				<th data-field="product"  data-sortable="true">Product</th>
-				<th data-field="type"  data-sortable="true">Hostess</th>
+				<th data-field="address" data-sortable="true">Address</th>
+				<th data-field="country" data-sortable="true">Country</th>
+				<th>Year</th>
+				<th data-field="hour"  data-sortable="true">Hour</th>
+				<th data-field="day"  data-sortable="true">Day</th>
+				<th data-field="month"  data-sortable="true">Month</th>
+				<th data-field="prize"  data-sortable="true">Prize</th>
+				<th data-field="model"  data-sortable="true">Model</th>
 				<th data-field="date"  data-sortable="true">Date</th>
+			</tr>
+			<tr class="filters">
+				<th></th>
+				<th>{% include "admin/lead-filter.twig" with {name: 'name'} %}</th>
+				<th>{% include "admin/lead-filter.twig" with {name: 'surname'} %}</th>
+				<th>{% include "admin/lead-filter.twig" with {name: 'email'} %}</th>
+				<th>{% include "admin/lead-filter.twig" with {name: 'address'} %}</th>
+				<th>{% include "admin/lead-filter.twig" with {'items': distinctcountries, name: 'country'} %}</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th>{% include "admin/lead-filter.twig" with {'items': distinctprizes, name: 'prize'} %}</th>
+				<th>{% include "admin/lead-filter.twig" with {'items': distinctmodels, name: 'model'} %}</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for item in leads %}
 			<tr>
 				<td scope="row">{{ item.id }}</td>
-				<td scope="row">{{ item.name }} {{ item.surname }}</td>
+				<td scope="row">{{ item.name }}</td>
+				<td scope="row">{{ item.surname }}</td>
 				<td scope="row">{{ item.email }}</td>
-				<td scope="row">{{ item.city }}</td>
+				<td scope="row">{{ item.address }}</td>
+				<td scope="row">{{ item.country }}</td>
 				<td scope="row">{{ item.age()  }}</td>
-				<td scope="row">{{ item.event.location.label }}</td>
-				<td scope="row">{{ item.event.store.label }}</td>
-				<td scope="row">{{ item.product }}</td>
-				<td scope="row">{{ item.hostess().label }}</td>
+				<td scope="row">{{ item.hour }}</td>
+				<td scope="row">{{ item.day }}</td>
+				<td scope="row">{{ item.month }}</td>
+				<td scope="row">{{ item.prize }}</td>
+				<td scope="row">{{ item.model }}</td>
 				<td scope="row">{{ item.date_create }}</td>
 			</tr>
 			{% endfor %}
@@ -72,12 +89,49 @@ function monthSorter(a, b) {
 
 </div>
 
+
+
 {# {% else %}#}
 {# No leads found for event {{ event.label }}#}
 {# {% endif %}#}
 
 
 
+	</form>
+
+{% endblock %}
+
+{% block pagescripts %}
 
 
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+
+    $('.filterable input').keyup(function(e){
+        /* Ignore tab key */
+        var code = e.keyCode || e.which;
+        if (code == '9') return;
+        /* Useful DOM data and selectors */
+        var $input = $(this);
+        var inputContent = $input.val().toLowerCase();
+
+        if(inputContent.length == 0){
+            this.form.submit();
+        }
+
+        
+        if(inputContent.length >= 3){
+            this.form.submit();
+        }
+    });
+    
+    $('.filterable select').on("change", function(e){
+        console.debug("change",e);
+        this.form.submit();
+    });    
+    
+});
+//-->
+</script>
 {% endblock %}

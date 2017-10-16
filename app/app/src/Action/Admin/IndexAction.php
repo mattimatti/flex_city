@@ -32,6 +32,7 @@ final class IndexAction extends AbstractAction
         $viewData['distinctprizes'] = $this->leadService->getLeadRepo()->getDistinct('prize');
         $viewData['distinctmodels'] = $this->leadService->getLeadRepo()->getDistinct('model');
         $viewData['distinctcountries'] = $this->leadService->getLeadRepo()->getDistinct('country');
+        
         $viewData['since'] = $this->leadService->getSummary(-7);
         
         $viewData['overall'] = $this->leadService->getSummary();

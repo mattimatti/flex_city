@@ -55,7 +55,7 @@ class Fixtures
      */
     public function load()
     {
-        $leadsCount = 300;
+        $leadsCount = 700;
         
         $faker = \Faker\Factory::create();
         
@@ -79,92 +79,50 @@ class Fixtures
         $admin->addRole($adminRole);
         R::store($admin);
         
-        // hostess role and hostess
-        
-        $hostessRole = R::dispense(Role::NAME);
-        $hostessRole->role = "hostess";
-        R::store($hostessRole);
-        
-        for ($h = 1; $h <= 2; $h ++) {
+        for ($l = 1; $l < $leadsCount; $l ++) {
+            $lead = R::dispense(Lead::NAME);
+            $lead->name = $faker->firstName;
+            $lead->surname = $faker->lastName;
+            $lead->address = $faker->address;
+            $lead->country = $faker->randomElement(array(
+                'IT',
+                'ES',
+                'UK',
+                'DE'
+            ));
+            $lead->lang = $faker->countryCode;
+            $lead->email = $faker->email;
+            $lead->model = "model " . $faker->numberBetween(1, 6);
+            $lead->prize = $faker->randomElement(array(
+                'Non Vinto',
+                'Premio X',
+                'Premio Y',
+                'Premio Z'
+            ));
+            $lead->day = "dd " . $faker->numberBetween(1, 30);
+            $lead->month = "mm " . $faker->numberBetween(1, 12);
+            $lead->hour = $faker->time('H');
+            $lead->gender = $faker->randomElement(array(
+                'm',
+                'f'
+            ));
             
-            $hostess = R::dispense(User::NAME);
-            $hostess->username = "hostess$h";
+            $lead->pp = 'y';
+            $lead->mvf = $faker->randomElement(array(
+                'y',
+                'n'
+            ));
+            $lead->mgr = $faker->randomElement(array(
+                'y',
+                'n'
+            ));
+            $lead->date_create = $faker->iso8601;
             
-            $hostess->name = $faker->firstNameFemale;
-            $hostess->surname = $faker->lastName;
-            
-            $hostess->setPassword('hostess');
-            $hostess->addRole($hostessRole);
-            $hostess->sharedEventList = [];
-            R::store($hostess);
-            
-            // locations
-            
-            for ($i = 0; $i < 3; $i ++) {
-                
-                $city = $faker->city;
-                
-                $location = R::dispense(Location::NAME);
-                $location->name = $city;
-                R::store($location);
-                
-                // stores
-                
-                for ($y = 1; $y < 3; $y ++) {
-                    
-                    $store = R::dispense(Store::NAME);
-                    $store->name = "Store " . $faker->name;
-                    R::store($store);
-                    
-                    // events
-                    
-                    for ($x = 1; $x < 3; $x ++) {
-                        
-                        $event = R::dispense(Event::NAME);
-                        $event->name = "Event $city $x";
-                        $event->location = $location;
-                        $event->permalink = "event$x-$y-$i";
-                        $event->store = $store;
-                        R::store($event);
-                        
-                        for ($l = 1; $l < $leadsCount; $l ++) {
-                            $lead = R::dispense(Lead::NAME);
-                            $lead->name = $faker->firstName;
-                            $lead->surname = $faker->lastName;
-                            $lead->email = $faker->email;
-                            $lead->day = $faker->dayOfMonth();
-                            $lead->month = $faker->month();
-                            $lead->year = $faker->year();
-                            $lead->gender = $faker->randomElement(array(
-                                'm',
-                                'f'
-                            ));
-                            $lead->pp = 'y';
-                            $lead->tc = 'y';
-                            $lead->mkt = $faker->randomElement(array(
-                                'y',
-                                'n'
-                            ));
-                            $lead->date_create = R::isoDateTime();
-                            
-                            $lead->event = $event;
-                            $lead->hostess = $hostess;
-                            R::store($lead);
-                        }
-                        
-                        // hostess events
-                        
-                        $hostess->sharedEventList[] = $event;
-                    }
-                }
-            }
-            
-            R::store($hostess);
+            R::store($lead);
         }
     }
 
     /**
-     * 
      */
     public function dump()
     {

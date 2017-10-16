@@ -56,10 +56,10 @@ class LoadSchemaCommand extends AbstractCommand
             $output->writeln("Schema loaded");
             
             
-            $out = @system("mysql -u$user -p$password $dbname < data/permissions.sql");
-            $output->writeln($out);
+//             $out = @system("mysql -u$user -p$password $dbname < data/permissions.sql");
+//             $output->writeln($out);
             
-            $output->writeln("Schema loaded");
+//             $output->writeln("Schema loaded");
         }
     }
 

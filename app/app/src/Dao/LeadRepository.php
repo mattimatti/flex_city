@@ -15,19 +15,58 @@ class LeadRepository extends AbstractRepository
         return Lead::NAME;
     }
 
+    private function strLreplace($search, $replace, $subject)
+    {
+        $pos = strrpos($subject, $search);
+        
+        if ($pos !== false) {
+            $subject = substr_replace($subject, $replace, $pos, strlen($search));
+        }
+        
+        return $subject;
+    }
+
     /**
      *
-     * @param int $event_id
-     * @return Lead []        
+     * @param int $event_id            
+     * @return Lead []
      */
-    public function findByEvent($event_id = null, $offset = null, $limit = null)
+    public function findByParams($params = array(), $offset = null, $limit = null)
     {
-        $params = array();
-        $sql = '';
+        $bindings = array();
+        $sql = '1=1';
         
-        if ($event_id) {
-            $params[':event_id'] = $event_id;
-            $sql = "event_id = :event_id";
+        // Debug::dump($params);
+        
+        foreach ($params as $key => $obj) {
+            
+            $value = $obj['value'];
+            $type = $obj['type'];
+            
+            if (! empty($value)) {
+                
+                $sql .= " AND (";
+                
+                if (! is_array($value)) {
+                    
+                    $value = array(
+                        $value
+                    );
+                }
+                
+                foreach ($value as $myvalue) {
+                    
+                    if ($type == 'like') {
+                        $sql .= " $key LIKE '%$myvalue%' OR ";
+                    } else {
+                        $sql .= " $key = '$myvalue' OR ";
+                    }
+                }
+                
+                $sql = $this->strLreplace('OR', '', $sql);
+                
+                $sql .= " ) ";
+            }
         }
         
         if ($limit) {
@@ -38,7 +77,104 @@ class LeadRepository extends AbstractRepository
             $sql .= " OFFSET $offset ";
         }
         
-        return R::findAll($this->getType(), $sql, $params);
+        return R::findAll($this->getType(), $sql, $bindings);
+    }
+
+    /**
+     *
+     * @param int $event_id            
+     */
+    public function countByparams($params = array())
+    {
+        $sql = "SELECT COUNT(id) FROM " . $this->getType() . " WHERE 1=1 ";
+        
+        foreach ($params as $key => $obj) {
+            
+            $value = $obj['value'];
+            $type = $obj['type'];
+            
+            if (! empty($value)) {
+                
+                $sql .= " AND (";
+                
+                if (! is_array($value)) {
+                    
+                    $value = array(
+                        $value
+                    );
+                }
+                
+                foreach ($value as $myvalue) {
+                    
+                    if ($type == 'like') {
+                        $sql .= " $key LIKE '%$myvalue%' OR ";
+                    } else {
+                        $sql .= " $key = '$myvalue' OR ";
+                    }
+                }
+                
+                $sql = $this->strLreplace('OR', '', $sql);
+                
+                $sql .= " ) ";
+            }
+        }
+        
+        // Debug::dump($sql);
+        
+        return R::getCol($sql);
+    }
+
+    /**
+     *
+     * @param int $event_id            
+     */
+    public function countBy($segment, $dateStart)
+    {
+        $params = array();
+        
+        $where = '1=1 ';
+        if ($dateStart !== '') {
+            // create iso date
+            $date_create = date("Y-m-d", strtotime($dateStart));
+            $where .= "AND date_create >= $date_create";
+        }
+        
+        $sql = "SELECT $segment, COUNT(id) FROM " . $this->getType() . " WHERE $where GROUP BY $segment";
+        
+        return R::getAssoc($sql);
+    }
+
+    /**
+     *
+     * @param int $event_id            
+     */
+    public function count($dateStart)
+    {
+        $params = array();
+        
+        $where = '1=1 ';
+        if ($dateStart !== '') {
+            // create iso date
+            $date_create = date("Y-m-d", strtotime($dateStart));
+            $where .= "AND date_create >= $date_create";
+        }
+        
+        $sql = "SELECT COUNT(id) FROM " . $this->getType() . " WHERE $where";
+        
+        return R::getCol($sql);
+    }
+
+    /**
+     */
+    public function getDistinct($segment)
+    {
+        $params = array();
+        
+        $where = '1=1 ';
+        
+        $sql = "SELECT DISTINCT($segment) FROM " . $this->getType() . " WHERE $where";
+        
+        return R::getCol($sql);
     }
 
     /**
@@ -50,10 +186,7 @@ class LeadRepository extends AbstractRepository
         $params = array();
         $sql = '';
         
-        if ($event_id) {
-            $params[':event_id'] = $event_id;
-            $sql = "event_id = :event_id";
-        }
+        if ($event_id) {}
         
         return R::count($this->getType(), $sql, $params);
     }

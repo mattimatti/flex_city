@@ -12,28 +12,44 @@ use App\Debug;
 use App\Dao\LeadRepository;
 use Kilte\Pagination\Pagination;
 use App\Action\AbstractAction;
+use App\Service\LeadService;
 
 final class LeadsAction extends AbstractAction
 {
 
+    /**
+     *
+     * @var LeadService
+     */
+    protected $leadService;
+
     public function __invoke(Request $request, Response $response, $args)
     {
-        $eventRepo = new EventRepository();
-        $storeRepo = new StoreRepository();
-        $locationRepo = new LocationRepository();
-        $leadRepo = new LeadRepository();
+        $this->leadService = $this->container->get('leadService');
         
-        $event_id = $request->getQueryParam('event_id', null);
-        $this->setViewData("event_id", $event_id);
+        $leadRepo = $this->leadService->getLeadRepo();
         
-        if ($event_id) {
-            $this->setViewData("event", $eventRepo->get($event_id));
-        }
+        
+        $action = $request->getParam('action', 'view');
+        
+        
+        
+        $event_id = 0;
         
         $currentPage = $request->getQueryParam('page', 0);
         $perPage = 50;
         
-        $totalItems = $leadRepo->countByEvent($event_id);
+        $filters = $request->getParam('filters');
+        
+        if (! $filters) {
+            $filters = array();
+        }
+        
+//         if ($request->isPost()) {
+//             Debug::dump($filters);
+//         }
+        
+        $totalItems = $leadRepo->countByparams($filters);
         
         $pagination = new Pagination($totalItems, $currentPage, $perPage);
         
@@ -41,13 +57,25 @@ final class LeadsAction extends AbstractAction
         $limit = $pagination->limit();
         $pages = $pagination->build();
         
-        $leads = $leadRepo->findByEvent($event_id, $offset, $limit);
+        $leads = $leadRepo->findByParams($filters, $offset, $limit);
+        
+        
+        if($action == 'export'){
+        		$this->leadService->export($leads);
+        		return;
+        }
+        
         
         // Debug::dump($pages);
         
         $this->setViewData("pages", $pages);
-        $this->setViewData("events", $eventRepo->findAll());
         $this->setViewData("leads", $leads);
+        $this->setViewData("filters", $filters);
+        
+        $this->setViewData("distinctprizes", $leadRepo->getDistinct('prize'));
+        $this->setViewData("distinctmodels", $leadRepo->getDistinct('model'));
+        $this->setViewData("distinctcountries", $leadRepo->getDistinct('country'));
+        
         
         $this->__render($response);
         
