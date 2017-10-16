@@ -5,5 +5,68 @@
 
 
 {% block body %}
-<h1>{{ "welcome"|trans }}</h1>
+<h3>{{ "PARTECIPAZIONI"|trans }}</h3>
+
+<style>
+.bt1 {
+	border-top: 2px solid black !important;
+}
+
+.bt1 td {
+	padding-top: 20px !important;
+}
+
+</style>
+
+<table class="table mt20">
+  <tr>
+    <th>{{ "ULTIMI 7 GIORNI"|trans }}</th>
+    <th>{{ since.howmany[0] }}</th>
+    <th>{{ "DALL’INIZIO"|trans }}</th>
+    <th>{{ overall.howmany[0] }}</th>
+  </tr>
+  
+  {% for prize in distinctprizes %}
+  <tr>
+    <td>{{ prize }}</td>
+    <td>{{ since.prizes[prize] }}</td>
+    <td></td>
+    <td>{{ overall.prizes[prize] }}</td>
+  </tr>
+  {% endfor %}
+  <tr class="bt1">
+    <td>{{ "Uomini"|trans }}</td>
+    <td>{{ since.gender.m }}</td>
+    <td></td>
+    <td>{{ overall.gender.m }}</td>
+  </tr>
+  <tr>
+    <td>{{ "Donne"|trans }}</td>
+    <td>{{ since.gender.f }}</td>
+    <td></td>
+    <td>{{ overall.gender.f }}</td>
+  </tr>
+  {% for country in distinctcountries %}
+  <tr class="{% if loop.first  %}bt1{% endif %}">
+    <td>{{ country }}</td>
+    <td>{{ since.country[country]  }}</td>
+    <td></td>
+    <td>{{ overall.country[country] }}</td>
+  </tr>
+  {% endfor %}
+  {% for model in distinctmodels %}
+  <tr class="{% if loop.first  %}bt1{% endif %}">
+    <td>{{ model }}</td>
+    <td>{{ since.model[model] }}</td>
+    <td></td>
+    <td>{{ overall.model[model] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<div class="mt20">
+<a href="/admin/leads" class="btn btn-info btn-block">{{ "VAI AI DATI"|trans }}</a>
+</div>
+
+
 {% endblock  %}

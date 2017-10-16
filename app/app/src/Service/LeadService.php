@@ -166,7 +166,7 @@ class LeadService
         $this->validateCreate($param);
         
         $param['date_create'] = R::isoDateTime();
-
+        
         $lead = $this->getLeadRepo()->create($param);
         
         if ($this->getMailService()) {
@@ -182,6 +182,35 @@ class LeadService
         
         return $lead;
     }
+
+    /**
+     *
+     * @param
+     *            $daysSince
+     *            
+     * @return array
+     */
+    public function getSummary($daysSince = 0)
+    {
+        $summary = array();
+        
+        if ($daysSince !== 0) {
+            $daysSince = " - $daysSince days";
+        } else {
+            $daysSince = '';
+        }
+        
+        $summary['howmany'] = $this->leadRepo->count( $daysSince);
+        $summary['prizes'] = $this->leadRepo->countBy('prize', $daysSince);
+        $summary['gender'] = $this->leadRepo->countBy('gender', $daysSince);
+        $summary['country'] = $this->leadRepo->countBy('country', $daysSince);
+        $summary['model'] = $this->leadRepo->countBy('model', $daysSince);
+        
+        return $summary;
+    }
+
+
+    
 
     /**
      *
