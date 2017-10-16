@@ -8,20 +8,11 @@ $app->get('/admin', "App\Action\Admin\IndexAction")
     Acl::ADMIN
 ]);
 
-
 $app->any('/admin/leads', "App\Action\Admin\LeadsAction")
     ->setName('admin_leads')
     ->allow([
     Acl::ADMIN
 ]);
-
-
-// $app->any('/admin/exporter/{resource}[/{event_id}]', "App\Action\Admin\ExportAction")
-//     ->setName('admin_export')
-//     ->allow([
-//     Acl::ADMIN
-// ]);
-
 
 // ////////////////////////////////////////////////////////////////////
 // AUTH
@@ -49,7 +40,7 @@ $app->get('/', "App\Action\HomeAction")
     Acl::GUEST
 ]);
 
-$app->post('/', "App\Action\HomeRegisterAction")
+$app->post('/', "App\Action\LeadRegisterAction")
     ->setName('homepage-post')
     ->allow([
     Acl::GUEST

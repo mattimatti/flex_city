@@ -57,44 +57,33 @@ class LeadService
         
         $this->settings = $settings;
     }
-    
-    // Array
-    // (
-    // [event_id] => 1
-    // [name] => Matteo
-    // [surname] => Monti
-    // [email] => mmonti@gmail.com
-    // [day] => 11
-    // [month] => 12
-    // [year] => 1928
-    // [gender] => m
-    // [pp] => y
-    // [tc] => y
-    // [mkt] => y
-    // )
+
     public function filterCreate(array $params)
     {
         $allowed = array(
-            'event_id',
             'name',
             'surname',
+            'address',
+            'country',
+            'lang',
             'email',
-            'phone',
-            'city',
+            'model',
+            'prize',
             'day',
             'month',
-            'year',
+            'hour',
             'gender',
-            'product',
             'pp',
-            'tc',
-            'mkt'
+            'mvf',
+            'mgr'
         );
         
-        return array_filter($params, function ($key) use($allowed)
+        $array = array_filter($params, function ($key) use($allowed)
         {
-            return in_array($key, $allowed);
+            return in_array($key, $allowed, false);
         }, ARRAY_FILTER_USE_KEY);
+        
+        return $array;
     }
 
     /**
@@ -106,45 +95,48 @@ class LeadService
         $validator = new Validator($this->translator, $this->settings);
         
         $validator->validateNotEmpty($params, array(
-            'event_id',
             'name',
             'surname',
+            'address',
+            'country',
+            'lang',
             'email',
-            'phone',
-            'city',
+            'model',
+            'prize',
             'day',
             'month',
-            'year',
+            'hour',
             'gender',
-            'pp'
-        // 'tc', // Removed and joined to pp
-        // 'mkt' // optional field
-                ));
+            'pp',
+            'mvf',
+            'mgr'
+        ));
         
         $validator->validateEmail($params, 'email');
         
         $validator->validateFieldDuplicated($params, 'email', $this->getLeadRepo());
         
-        $validator->validateDigits($params, array(
-            'event_id',
-            'day',
-            'month',
-            'year'
-        ));
+        // need more validators?
         
-        $validator->validateDatePart($params, array(
-            'day',
-            'month'
-        ));
-        $validator->validateDay($params, array(
-            'day'
-        ));
-        $validator->validateMonth($params, array(
-            'month'
-        ));
-        $validator->validateYear($params, array(
-            'year'
-        ));
+        // $validator->validateDigits($params, array(
+        // 'day',
+        // 'month',
+        // 'year'
+        // ));
+        
+        // $validator->validateDatePart($params, array(
+        // 'day',
+        // 'month'
+        // ));
+        // $validator->validateDay($params, array(
+        // 'day'
+        // ));
+        // $validator->validateMonth($params, array(
+        // 'month'
+        // ));
+        // $validator->validateYear($params, array(
+        // 'year'
+        // ));
     }
 
     /**
@@ -162,26 +154,15 @@ class LeadService
      *
      * @return Lead
      */
-    public function create(array $param)
+    public function create(array $params)
     {
-        $param = $this->filterCreate($param);
+        $params = $this->filterCreate($params);
         
-        $this->validateCreate($param);
+        $this->validateCreate($params);
         
-        $param['date_create'] = R::isoDateTime();
+        $params['date_create'] = R::isoDateTime();
         
-        $lead = $this->getLeadRepo()->create($param);
-        
-        if ($this->getMailService()) {
-            
-            $this->mailService->addRecipient($lead);
-            
-            $emailParameters = $lead->export();
-            
-            // Debug::dump($emailParameters);
-            
-            $this->mailService->send($emailParameters);
-        }
+        $lead = $this->getLeadRepo()->create($params);
         
         return $lead;
     }
