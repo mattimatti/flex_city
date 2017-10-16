@@ -13,6 +13,11 @@ class DefaultCommand extends AbstractCommand
         $this->setName("app:default");
     }
 
+    /**
+     * (non-PHPdoc)
+     * 
+     * @see \App\Commands\AbstractCommand::execute()
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Hello World');

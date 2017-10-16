@@ -37,6 +37,8 @@ class Fixtures
         R::selectDatabase('fixtures');
     }
 
+    /**
+     */
     public function truncate()
     {
         R::exec("SET FOREIGN_KEY_CHECKS = 0;");
@@ -49,6 +51,8 @@ class Fixtures
         R::exec("SET FOREIGN_KEY_CHECKS = 1;");
     }
 
+    /**
+     */
     public function load()
     {
         $leadsCount = 300;
@@ -160,6 +164,7 @@ class Fixtures
     }
 
     /**
+     * 
      */
     public function dump()
     {
