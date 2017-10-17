@@ -41,7 +41,7 @@ class LeadRepository extends AbstractRepository
         foreach ($params as $key => $obj) {
             
             $value = $obj['value'];
-            if(isset($obj['type'])){
+            if (isset($obj['type'])) {
                 $type = $obj['type'];
             }
             
@@ -93,7 +93,9 @@ class LeadRepository extends AbstractRepository
         foreach ($params as $key => $obj) {
             
             $value = $obj['value'];
-            $type = $obj['type'];
+            if (isset($obj['type'])) {
+                $type = $obj['type'];
+            }
             
             if (! empty($value)) {
                 
@@ -120,7 +122,6 @@ class LeadRepository extends AbstractRepository
                 $sql .= " ) ";
             }
         }
-        
         
         $col = R::getCol($sql);
         
