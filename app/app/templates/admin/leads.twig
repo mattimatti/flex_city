@@ -40,7 +40,6 @@ function monthSorter(a, b) {
 				<th data-field="email" data-sortable="true">Email</th>
 				<th data-field="address" data-sortable="true">Address</th>
 				<th data-field="country" data-sortable="true">Country</th>
-				<th>Year</th>
 				<th data-field="hour"  data-sortable="true">Hour</th>
 				<th data-field="day"  data-sortable="true">Day</th>
 				<th data-field="month"  data-sortable="true">Month</th>
@@ -55,10 +54,9 @@ function monthSorter(a, b) {
 				<th>{% include "admin/lead-filter.twig" with {name: 'email'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {name: 'address'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctcountries, name: 'country'} %}</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
+				<th>{% include "admin/lead-filter.twig" with {'items': distincthours, name: 'hour'} %}</th>
+				<th>{% include "admin/lead-filter.twig" with {'items': distinctdays, name: 'day'} %}</th>
+				<th>{% include "admin/lead-filter.twig" with {'items': distinctmonths, name: 'month'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctprizes, name: 'prize'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctmodels, name: 'model'} %}</th>
 				<th></th>
@@ -73,7 +71,6 @@ function monthSorter(a, b) {
 				<td scope="row">{{ item.email }}</td>
 				<td scope="row">{{ item.address }}</td>
 				<td scope="row">{{ item.country }}</td>
-				<td scope="row">{{ item.age()  }}</td>
 				<td scope="row">{{ item.hour }}</td>
 				<td scope="row">{{ item.day }}</td>
 				<td scope="row">{{ item.month }}</td>

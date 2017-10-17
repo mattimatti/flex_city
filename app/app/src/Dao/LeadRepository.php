@@ -119,9 +119,10 @@ class LeadRepository extends AbstractRepository
             }
         }
         
-        // Debug::dump($sql);
         
-        return R::getCol($sql);
+        $col = R::getCol($sql);
+        
+        return $col[0];
     }
 
     /**

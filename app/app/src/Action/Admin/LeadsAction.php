@@ -29,14 +29,9 @@ final class LeadsAction extends AbstractAction
         
         $leadRepo = $this->leadService->getLeadRepo();
         
-        
         $action = $request->getParam('action', 'view');
         
-        
-        
-        $event_id = 0;
-        
-        $currentPage = $request->getQueryParam('page', 0);
+        $currentPage = $request->getParam('page', 0);
         $perPage = 50;
         
         $filters = $request->getParam('filters');
@@ -45,9 +40,9 @@ final class LeadsAction extends AbstractAction
             $filters = array();
         }
         
-//         if ($request->isPost()) {
-//             Debug::dump($filters);
-//         }
+        // if ($request->isPost()) {
+        // Debug::dump($filters);
+        // }
         
         $totalItems = $leadRepo->countByparams($filters);
         
@@ -59,12 +54,10 @@ final class LeadsAction extends AbstractAction
         
         $leads = $leadRepo->findByParams($filters, $offset, $limit);
         
-        
-        if($action == 'export'){
-        		$this->leadService->export($leads);
-        		return;
+        if ($action == 'export') {
+            $this->leadService->export($leads);
+            return;
         }
-        
         
         // Debug::dump($pages);
         
@@ -75,7 +68,10 @@ final class LeadsAction extends AbstractAction
         $this->setViewData("distinctprizes", $leadRepo->getDistinct('prize'));
         $this->setViewData("distinctmodels", $leadRepo->getDistinct('model'));
         $this->setViewData("distinctcountries", $leadRepo->getDistinct('country'));
-        
+        $this->setViewData("distinctdays", $leadRepo->getDistinct('day'));
+        $this->setViewData("distinctmonths", $leadRepo->getDistinct('month'));
+        $this->setViewData("distinctlangs", $leadRepo->getDistinct('lang'));
+        $this->setViewData("distincthours", $leadRepo->getDistinct('hour'));
         
         $this->__render($response);
         

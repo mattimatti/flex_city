@@ -9,15 +9,15 @@
 <ul class="pagination">
   {% for number, position in pages %}
     {% if position == 'first' %}
-      <li><a href="/admin/leads?event_id={{ event_id }}&page={{ number }}">&laquo;</a></li>
+      <li><button name="page" type="submit" class="btn btn-default" name="page" value="{{ number }}">&laquo;</button></li>
     {% elseif position == 'less' or position == 'more' %}
-      <li><a href="javascript:;">...</a></li>
+      <li><button name="page" type="submit" class="btn btn-default disabled" >...</button></li>
     {% elseif position == 'previous' or position == 'next' %}
-      <li><a href="/admin/leads?event_id={{ event_id }}&page={{ number }}">{{ number }}</a></li>
+      <li><button name="page" type="submit" class="btn btn-default" name="page" value="{{ number }}">{{ number }}</button></li>
     {% elseif position == 'current' %}
-      <li><a href="javascript:;">{{ number }}</a></li>
+      <li><button name="page" type="submit" class="btn btn-default" disabled>{{ number }}</button></li>
     {% elseif position == 'last' %}
-      <li><a href="/admin/leads?event_id={{ event_id }}&page={{ number }}">&raquo;</a></li>
+      <li><button name="page" type="submit" class="btn btn-default" name="page" value="{{ number }}">&raquo;</button></li>
     {% endif %}
   {% endfor %}
 </ul>
