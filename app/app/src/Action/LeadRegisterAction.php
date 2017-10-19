@@ -30,13 +30,14 @@ class LeadRegisterAction extends AbstractAction
         
         if ($request->isPost()) {
             
-            
-            $this->logger->info(print_r($request, 1));
+            $this->logger->debug(print_r($request->getParams(), 1));
             
             try {
                 
                 
                 $lead = $this->leadService->create($request->getParams());
+                
+                $this->logger->info("ok saved", 1));
                 
                 echo ("ok");
                 exit();
@@ -44,12 +45,14 @@ class LeadRegisterAction extends AbstractAction
                 //
             } catch (\InvalidArgumentException $ex) {
                 
+                $this->logger->error("invalid params: " . $ex->getMessage());
                 echo ("invalid params: " . $ex->getMessage());
                 exit();
                 
                 //
             } catch (\Exception $ex) {
                 
+                $this->logger->error("error: " . $ex->getMessage());
                 // redirect a fatal exception like csrf or user already registerd
                 echo ($ex->getMessage());
                 exit();

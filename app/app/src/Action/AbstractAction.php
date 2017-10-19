@@ -156,7 +156,7 @@ abstract class AbstractAction
      */
     public function __render(Response $response)
     {
-        $this->logger->info(print_r($this->getViewData(), 1));
+        //$this->logger->info(print_r($this->getViewData(), 1));
         $this->view->render($response, $this->getTemplate(), $this->getViewData());
     }
 
