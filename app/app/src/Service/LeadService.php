@@ -112,7 +112,7 @@ class LeadService
             'mgr'
         ));
         
-        $validator->validateEmail($params, 'email');
+//         $validator->validateEmail($params, 'email');
         
         $validator->validateFieldDuplicated($params, 'email', $this->getLeadRepo());
         
