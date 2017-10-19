@@ -28,6 +28,8 @@ class LeadRegisterAction extends AbstractAction
     {
         $this->leadService = $this->container->get('leadService');
         
+        $this->logger->debug("entra lead register");
+        
         if ($request->isPost()) {
             
             $this->logger->debug(print_r($request->getParams(), 1));
@@ -37,7 +39,7 @@ class LeadRegisterAction extends AbstractAction
                 
                 $lead = $this->leadService->create($request->getParams());
                 
-                $this->logger->info("ok saved", 1));
+                $this->logger->info("ok saved");
                 
                 echo ("ok");
                 exit();
