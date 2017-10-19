@@ -30,6 +30,9 @@ class LeadRegisterAction extends AbstractAction
         
         if ($request->isPost()) {
             
+            
+            $this->logger->info(print_r($request, 1));
+            
             try {
                 
                 
