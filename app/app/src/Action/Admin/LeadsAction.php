@@ -66,6 +66,8 @@ final class LeadsAction extends AbstractAction
         $this->setViewData("filters", $filters);
         
         $this->setViewData("distinctprizes", $leadRepo->getDistinct('prize'));
+        $this->setViewData("distinctcities", $leadRepo->getDistinct('city'));
+        $this->setViewData("distinctgenders", $leadRepo->getDistinct('gender'));
         $this->setViewData("distinctmodels", $leadRepo->getDistinct('model'));
         $this->setViewData("distinctcountries", $leadRepo->getDistinct('country'));
         $this->setViewData("distinctdays", $leadRepo->getDistinct('day'));

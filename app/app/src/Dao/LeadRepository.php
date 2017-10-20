@@ -78,10 +78,8 @@ class LeadRepository extends AbstractRepository
         if ($offset) {
             $sql .= " OFFSET $offset ";
         }
-
-        if ($offset) {
-            $sql .= " ORDER BY id DESC ";
-        }
+        
+//         $sql .= " ORDER BY id DESC ";
         
         return R::findAll($this->getType(), $sql, $bindings);
     }

@@ -83,6 +83,8 @@ class Fixtures
             $lead = R::dispense(Lead::NAME);
             $lead->name = $faker->firstName;
             $lead->surname = $faker->lastName;
+            $lead->city = $faker->city;
+            $lead->birthdate = $faker->dateTimeThisCentury->format('Y-m-d');
             $lead->address = $faker->address;
             $lead->country = $faker->randomElement(array(
                 'IT',
