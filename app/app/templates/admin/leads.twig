@@ -56,18 +56,18 @@ function monthSorter(a, b) {
 				<th data-field="date"  data-sortable="true">Date</th>
 			</tr>
 			<tr class="filters">
-				<th></th>
-				<th>{% include "admin/lead-filter.twig" with {name: 'name'} %}</th>
-				<th>{% include "admin/lead-filter.twig" with {name: 'surname'} %}</th>
-				<th>{% include "admin/lead-filter.twig" with {name: 'email'} %}</th>
-				<th>{% include "admin/lead-filter.twig" with {name: 'address'} %}</th>
-				<th>{% include "admin/lead-filter.twig" with {'items': distinctcountries, name: 'country'} %}</th>
-				<th>{% include "admin/lead-filter.twig" with {'items': distincthours, name: 'hour'} %}</th>
-				<th>{% include "admin/lead-filter.twig" with {'items': distinctdays, name: 'day'} %}</th>
-				<th>{% include "admin/lead-filter.twig" with {'items': distinctmonths, name: 'month'} %}</th>
-				<th>{% include "admin/lead-filter.twig" with {'items': distinctprizes, name: 'prize'} %}</th>
-				<th>{% include "admin/lead-filter.twig" with {'items': distinctmodels, name: 'model'} %}</th>
-				<th></th>
+				<td></td>
+				<td>{% include "admin/lead-filter.twig" with {name: 'name'} %}</td>
+				<td>{% include "admin/lead-filter.twig" with {name: 'surname'} %}</td>
+				<td>{% include "admin/lead-filter.twig" with {name: 'email'} %}</td>
+				<td>{% include "admin/lead-filter.twig" with {name: 'address'} %}</td>
+				<td>{% include "admin/lead-filter.twig" with {'items': distinctcountries, name: 'country'} %}</td>
+				<td>{% include "admin/lead-filter.twig" with {'items': distinctdours, name: 'hour'} %}</td>
+				<td>{% include "admin/lead-filter.twig" with {'items': distinctdays, name: 'day'} %}</td>
+				<td>{% include "admin/lead-filter.twig" with {'items': distinctmontds, name: 'montd'} %}</td>
+				<td>{% include "admin/lead-filter.twig" with {'items': distinctprizes, name: 'prize'} %}</td>
+				<td>{% include "admin/lead-filter.twig" with {'items': distinctmodels, name: 'model'} %}</td>
+				<td></td>
 			</tr>
 		</thead>
 		<tbody>
