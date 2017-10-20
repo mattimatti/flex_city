@@ -1,6 +1,5 @@
 {% if items %}
-	<select class="form-control option" multiple="multiple" name="filters[{{ name }}][value][]">
-		<option value="-1">None</option>
+	<select class="multiselect" multiple="multiple" name="filters[{{ name }}][value][]">
 		{% for item in items %}
 		    <option {% if filters[name] and item in filters[name].value %} selected {% endif %}>{{ item }}</option>
 		{% endfor %}

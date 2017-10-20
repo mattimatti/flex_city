@@ -12,28 +12,9 @@
 
 .th-inner {
 	overflow: visible !important;
-	overflow-x: hidden !important;
+	  overflow-x: visible !important;
+	  overflow-y: visible !important;
 }
-
- .open ul.dropdown-menu { 
-     display: block; 
- } 
-
- .btn-group {   
-     white-space: nowrap;               
- } 
- .btn-group .btn {   
-     float: none; 
-     display: inline-block; 
- } 
-  .btn + .dropdown-toggle {  
-     margin-left: -4px; 
- } 
-
-.table-responsive {
-  overflow-y: visible !important;
-}
-
 
 </style>
 
@@ -66,6 +47,8 @@ function monthSorter(a, b) {
 }
 
  </script>
+ 
+ 
     <div class="table-responsive">
 	<table class="table table-bordered filterable" data-toggle="table">
 		<thead>
@@ -160,7 +143,7 @@ $(document).ready(function(){
     });
 
 
-   	 $('.filterable select').multiselect({
+   	 $('.multiselect').multiselect({
     		includeSelectAllOption: true,
    		 onChange: function(option, checked, select) {
              console.debug('Changed option ' + $(option).val() + '.');
