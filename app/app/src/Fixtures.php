@@ -85,7 +85,7 @@ class Fixtures
             $lead->surname = $faker->lastName;
             $lead->city = $faker->city;
             $lead->birthdate = $faker->dateTimeThisCentury->format('Y-m-d');
-            $lead->address = $faker->address;
+//             $lead->address = $faker->address;
             $lead->country = $faker->randomElement(array(
                 'IT',
                 'ES',

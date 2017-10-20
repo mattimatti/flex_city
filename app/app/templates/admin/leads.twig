@@ -62,8 +62,8 @@ function monthSorter(a, b) {
 				<th data-field="email" data-sortable="true">Email</th>
 				<th data-field="gender" data-sortable="true">Gender</th>
 				<th data-field="birthdate" data-sortable="true">Birthdate</th>
-				<th data-field="address" data-sortable="true">Address</th>
-				<th data-field="address" data-sortable="true">City</th>
+{# 				<th data-field="address" data-sortable="true">Address</th>#}
+				<th data-field="city" data-sortable="true">City</th>
 				<th data-field="country" data-sortable="true">Country</th>
 				<th data-field="hour"  data-sortable="true">Hour</th>
 				<th data-field="day"  data-sortable="true">Day</th>
@@ -82,7 +82,7 @@ function monthSorter(a, b) {
 				<th>{% include "admin/lead-filter.twig" with {name: 'email'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctgenders, name: 'gender'} %}</th>
 				<th></th>
-				<th>{% include "admin/lead-filter.twig" with {name: 'address'} %}</th>
+{# 				<th>{% include "admin/lead-filter.twig" with {name: 'address'} %}</th>#}
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctcities, name: 'city'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctcountries, name: 'country'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distincthours, name: 'hour'} %}</th>
