@@ -28,6 +28,10 @@ class HomeAction extends AbstractAction
      */
     public function __invoke(Request $request, Response $response, $args)
     {
+        
+        return $response->withRedirect("/admin");
+        
+        
         // the domain
         $domain = $request->getUri()->getHost();
         
