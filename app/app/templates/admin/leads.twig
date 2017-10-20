@@ -10,10 +10,21 @@
 
 <style>
 
-th {
-	overflow-y: visible !important;
+
+.btn-group {  
+    white-space: nowrap;              
+}
+.btn-group .btn {  
+    float: none;
+    display: inline-block;
+}
+ .btn + .dropdown-toggle { 
+    margin-left: -4px;
 }
 
+.table-responsive {
+  overflow-y: visible !important;
+}
 
 
 </style>
@@ -47,6 +58,7 @@ function monthSorter(a, b) {
 }
 
  </script>
+    <div class="table-responsive">
 	<table class="table table-bordered filterable" data-toggle="table">
 		<thead>
 			<tr>
@@ -97,7 +109,7 @@ function monthSorter(a, b) {
 			{% endfor %}
 		</tbody>
 	</table>
-	
+	</div>
     {% include "admin/lead-pagination.twig" %}
 
 </div>
