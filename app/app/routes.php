@@ -37,7 +37,7 @@ $app->get('/auth/logout', "App\Action\Auth\LogoutAction")
 $app->get('/', "App\Action\HomeAction")
     ->setName('root')
     ->allow([
-    Acl::GUEST
+    Acl::ADMIN
 ]);
 
 $app->post('/', "App\Action\LeadRegisterAction")
