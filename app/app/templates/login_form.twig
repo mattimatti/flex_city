@@ -1,24 +1,28 @@
 
 
-
-
-<form role="form" method="post" data-toggle="validator">
-
-{% include "snippets/errors.twig" %}
-
-
-	<fieldset>
-		<div class="form-group">
-			<input class="form-control" placeholder="Username" name="username" type="text" autofocus="" required>
-		</div>
-		<div class="form-group">
-			<input class="form-control" placeholder="Password" name="password" type="password" value="" required>
-		</div>
-{# 		<div class="checkbox">#}
-{# 			<label> <input name="remember" type="checkbox" value="Remember Me">Remember Me#}
-{# 			</label>#}
-{# 		</div>#}
-		<!-- Change this to a button or input when using this as a form -->
-		<button type="submit" class="btn btn-block btn-success">Login</button>
-	</fieldset>
-</form>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+	
+	   <h3>Insert your user name and password</h3>
+		<form role="form" method="post" data-toggle="validator">
+		
+		{% include "snippets/errors.twig" %}
+		
+		
+			<fieldset>
+				<div class="form-group">
+					<input class="form-control" placeholder="Username" name="username" type="text" autofocus="" required>
+				</div>
+				<div class="form-group">
+					<input class="form-control" placeholder="Password" name="password" type="password" value="" required>
+				</div>
+		{# 		<div class="checkbox">#}
+		{# 			<label> <input name="remember" type="checkbox" value="Remember Me">Remember Me#}
+		{# 			</label>#}
+		{# 		</div>#}
+				<!-- Change this to a button or input when using this as a form -->
+				<button type="submit" class="btn btn-block btn-success">Login</button>
+			</fieldset>
+		</form>
+	</div>
+</div>
