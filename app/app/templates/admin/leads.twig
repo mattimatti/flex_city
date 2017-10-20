@@ -8,7 +8,13 @@
 
 {% block body %}
 
+<style>
 
+.filters td {
+	overflow: visible;
+}
+
+</style>
 
 
 {# <div class="mt20">#}
@@ -132,7 +138,13 @@ $(document).ready(function(){
     });
 
 
-   	 $('.filterable select').multiselect();
+   	 $('.filterable select').multiselect({
+    		includeSelectAllOption: true,
+   		 onChange: function(option, checked, select) {
+             console.debug('Changed option ' + $(option).val() + '.');
+             this.form.submit();
+         }
+   	 });
     
     
     $('.filterable select').on("change", function(e){
