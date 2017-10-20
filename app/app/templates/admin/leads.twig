@@ -70,10 +70,10 @@ function monthSorter(a, b) {
 				<th data-field="month"  data-sortable="true">Month</th>
 				<th data-field="prize"  data-sortable="true">Prize</th>
 				<th data-field="model"  data-sortable="true">Model</th>
-				<th data-field="date"  data-sortable="true">Date</th>
 				<th data-field="pp"  data-sortable="true">Privacy Policy</th>
 				<th data-field="mvf"  data-sortable="true">MKT VF</th>
 				<th data-field="mgr"  data-sortable="true">MKT GR</th>
+				<th data-field="date"  data-sortable="true">Create Date</th>
 			</tr>
 			<tr>
 				<th></th>
@@ -113,10 +113,10 @@ function monthSorter(a, b) {
 				<td scope="row">{{ item.month }}</td>
 				<td scope="row">{{ item.prize }}</td>
 				<td scope="row">{{ item.model }}</td>
-				<td scope="row">{{ item.date_create }}</td>
 				<td scope="row">{{ item.pp }}</td>
 				<td scope="row">{{ item.mvf }}</td>
 				<td scope="row">{{ item.mgr }}</td>
+				<td scope="row">{{ item.date_create|date("d/m/Y") }}</td>
 			</tr>
 			{% endfor %}
 		</tbody>
