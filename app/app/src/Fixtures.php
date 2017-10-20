@@ -130,9 +130,7 @@ class Fixtures
     {
         Debug::dump(array(
             R::exportAll(R::findAll(User::NAME)),
-            R::exportAll(R::findAll(Role::NAME)),
-            R::exportAll(R::findAll(Location::NAME)),
-            R::exportAll(R::findAll(Event::NAME))
+            R::exportAll(R::findAll(Role::NAME))
         ));
     }
 }
