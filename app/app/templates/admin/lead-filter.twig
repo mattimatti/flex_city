@@ -1,12 +1,10 @@
 {% if items %}
-<div class="form-group">
 	<select class="form-control option" multiple="multiple" name="filters[{{ name }}][value][]">
 		<option value="-1">None</option>
 		{% for item in items %}
 		    <option {% if filters[name] and item in filters[name].value %} selected {% endif %}>{{ item }}</option>
 		{% endfor %}
 	</select>
-</div>
 {% else %}
 	<input class="form-control" type="text" name="filters[{{ name }}][value]" value="{{ filters[name].value }}">
 	<input  type="hidden" name="filters[{{ name }}][type]" value="like">
