@@ -97,7 +97,7 @@ class LeadService
         $validator->validateNotEmpty($params, array(
             'name',
             'surname',
-            'address',
+            'city',
             'country',
             'lang',
             'email',

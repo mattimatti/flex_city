@@ -72,8 +72,10 @@ final class LeadsAction extends AbstractAction
         $this->setViewData("distinctcountries", $leadRepo->getDistinct('country'));
         $this->setViewData("distinctdays", $leadRepo->getDistinct('day'));
         $this->setViewData("distinctmonths", $leadRepo->getDistinct('month'));
-        $this->setViewData("distinctlangs", $leadRepo->getDistinct('lang'));
         $this->setViewData("distincthours", $leadRepo->getDistinct('hour'));
+        
+        // hardcoded
+        $this->setViewData("yesno", array('y','n'));
         
         $this->__render($response);
         

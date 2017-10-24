@@ -79,7 +79,7 @@ class LeadRepository extends AbstractRepository
             $sql .= " OFFSET $offset ";
         }
         
-//         $sql .= " ORDER BY id DESC ";
+        // $sql .= " ORDER BY id DESC ";
         
         return R::findAll($this->getType(), $sql, $bindings);
     }
@@ -172,13 +172,17 @@ class LeadRepository extends AbstractRepository
 
     /**
      */
-    public function getDistinct($segment)
+    public function getDistinct($segment, $sorting = '')
     {
         $params = array();
         
+        if ($sorting == '') {
+            $sorting = 'SORT BY ' . $segment . ' ASC';
+        }
+        
         $where = '1=1 ';
         
-        $sql = "SELECT DISTINCT($segment) FROM " . $this->getType() . " WHERE $where";
+        $sql = "SELECT DISTINCT($segment) FROM " . $this->getType() . " WHERE $where  $sorting ";
         
         return R::getCol($sql);
     }

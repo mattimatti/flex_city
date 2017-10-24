@@ -52,7 +52,7 @@ function monthSorter(a, b) {
  </script>
  
  
-    <div class="table-responsive">
+    <div class="table-responsive" style="min-height:900px">
 	<table class="table table-bordered filterable" data-toggle="table">
 		<thead>
 			<tr>
@@ -62,7 +62,7 @@ function monthSorter(a, b) {
 				<th data-field="email" data-sortable="true">Email</th>
 				<th data-field="gender" data-sortable="true">Gender</th>
 				<th data-field="birthdate" data-sortable="true">Birthdate</th>
-{# 				<th data-field="address" data-sortable="true">Address</th>#}
+				<th data-field="lang" data-sortable="true">Lang</th>
 				<th data-field="city" data-sortable="true">City</th>
 				<th data-field="country" data-sortable="true">Country</th>
 				<th data-field="hour"  data-sortable="true">Hour</th>
@@ -73,7 +73,7 @@ function monthSorter(a, b) {
 				<th data-field="pp"  data-sortable="true">Privacy Policy</th>
 				<th data-field="mvf"  data-sortable="true">MKT VF</th>
 				<th data-field="mgr"  data-sortable="true">MKT GR</th>
-				<th data-field="date"  data-sortable="true">Create Date</th>
+{# 				<th data-field="date"  data-sortable="true">Create Date</th>#}
 			</tr>
 			<tr>
 				<th></th>
@@ -82,7 +82,7 @@ function monthSorter(a, b) {
 				<th>{% include "admin/lead-filter.twig" with {name: 'email'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctgenders, name: 'gender'} %}</th>
 				<th></th>
-{# 				<th>{% include "admin/lead-filter.twig" with {name: 'address'} %}</th>#}
+				<th></th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctcities, name: 'city'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctcountries, name: 'country'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distincthours, name: 'hour'} %}</th>
@@ -90,10 +90,10 @@ function monthSorter(a, b) {
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctmonths, name: 'month'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctprizes, name: 'prize'} %}</th>
 				<th>{% include "admin/lead-filter.twig" with {'items': distinctmodels, name: 'model'} %}</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
+				<th>{% include "admin/lead-filter.twig" with {'items': yesno, name: 'pp'} %}</th>
+				<th>{% include "admin/lead-filter.twig" with {'items': yesno, name: 'mvf'} %}</th>
+				<th>{% include "admin/lead-filter.twig" with {'items': yesno, name: 'mgr'} %}</th>
+{# 				<th></th>#}
 			</tr>
 		</thead>
 		<tbody>
@@ -105,7 +105,7 @@ function monthSorter(a, b) {
 				<td scope="row">{{ item.email }}</td>
 				<td scope="row">{{ item.gender }}</td>
 				<td scope="row">{{ item.birthdate }}</td>
-{# 				<td scope="row">{{ item.address }}</td>#}
+				<td scope="row">{{ item.lang }}</td>
 				<td scope="row">{{ item.city }}</td>
 				<td scope="row">{{ item.country }}</td>
 				<td scope="row">{{ item.hour }}</td>
@@ -116,7 +116,7 @@ function monthSorter(a, b) {
 				<td scope="row">{{ item.pp }}</td>
 				<td scope="row">{{ item.mvf }}</td>
 				<td scope="row">{{ item.mgr }}</td>
-				<td scope="row">{{ item.date_create|date("d/m/Y") }}</td>
+{# 				<td scope="row">{{ item.date_create|date("d/m/Y") }}</td>#}
 			</tr>
 			{% endfor %}
 		</tbody>
