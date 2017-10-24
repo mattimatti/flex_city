@@ -58,6 +58,8 @@ class LeadRepository extends AbstractRepository
                 
                 foreach ($value as $myvalue) {
                     
+                    $myvalue = addslashes($myvalue);
+                    
                     if ($type == 'like') {
                         $sql .= " $key LIKE '%$myvalue%' OR ";
                     } else {
