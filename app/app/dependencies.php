@@ -118,8 +118,8 @@ $container['database'] = function ($c)
 {
     $dbsettings = $c['settings']['database'];
     
-//    print_r($dbsettings);
-//    exit();
+    // print_r($dbsettings);
+    // exit();
     
     R::setup('mysql:host=' . $dbsettings['host'] . ';dbname=' . $dbsettings['dbname'], $dbsettings['user'], $dbsettings['password']);
     R::freeze(TRUE);
@@ -187,7 +187,7 @@ $container['leadService'] = function ($c)
 {
     // compose the service params
     
-    $leadRepo = new LeadRepository();
+    $leadRepo = new LeadRepository($c);
     $mailService = $c->get('mailService');
     $translator = $c->get('translator');
     $settings = $c->get('settings');
@@ -200,8 +200,8 @@ $container['leadService'] = function ($c)
 // userService
 $container['userService'] = function ($c)
 {
-    $userRepo = new UserRepository();
-    $roleRepo = new RoleRepository();
+    $userRepo = new UserRepository($c);
+    $roleRepo = new RoleRepository($c);
     return new UserService($userRepo, $roleRepo);
 };
 

@@ -2,17 +2,49 @@
 namespace App\Dao;
 
 use RedBeanPHP\R;
+use Slim\Container;
 
 abstract class AbstractRepository
 {
 
+    /**
+     *
+     * @var Container
+     */
+    protected $container;
+
+    /**
+     *
+     * @var LoggerInterface
+     */
+    protected $logger;
+
+    /**
+     *
+     * @param string $c            
+     */
+    function __construct($container = null)
+    {
+        $this->container = $container;
+        $this->logger = $container->get("logger");
+    }
+
     abstract function getType();
 
+    /**
+     *
+     * @return Ambigous <multitype:, multitype:NULL >
+     */
     public function findAll()
     {
         return R::findAll($this->getType());
     }
 
+    /**
+     *
+     * @param unknown $id            
+     * @return \RedBeanPHP\OODBBean
+     */
     public function get($id)
     {
         return R::load($this->getType(), $id);
@@ -46,10 +78,9 @@ abstract class AbstractRepository
         return $bean->box();
     }
 
-    
     /**
-     * 
-     * @param array $params
+     *
+     * @param array $params            
      */
     public function update(array $params, $bean)
     {
