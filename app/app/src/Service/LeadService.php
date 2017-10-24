@@ -63,7 +63,7 @@ class LeadService
         $allowed = array(
             'name',
             'surname',
-            'address',
+            'city',
             'country',
             'lang',
             'email',
