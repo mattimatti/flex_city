@@ -77,6 +77,8 @@ class LeadRepository extends AbstractRepository
             }
         }
         
+        $sql .= " ORDER BY id DESC ";
+        
         if ($limit) {
             $sql .= " LIMIT $limit";
         }
@@ -85,7 +87,6 @@ class LeadRepository extends AbstractRepository
             $sql .= " OFFSET $offset ";
         }
         
-        $sql .= " ORDER BY id DESC ";
         
 //         $this->logger->debug("QUERY:     $sql ");
         
