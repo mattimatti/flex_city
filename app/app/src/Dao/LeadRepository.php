@@ -92,6 +92,12 @@ class LeadRepository extends AbstractRepository
      */
     public function countByparams($params = array())
     {
+        
+        $this->logger->debug("countByparams");
+        $this->logger->debug(print_r($params, 1));
+        
+        
+        
         $sql = "SELECT COUNT(id) FROM " . $this->getType() . " WHERE 1=1 ";
         
         foreach ($params as $key => $obj) {
