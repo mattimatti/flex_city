@@ -177,12 +177,12 @@ class LeadRepository extends AbstractRepository
         $params = array();
         
         if ($sorting == '') {
-            $sorting = 'SORT BY ' . $segment . ' ASC';
+            $sorting = ' SORT BY ' . $segment . ' ASC';
         }
         
         $where = '1=1 ';
         
-        $sql = "SELECT DISTINCT($segment) FROM " . $this->getType() . " WHERE $where  $sorting ";
+        $sql = "SELECT DISTINCT($segment) FROM " . $this->getType() . " WHERE $where $sorting ;";
         
         return R::getCol($sql);
     }
