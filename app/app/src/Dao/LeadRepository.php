@@ -85,9 +85,9 @@ class LeadRepository extends AbstractRepository
             $sql .= " OFFSET $offset ";
         }
         
-        // $sql .= " ORDER BY id DESC ";
+        $sql .= " ORDER BY id DESC ";
         
-        $this->logger->debug("QUERY:     $sql ");
+//         $this->logger->debug("QUERY:     $sql ");
         
         return R::findAll($this->getType(), $sql, $bindings);
     }
@@ -144,7 +144,7 @@ class LeadRepository extends AbstractRepository
             }
         }
         
-        $this->logger->debug("QUERY:     $sql ");
+//         $this->logger->debug("QUERY:     $sql ");
         
         $col = R::getCol($sql);
         
