@@ -40,7 +40,11 @@ class LeadRepository extends AbstractRepository
         
         foreach ($params as $key => $obj) {
             
-            $value = $obj['value'];
+            $value = null;
+            if (isset($obj['value'])) {
+                $value = $obj['value'];
+            }
+            
             if (isset($obj['type'])) {
                 $type = $obj['type'];
             }
@@ -101,7 +105,10 @@ class LeadRepository extends AbstractRepository
         
         foreach ($params as $key => $obj) {
             
-            $value = $obj['value'];
+            $value = null;
+            if (isset($obj['value'])) {
+                $value = $obj['value'];
+            }
             
             $type = null;
             
