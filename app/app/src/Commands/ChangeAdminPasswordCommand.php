@@ -23,8 +23,6 @@ class ChangeAdminPasswordCommand extends AbstractCommand
         
         $this->addOption('password', 'p', InputOption::VALUE_REQUIRED);
         
-        // optional domain..
-        $this->addOption('domain', 'd', InputOption::VALUE_OPTIONAL);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -34,13 +32,6 @@ class ChangeAdminPasswordCommand extends AbstractCommand
         // handle domains..
         $domains = $this->getDomains();
         
-        $domain = $input->getOption('domain');
-        
-        if ($domain) {
-            $domains = array(
-                $domain
-            );
-        }
         
         foreach ($domains as $domain) {
             
@@ -50,7 +41,7 @@ class ChangeAdminPasswordCommand extends AbstractCommand
                 '============',
                 ''
             ]);
-            
+
             $output->writeln('Domain: ' . $domain);
             $output->writeln("Changing to $password");
             
@@ -76,22 +67,5 @@ class ChangeAdminPasswordCommand extends AbstractCommand
         }
     }
 
-    /**
-     *
-     * @param unknown $domain            
-     * @param unknown $output            
-     * @throws \Exception
-     * @return multitype:
-     */
-    public function getDbConfig($domain, $output)
-    {
-        $config = $this->getSlim()
-            ->getContainer()
-            ->get('settings');
-        
-        $config = $config->all();
-        $dbconfig = $config['database'];
-        
-        return $dbconfig;
-    }
+
 }

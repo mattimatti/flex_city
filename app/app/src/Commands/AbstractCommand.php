@@ -38,7 +38,7 @@ class AbstractCommand extends Command
     public function openConnection($config)
     {
         if (! R::hasDatabase($config['dbname'])) {
-            R::addDatabase($config['dbname'], 'mysql:host='. $config['host'] . ';dbname=' . $config['dbname'], $config['user'], $config['password']);
+            R::addDatabase($config['dbname'], 'mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['user'], $config['password']);
         }
         R::selectDatabase($config['dbname']);
     }
@@ -79,5 +79,24 @@ class AbstractCommand extends Command
     public function setSlim($slim)
     {
         $this->slim = $slim;
+    }
+
+    /**
+     *
+     * @param unknown $domain            
+     * @param unknown $output            
+     * @throws \Exception
+     * @return multitype:
+     */
+    public function getDbConfig($domain, $output)
+    {
+        $config = $this->getSlim()
+            ->getContainer()
+            ->get('settings');
+        
+        $config = $config->all();
+        $dbconfig = $config['database'];
+        
+        return $dbconfig;
     }
 }

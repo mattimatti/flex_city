@@ -53,22 +53,5 @@ class LoadFixturesCommand extends AbstractCommand
         }
     }
 
-    /**
-     *
-     * @param unknown $domain            
-     * @param unknown $output            
-     * @throws \Exception
-     * @return multitype:
-     */
-    public function getDbConfig($domain, $output)
-    {
-        $config = $this->getSlim()
-            ->getContainer()
-            ->get('settings');
-        
-        $config = $config->all();
-        $dbconfig = $config['database'];
-        
-        return $dbconfig;
-    }
+ 
 }
