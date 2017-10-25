@@ -167,6 +167,7 @@ $(document).ready(function(){
    	 $('.multiselect').multiselect({
     		includeSelectAllOption: true,
     		nonSelectedText: 'All',
+    		allSelectedText: 'All',
    		 onChange: function(option, checked, select) {
              console.debug('Changed option ' + $(option).val() + '.');
              this.form.submit();
