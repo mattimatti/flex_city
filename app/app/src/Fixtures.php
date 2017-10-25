@@ -55,7 +55,7 @@ class Fixtures
      */
     public function load()
     {
-        $leadsCount = 700;
+        $leadsCount = 0;
         
         $faker = \Faker\Factory::create();
         
