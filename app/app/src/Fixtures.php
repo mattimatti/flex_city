@@ -96,10 +96,10 @@ class Fixtures
             $lead->email = $faker->email;
             $lead->model = "model " . $faker->numberBetween(1, 6);
             $lead->prize = $faker->randomElement(array(
-                'Non Vinto',
-                'Premio X',
-                'Premio Y',
-                'Premio Z'
+                'Lost',
+                'Prize X',
+                'Prize Y',
+                'Prize Z'
             ));
             $lead->day = "dd " . $faker->numberBetween(1, 30);
             $lead->month = "mm " . $faker->numberBetween(1, 12);

@@ -5,7 +5,7 @@
 
 
 {% block body %}
-<h3>{{ "PARTECIPAZIONI"|trans }}</h3>
+<h3>{{ "Attendance"|trans }}</h3>
 
 <style>
 .bt1 {
@@ -20,9 +20,9 @@
 
 <table class="table mt20">
   <tr>
-    <th>{{ "ULTIMI 7 GIORNI"|trans }}</th>
+    <th>{{ "Last 7 days"|trans }}</th>
     <th>{{ since.howmany[0] }}</th>
-    <th>{{ "DALL’INIZIO"|trans }}</th>
+    <th>{{ "From the beginning"|trans }}</th>
     <th>{{ overall.howmany[0] }}</th>
   </tr>
   
@@ -35,13 +35,13 @@
   </tr>
   {% endfor %}
   <tr class="bt1">
-    <td>{{ "Uomini"|trans }}</td>
+    <td>{{ "Men"|trans }}</td>
     <td>{{ since.gender.m }}</td>
     <td></td>
     <td>{{ overall.gender.m }}</td>
   </tr>
   <tr>
-    <td>{{ "Donne"|trans }}</td>
+    <td>{{ "Women"|trans }}</td>
     <td>{{ since.gender.f }}</td>
     <td></td>
     <td>{{ overall.gender.f }}</td>
@@ -65,7 +65,7 @@
 </table>
 
 <div class="mt20">
-<a href="/admin/leads" class="btn btn-info btn-block">{{ "VAI AI DATI"|trans }}</a>
+<a href="/admin/leads" class="btn btn-info btn-block">{{ "View all leads"|trans }}</a>
 </div>
 
 
