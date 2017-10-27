@@ -12,6 +12,7 @@ use Symfony\Component\Translation\Translator;
 use Port\Reader\ArrayReader;
 use Port\Steps\StepAggregator;
 use Port\Csv\CsvWriter;
+use App\Fixtures;
 
 class LeadService
 {
@@ -58,6 +59,13 @@ class LeadService
         $this->settings = $settings;
     }
 
+    
+    
+    /**
+     * 
+     * @param array $params
+     * @return boolean|multitype:
+     */
     public function filterCreate(array $params)
     {
         $allowed = array(
@@ -116,7 +124,7 @@ class LeadService
         
 //         $validator->validateEmail($params, 'email');
         
-        $validator->validateFieldDuplicated($params, 'email', $this->getLeadRepo());
+//         $validator->validateFieldDuplicated($params, 'email', $this->getLeadRepo());
         
         // need more validators?
         
@@ -241,6 +249,15 @@ class LeadService
         }
     }
 
+    /**
+     *
+     */
+    public function truncate()
+    {
+       $this->getLeadRepo()->truncate();
+    }
+
+    
     /**
      *
      * @return the $mailService

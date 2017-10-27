@@ -100,6 +100,16 @@ abstract class AbstractRepository
         return R::trash($this->getType(), $id);
     }
 
+    
+    /**
+     *
+     * @param int $id            
+     */
+    public function truncate()
+    {
+        R::wipe($this->getType());
+    }
+
     /**
      *
      * @param AbstractModel $bean            
