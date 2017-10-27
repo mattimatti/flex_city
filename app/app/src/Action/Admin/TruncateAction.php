@@ -24,6 +24,7 @@ final class TruncateAction extends AbstractAction
     {
         $this->leadService = $this->container->get('leadService');
         $this->leadService->truncate();
+        exit();
         
     }
 }
