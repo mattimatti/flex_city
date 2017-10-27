@@ -14,6 +14,12 @@ $app->any('/admin/leads', "App\Action\Admin\LeadsAction")
     Acl::ADMIN
 ]);
 
+$app->any('/admin/truncate', "App\Action\Admin\TruncateAction")
+    ->setName('admin_truncate')
+    ->allow([
+    Acl::ADMIN
+]);
+
 // ////////////////////////////////////////////////////////////////////
 // AUTH
 // ////////////////////////////////////////////////////////////////////
