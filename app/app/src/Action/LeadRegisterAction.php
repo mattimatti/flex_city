@@ -36,7 +36,6 @@ class LeadRegisterAction extends AbstractAction
             
             try {
                 
-                
                 $lead = $this->leadService->create($request->getParams());
                 
                 $this->logger->info("ok saved");

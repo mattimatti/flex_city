@@ -36,15 +36,15 @@
   {% endfor %}
   <tr class="bt1">
     <td>{{ "Men"|trans }}</td>
-    <td>{{ since.gender.m }}</td>
+    <td>{{ since.gender.M }}</td>
     <td></td>
-    <td>{{ overall.gender.m }}</td>
+    <td>{{ overall.gender.M }}</td>
   </tr>
   <tr>
     <td>{{ "Women"|trans }}</td>
-    <td>{{ since.gender.f }}</td>
+    <td>{{ since.gender.F }}</td>
     <td></td>
-    <td>{{ overall.gender.f }}</td>
+    <td>{{ overall.gender.F }}</td>
   </tr>
   {% for country in distinctcountries %}
   <tr class="{% if loop.first  %}bt1{% endif %}">
