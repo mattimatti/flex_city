@@ -101,7 +101,7 @@ abstract class AbstractAction
      */
     public function setViewData($viewData, $value = null)
     {
-        if (! empty($value) && is_string($viewData)) {
+        if (is_string($viewData) && ! empty($value)  ) {
             $viewData = array(
                 "$viewData" => $value
             );

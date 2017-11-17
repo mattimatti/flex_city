@@ -34,6 +34,10 @@ final class IndexAction extends AbstractAction
         $this->setViewData("distinctlangs", $leadRepo->getDistinct('lang'));
         $this->setViewData("distincthours", $leadRepo->getDistinct('hour'));
         
+        echo "<pre>";
+        print_r($this->leadService->getSummary("-7"));
+        exit();
+        
         $this->setViewData("since", $this->leadService->getSummary("-7"));
         $this->setViewData("overall", $this->leadService->getSummary());
         
