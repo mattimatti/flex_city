@@ -161,10 +161,11 @@ class LeadRepository extends AbstractRepository
         $params = array();
         
         $where = '1=1 ';
+        
         if ($dateStart !== '') {
             // create iso date
             $date_create = date("Y-m-d", strtotime($dateStart));
-            $where .= "AND date_create >= $date_create";
+            $where .= " AND date_create >= $date_create";
         }
         
         $sql = "SELECT $segment, COUNT(id) FROM " . $this->getType() . " WHERE $where GROUP BY $segment";
@@ -188,6 +189,8 @@ class LeadRepository extends AbstractRepository
         }
         
         $sql = "SELECT COUNT(id) FROM " . $this->getType() . " WHERE $where";
+        
+        exit($sql);
         
         return R::getCol($sql);
     }

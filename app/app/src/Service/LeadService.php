@@ -184,11 +184,11 @@ class LeadService
      *            
      * @return array
      */
-    public function getSummary($daysSince = 0)
+    public function getSummary($daysSince = '')
     {
         $summary = array();
         
-        if ($daysSince !== 0) {
+        if ($daysSince !== '') {
             $daysSince = "$daysSince days";
         } else {
             $daysSince = '';
