@@ -160,9 +160,9 @@ class LeadRepository extends AbstractRepository
     {
         $params = array();
         
-        $where = '1=1 ';
+        $where = '1=1';
         
-        if ($dateStart !== '') {
+        if ($dateStart != '') {
             // create iso date
             $date_create = date("Y-m-d", strtotime($dateStart));
             $where .= " AND date_create >= $date_create";
@@ -181,11 +181,12 @@ class LeadRepository extends AbstractRepository
     {
         $params = array();
         
-        $where = '1=1 ';
-        if ($dateStart !== '') {
+        $where = '1=1';
+        
+        if ($dateStart != '') {
             // create iso date
             $date_create = date("Y-m-d", strtotime($dateStart));
-            $where .= "AND date_create >= $date_create";
+            $where .= " AND date_create >= $date_create";
         }
         
         $sql = "SELECT COUNT(id) FROM " . $this->getType() . " WHERE $where";

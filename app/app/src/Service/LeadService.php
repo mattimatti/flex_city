@@ -188,10 +188,8 @@ class LeadService
     {
         $summary = array();
         
-        if ($daysSince !== '') {
-            $daysSince = "$daysSince days";
-        } else {
-            $daysSince = '';
+        if ($daysSince != '') {
+            $daysSince = $daysSince . " days";
         }
         
         $summary['howmany'] = $this->leadRepo->count($daysSince);
