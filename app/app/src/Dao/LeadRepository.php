@@ -190,7 +190,6 @@ class LeadRepository extends AbstractRepository
         
         $sql = "SELECT COUNT(id) FROM " . $this->getType() . " WHERE $where";
         
-        exit($sql);
         
         return R::getCol($sql);
     }
