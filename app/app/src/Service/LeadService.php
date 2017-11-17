@@ -188,10 +188,6 @@ class LeadService
     {
         $summary = array();
         
-        if ($daysSince != '') {
-            $daysSince = $daysSince . " day";
-        }
-        
         $summary['howmany'] = $this->leadRepo->count($daysSince);
         $summary['prizes'] = $this->leadRepo->countBy('prize', $daysSince);
         $summary['gender'] = $this->leadRepo->countBy('gender', $daysSince);

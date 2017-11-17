@@ -165,7 +165,7 @@ class LeadRepository extends AbstractRepository
         if ($dateStart != '') {
             // create iso date
             $date_create = date("Y-m-d", strtotime($dateStart));
-            $where .= " AND date_create >= $date_create";
+            $where .= " AND date_create >= '$date_create'";
         }
         
         $sql = "SELECT $segment, COUNT(id) FROM " . $this->getType() . " WHERE $where GROUP BY $segment";
@@ -186,7 +186,7 @@ class LeadRepository extends AbstractRepository
         if ($dateStart != '') {
             // create iso date
             $date_create = date("Y-m-d", strtotime($dateStart));
-            $where .= " AND date_create >= $date_create";
+            $where .= " AND date_create >= '$date_create'";
         }
         
         $sql = "SELECT COUNT(id) FROM " . $this->getType() . " WHERE $where";
