@@ -33,7 +33,7 @@ final class IndexAction extends AbstractAction
         $this->setViewData("distinctmonths", $leadRepo->getDistinct('month'));
         $this->setViewData("distinctlangs", $leadRepo->getDistinct('lang'));
         $this->setViewData("distincthours", $leadRepo->getDistinct('hour'));
-        $this->setViewData("since", $this->leadService->getSummary(- 7));
+        $this->setViewData("since", $this->leadService->getSummary("-7"));
         $this->setViewData("overall", $this->leadService->getSummary());
         
     }

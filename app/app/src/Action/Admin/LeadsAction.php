@@ -46,6 +46,11 @@ final class LeadsAction extends AbstractAction
         
         $totalItems = $leadRepo->countByparams($filters);
         
+        // if exporting expor all items
+        if ($action == 'export') {
+            $perPage = $totalItems;
+        }
+        // setup a pagination
         $pagination = new Pagination($totalItems, $currentPage, $perPage);
         
         $offset = $pagination->offset();
